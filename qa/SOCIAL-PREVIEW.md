@@ -35,9 +35,14 @@ Use case: illustration-story. Asset type: original artwork for a Korean marriage
 - `SITE_URL` 없이 빌드한 로컬 서버의 공개 도메인 메타, 사이트맵 10개, 공유 이미지 9개, FAQ 5개, 개인 화면 noindex를 curl로 확인했다. `seo-domain-fallback.json` 참조.
 - 검사 도구는 실제 HTML의 OG 이미지 URL을 추출해 도메인·프로토콜·Twitter 일치와 해당 이미지의 응답을 확인한다. 이미지 경로만 별도로 검사해 잘못된 호스트를 놓치지 않는다.
 - 홈·유형 카드의 한글, 잘림, 배치, 크기를 직접 확인했다.
+- GitHub main `c575482` 반영 후 Vercel production 배포 `dpl_ApeVNDxpXUbyGJUD6YueGn9RTmyi`가 Ready인 것을 확인했다. 배포 URL: `https://lookatme-marry-test-522ygzvnu-look-at-me1.vercel.app`.
+- 운영 도메인 curl 검증도 통과했다(`seo-live-after.json`, 2026-10-26T03:57:23Z). 공개 페이지 10개 canonical/index, 이미지 9개 PNG 1200×630, FAQ 5개, 잘못된 경로 3개 404, 개인 화면 2개 noindex를 확인했다. 이미지 바이트는 로컬 최종 산출물과 같았다.
+- `kakaotalk-scrap/1.0` User-Agent로 받은 홈 HTML에서도 `https://test.lookatme.my/og/home?v=20261026`과 `image/png`, 공개 canonical, `index, follow`를 확인했다. 이는 HTTP 수집 검증이며 실제 카카오 메시지 수신 화면 검증은 아니다.
 
 ## 카카오 캐시
 
 사이트 수정 후에도 이전 미리보기가 남으면 카카오 공유 디버거에서 해당 페이지의 캐시를 초기화한 뒤 다시 조회한다. 이미지 버전 변경만으로 기존 HTML 캐시가 반드시 갱신되지는 않는다. [카카오 공식 FAQ](https://developers.kakao.com/docs/ko/message-template/faq).
+
+공유 디버거를 열었지만 연결된 Chrome에서는 카카오 계정 로그인 화면으로 이동했다. 따라서 카카오 캐시 초기화와 디버거 화면의 최종 이미지는 직접 확인하지 못했다. 계정 정보 입력이나 카카오 메시지 전송은 하지 않았다.
 
 검색 순위·클릭·AI 인용 증가는 이번 이미지/메타데이터 수정으로 입증하지 않았다. 실제 검색 성과는 공개 후 14일 재측정 계획을 유지한다.
