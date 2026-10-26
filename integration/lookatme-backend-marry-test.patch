@@ -1,0 +1,787 @@
+From 0835a0bf0f773291eea539b0d62756b73d70f65e Mon Sep 17 00:00:00 2001
+From: RokHyung Son <fhrgud1264@gmail.com>
+Date: Mon, 26 Oct 2026 12:00:18 +0900
+Subject: [PATCH] =?UTF-8?q?feat:=20=EA=B2=B0=ED=98=BC=20=EC=84=B1=ED=96=A5?=
+ =?UTF-8?q?=20=ED=85=8C=EC=8A=A4=ED=8A=B8=20=EA=B2=B0=EA=B3=BC=20=EC=A0=80?=
+ =?UTF-8?q?=EC=9E=A5=20API=20=EC=B6=94=EA=B0=80?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .gitignore                                    |   1 +
+ migrations/Migration20261026120000.ts         |  27 ++++
+ mikro-orm.config.spec.ts                      |   1 +
+ mikro-orm.config.ts                           |   2 +
+ scripts/marry-test-local.ts                   |  44 ++++++
+ src/app.module.ts                             |   2 +
+ src/marry-test/README.md                      |  49 +++++++
+ .../entities/marry-test-result.entity.ts      |  35 +++++
+ src/marry-test/marry-test.controller.ts       |  40 ++++++
+ src/marry-test/marry-test.dto.ts              |  39 ++++++
+ src/marry-test/marry-test.integration.spec.ts | 129 ++++++++++++++++++
+ src/marry-test/marry-test.module.ts           |   6 +
+ src/marry-test/marry-test.scoring.spec.ts     |  44 ++++++
+ src/marry-test/marry-test.scoring.ts          |  56 ++++++++
+ src/marry-test/marry-test.service.ts          |  56 ++++++++
+ src/marry-test/quiz-contract.ts               |  88 ++++++++++++
+ 16 files changed, 619 insertions(+)
+ create mode 100644 migrations/Migration20261026120000.ts
+ create mode 100644 scripts/marry-test-local.ts
+ create mode 100644 src/marry-test/README.md
+ create mode 100644 src/marry-test/entities/marry-test-result.entity.ts
+ create mode 100644 src/marry-test/marry-test.controller.ts
+ create mode 100644 src/marry-test/marry-test.dto.ts
+ create mode 100644 src/marry-test/marry-test.integration.spec.ts
+ create mode 100644 src/marry-test/marry-test.module.ts
+ create mode 100644 src/marry-test/marry-test.scoring.spec.ts
+ create mode 100644 src/marry-test/marry-test.scoring.ts
+ create mode 100644 src/marry-test/marry-test.service.ts
+ create mode 100644 src/marry-test/quiz-contract.ts
+
+diff --git a/.gitignore b/.gitignore
+index 8561d77..547d855 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -9,6 +9,7 @@ npm-debug.log*
+ .cate/
+ .omo/
+ migrations/*
++!migrations/Migration20261026120000.ts
+ !migrations/Migration20260705000100.ts
+ !migrations/Migration20260708000100.ts
+ !migrations/Migration20260819000100.ts
+diff --git a/migrations/Migration20261026120000.ts b/migrations/Migration20261026120000.ts
+new file mode 100644
+index 0000000..d13f72a
+--- /dev/null
++++ b/migrations/Migration20261026120000.ts
+@@ -0,0 +1,27 @@
++import { Migration } from "@mikro-orm/migrations";
++
++export class Migration20261026120000 extends Migration {
++  async up(): Promise<void> {
++    this.addSql(`create table "marry_test_results" (
++      "id" uuid not null default gen_random_uuid(),
++      "submission_id" uuid not null,
++      "quiz_version" varchar(32) not null,
++      "answers" jsonb not null,
++      "profile_id" varchar(64) not null,
++      "self_scores" jsonb not null,
++      "partner_scores" jsonb not null,
++      "created_at" timestamptz not null default now(),
++      "updated_at" timestamptz not null default now(),
++      constraint "marry_test_results_pkey" primary key ("id"),
++      constraint "marry_test_results_submission_id_unique" unique ("submission_id"),
++      constraint "marry_test_results_answers_shape" check (jsonb_typeof(answers) = 'array' and jsonb_array_length(answers) = 12)
++    );`);
++    this.addSql(
++      'create index "marry_test_results_created_at_index" on "marry_test_results" ("created_at");',
++    );
++  }
++
++  async down(): Promise<void> {
++    this.addSql('drop table if exists "marry_test_results";');
++  }
++}
+diff --git a/mikro-orm.config.spec.ts b/mikro-orm.config.spec.ts
+index d08a602..511b5dc 100644
+--- a/mikro-orm.config.spec.ts
++++ b/mikro-orm.config.spec.ts
+@@ -133,6 +133,7 @@ describe("mikro-orm database config", () => {
+ 
+   it("Given Vercel bundles only imported modules When configuring MikroORM Then entities are explicit class references", () => {
+     expect(ormEntities.map((entity) => entity.name)).toEqual([
++      "MarryTestResult",
+       "AiQuestion",
+       "AiAssistantSettings",
+       "AiAssistantLock",
+diff --git a/mikro-orm.config.ts b/mikro-orm.config.ts
+index b325e4c..c6ecc74 100644
+--- a/mikro-orm.config.ts
++++ b/mikro-orm.config.ts
+@@ -1,3 +1,4 @@
++import { MarryTestResult } from "./src/marry-test/entities/marry-test-result.entity";
+ import { RoyalAiReview } from "./src/royal-ai-reviews/entities/royal-ai-review.entity";
+ import { RoyalAiSettings } from "./src/royal-ai-reviews/entities/royal-ai-settings.entity";
+ import { AiAssistantSettings, AiAssistantLock } from "./src/ai-questions/entities/ai-assistant-policy.entity";
+@@ -156,6 +157,7 @@ export function buildDatabaseDriverOptions(clientUrl: string) {
+ const clientUrl = buildDatabaseClientUrl(process.env);
+ 
+ export const ormEntities = [
++  MarryTestResult,
+   AiQuestion, AiAssistantSettings, AiAssistantLock,
+   RotationAvoidPair,
+   DemandForecastRun, DemandForecastDraftEntity, DemandForecastSpecialProposalEntity,
+diff --git a/scripts/marry-test-local.ts b/scripts/marry-test-local.ts
+new file mode 100644
+index 0000000..3f526bc
+--- /dev/null
++++ b/scripts/marry-test-local.ts
+@@ -0,0 +1,44 @@
++/** Isolated local API runner. Loads only the real marry-test module; never reads production .env. */
++import "reflect-metadata";
++import { Module } from "@nestjs/common";
++import { NestFactory } from "@nestjs/core";
++import { MikroOrmModule } from "@mikro-orm/nestjs";
++import { MikroORM, PostgreSqlDriver } from "@mikro-orm/postgresql";
++import { Migrator } from "@mikro-orm/migrations";
++import { Migration20261026120000 } from "../migrations/Migration20261026120000";
++import { MarryTestModule } from "../src/marry-test/marry-test.module";
++import { MarryTestResult } from "../src/marry-test/entities/marry-test-result.entity";
++
++const clientUrl =
++  process.env.MARRY_TEST_DATABASE_URL ??
++  "postgresql://marry_test:marry_test_local@127.0.0.1:55478/marry_test";
++const url = new URL(clientUrl);
++if (
++  !["127.0.0.1", "localhost"].includes(url.hostname) ||
++  url.pathname !== "/marry_test"
++)
++  throw new Error("Local marry_test database only.");
++@Module({
++  imports: [
++    MikroOrmModule.forRoot({
++      driver: PostgreSqlDriver,
++      clientUrl,
++      entities: [MarryTestResult],
++      extensions: [Migrator],
++      debug: false,
++      migrations: { migrationsList: [Migration20261026120000] },
++    }),
++    MarryTestModule,
++  ],
++})
++class LocalMarryTestApp {}
++async function start() {
++  const app = await NestFactory.create(LocalMarryTestApp);
++  app.enableCors({
++    origin: ["http://localhost:4173", "http://127.0.0.1:4173"],
++  });
++  await app.init();
++  await app.get(MikroORM).getMigrator().up();
++  await app.listen(3017, "127.0.0.1");
++}
++void start();
+diff --git a/src/app.module.ts b/src/app.module.ts
+index 6f29f4c..0c1e0c2 100644
+--- a/src/app.module.ts
++++ b/src/app.module.ts
+@@ -1,3 +1,4 @@
++import { MarryTestModule } from "./marry-test/marry-test.module";
+ import { RoyalAiReviewsModule } from "./royal-ai-reviews/royal-ai-reviews.module";
+ import { AssistantModule } from "./assistant/assistant.module";
+ import { AiQuestionsModule } from "./ai-questions/ai-questions.module";
+@@ -38,6 +39,7 @@ import { ManualDepositAccountModule } from "./manual-deposit-account/manual-depo
+ 
+ @Module({
+   imports: [
++    MarryTestModule,
+     AssistantModule,
+     AiQuestionsModule,
+     WeeklyReportsModule,
+diff --git a/src/marry-test/README.md b/src/marry-test/README.md
+new file mode 100644
+index 0000000..9fedb5a
+--- /dev/null
++++ b/src/marry-test/README.md
+@@ -0,0 +1,49 @@
++# 결혼 성향 테스트 결과 저장
++
++`POST /marry-test/results`는 회원가입 없이 완료 결과를 저장한다. 요청 본문으로 회원 ID, 이름, 연락처, 계산된 점수는 받지 않는다. 서버가 고정된 `marry-v1` 규칙으로 점수와 유형을 계산한다.
++
++```json
++{
++  "submissionId": "ec86b91f-0bf0-4874-91c0-395136690447",
++  "quizVersion": "marry-v1",
++  "answers": [0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3]
++}
++```
++
++- `submissionId`: 완료 시 클라이언트가 생성한 UUID v4. 실패 후 재시도·새로고침에는 그대로 사용한다. 새로운 테스트에는 새 UUID를 쓴다.
++- `answers`: `quiz-contract.ts` 문항 순서대로 옵션 인덱스 12개. 모든 값은 정수 0~3.
++- 성공 `201`: `{ id, submissionId, quizVersion, result: { profileId, self, partner }, createdAt }`.
++- 입력/버전/추가 필드 오류 `400`. 같은 제출 번호에 다른 답변을 보내면 `409`.
++- DB unique 제약과 `ON CONFLICT DO NOTHING`으로 다중 인스턴스의 동시 재시도도 한 행만 저장한다. 기존 결과를 덮어쓰지 않는다.
++- 공개 조회 API는 제공하지 않는다. 공유 링크는 프런트의 일반 유형 설명만 보여준다.
++
++## 저장
++
++`marry_test_results`: 제출 번호, 문항 버전, 답변 배열, 서버 계산 유형과 자기/상대의 세 축 점수, 생성·수정 시각. 회원 연결 및 관리자 조회 UI는 별도 범위다.
++
++`Migration20261026120000`이 테이블·고유 제약·생성일 인덱스를 만든다. 서비스 앱과 ORM 설정에 모듈/엔티티가 등록돼 있다. 운영 적용에는 API 배포와 마이그레이션이 필요하다. marry-test의 Next.js 서버가 이 API를 호출하므로 브라우저의 교차 출처 요청은 발생하지 않는다.
++
++`quiz-contract.ts`는 marry-test 프런트와 동일한 불변 계약이다. 기존 버전의 질문 순서·점수·유형 순서를 수정하지 말고 변경 시 새 버전을 추가한다. 프런트는 표시 문항과 계약의 일치를 테스트하고 API 응답의 점수까지 검증한다.
++
++## 로컬 검증
++
++운영 환경 변수를 읽지 않는 독립 실행기로 실제 모듈과 PostgreSQL을 실행한다.
++
++```sh
++docker run -d --name marry-test-postgres -p 127.0.0.1:55478:5432 \
++  -e POSTGRES_USER=marry_test -e POSTGRES_PASSWORD=marry_test_local \
++  -e POSTGRES_DB=marry_test postgres:16-alpine
++docker exec marry-test-postgres createdb -U marry_test marry_test_integration
++npm ci
++npx ts-node scripts/marry-test-local.ts
++```
++
++로컬 서버는 `127.0.0.1:3017`, 로컬 DB는 `marry_test`다. 실행기는 localhost의 해당 DB 외에는 거부한다. 통합 테스트는 별도 `marry_test_integration` DB에서 실제 마이그레이션을 적용/롤백한다.
++
++```sh
++npm run build
++npm test -- --runInBand src/marry-test/marry-test.scoring.spec.ts
++npx jest --config jest.integration.config.js --runInBand src/marry-test/marry-test.integration.spec.ts
++```
++
++검증: 계산/입력 단위 테스트 17개, HTTP·PostgreSQL 통합 테스트 15개. 실제 저장, 12개 동시 재시도의 단일 행 보장, 충돌 시 원본 보존, 위조·잘못된 입력의 미저장을 포함한다. 운영 DB 및 운영 배포는 이 로컬 검증에 포함하지 않는다.
+diff --git a/src/marry-test/entities/marry-test-result.entity.ts b/src/marry-test/entities/marry-test-result.entity.ts
+new file mode 100644
+index 0000000..0b5000c
+--- /dev/null
++++ b/src/marry-test/entities/marry-test-result.entity.ts
+@@ -0,0 +1,35 @@
++import { Entity, Index, Property, Unique } from "@mikro-orm/core";
++import { BaseEntity } from "../../common/entities/base.entity";
++import type { AxisScores } from "../marry-test.scoring";
++
++@Entity({
++  tableName: "marry_test_results",
++  comment: "결혼 성향 테스트 익명 결과",
++})
++@Unique({
++  name: "marry_test_results_submission_id_unique",
++  properties: ["submissionId"],
++})
++@Index({
++  name: "marry_test_results_created_at_index",
++  properties: ["createdAt"],
++})
++export class MarryTestResult extends BaseEntity {
++  @Property({ type: "uuid", fieldName: "submission_id" })
++  submissionId!: string;
++
++  @Property({ fieldName: "quiz_version", length: 32 })
++  quizVersion!: string;
++
++  @Property({ type: "json" })
++  answers!: number[];
++
++  @Property({ fieldName: "profile_id", length: 64 })
++  profileId!: string;
++
++  @Property({ type: "json", fieldName: "self_scores" })
++  selfScores!: AxisScores;
++
++  @Property({ type: "json", fieldName: "partner_scores" })
++  partnerScores!: AxisScores;
++}
+diff --git a/src/marry-test/marry-test.controller.ts b/src/marry-test/marry-test.controller.ts
+new file mode 100644
+index 0000000..8523186
+--- /dev/null
++++ b/src/marry-test/marry-test.controller.ts
+@@ -0,0 +1,40 @@
++import { Body, Controller, Post, ValidationPipe } from "@nestjs/common";
++import {
++  ApiConflictResponse,
++  ApiCreatedResponse,
++  ApiOperation,
++  ApiTags,
++} from "@nestjs/swagger";
++import { CreateMarryTestResultDto } from "./marry-test.dto";
++import { MarryTestService } from "./marry-test.service";
++
++@ApiTags("marry-test")
++@Controller("marry-test")
++export class MarryTestController {
++  constructor(private readonly service: MarryTestService) {}
++
++  @Post("results")
++  @ApiOperation({
++    summary: "익명 결혼 성향 결과 저장",
++    description:
++      "서버에서 재계산합니다. 같은 submissionId와 답변으로 재요청하면 같은 결과를 반환합니다.",
++  })
++  @ApiCreatedResponse({
++    description: "저장 확인: id, submissionId, quizVersion, result, createdAt",
++  })
++  @ApiConflictResponse({
++    description: "같은 submissionId에 서로 다른 답변을 제출함",
++  })
++  create(
++    @Body(
++      new ValidationPipe({
++        transform: true,
++        whitelist: true,
++        forbidNonWhitelisted: true,
++      }),
++    )
++    dto: CreateMarryTestResultDto,
++  ) {
++    return this.service.create(dto);
++  }
++}
+diff --git a/src/marry-test/marry-test.dto.ts b/src/marry-test/marry-test.dto.ts
+new file mode 100644
+index 0000000..480705f
+--- /dev/null
++++ b/src/marry-test/marry-test.dto.ts
+@@ -0,0 +1,39 @@
++import { ApiProperty } from "@nestjs/swagger";
++import {
++  ArrayMaxSize,
++  ArrayMinSize,
++  Equals,
++  IsArray,
++  IsInt,
++  IsUUID,
++  Max,
++  Min,
++} from "class-validator";
++import { QUIZ_CONTRACT } from "./quiz-contract";
++
++export class CreateMarryTestResultDto {
++  @ApiProperty({
++    format: "uuid",
++    description: "한 번의 완료에 생성한 UUID. 재시도에는 같은 값 사용.",
++  })
++  @IsUUID("4")
++  submissionId!: string;
++
++  @ApiProperty({ enum: [QUIZ_CONTRACT.version] })
++  @Equals(QUIZ_CONTRACT.version)
++  quizVersion!: string;
++
++  @ApiProperty({
++    type: [Number],
++    minItems: 12,
++    maxItems: 12,
++    description: "v1 문항 순서대로 선택한 옵션 인덱스(0~3)",
++  })
++  @IsArray()
++  @ArrayMinSize(12)
++  @ArrayMaxSize(12)
++  @IsInt({ each: true })
++  @Min(0, { each: true })
++  @Max(3, { each: true })
++  answers!: number[];
++}
+diff --git a/src/marry-test/marry-test.integration.spec.ts b/src/marry-test/marry-test.integration.spec.ts
+new file mode 100644
+index 0000000..c95592f
+--- /dev/null
++++ b/src/marry-test/marry-test.integration.spec.ts
+@@ -0,0 +1,129 @@
++import { randomUUID } from "node:crypto";
++import { INestApplication } from "@nestjs/common";
++import { Test } from "@nestjs/testing";
++import { MikroOrmModule } from "@mikro-orm/nestjs";
++import { MikroORM, PostgreSqlDriver } from "@mikro-orm/postgresql";
++import { Migrator } from "@mikro-orm/migrations";
++import { Migration20261026120000 } from "../../migrations/Migration20261026120000";
++import { MarryTestModule } from "./marry-test.module";
++import { MarryTestResult } from "./entities/marry-test-result.entity";
++
++describe("MarryTest HTTP + PostgreSQL", () => {
++  let app: INestApplication;
++  let orm: MikroORM;
++  let origin: string;
++  const clientUrl =
++    process.env.MARRY_TEST_DATABASE_URL ??
++    "postgresql://marry_test:marry_test_local@127.0.0.1:55478/marry_test_integration";
++  const url = new URL(clientUrl);
++  if (
++    !["127.0.0.1", "localhost"].includes(url.hostname) ||
++    url.pathname !== "/marry_test_integration"
++  ) {
++    throw new Error(
++      "Integration tests require the dedicated local marry_test_integration database.",
++    );
++  }
++  const payload = () => ({
++    submissionId: randomUUID(),
++    quizVersion: "marry-v1",
++    answers: Array(12).fill(0),
++  });
++  const post = (body: unknown) =>
++    fetch(`${origin}/marry-test/results`, {
++      method: "POST",
++      headers: { "content-type": "application/json" },
++      body: JSON.stringify(body),
++    });
++
++  beforeAll(async () => {
++    const module = await Test.createTestingModule({
++      imports: [
++        MikroOrmModule.forRoot({
++          driver: PostgreSqlDriver,
++          clientUrl,
++          entities: [MarryTestResult],
++          extensions: [Migrator],
++          debug: false,
++          migrations: { migrationsList: [Migration20261026120000] },
++        }),
++        MarryTestModule,
++      ],
++    }).compile();
++    app = module.createNestApplication();
++    await app.init();
++    orm = app.get(MikroORM);
++    await orm.getMigrator().up();
++    await app.listen(0, "127.0.0.1");
++    origin = await app.getUrl();
++  });
++  afterAll(async () => {
++    if (orm) await orm.getMigrator().down();
++    if (app) await app.close();
++  });
++
++  it("persists answers, version and independently calculated scores in PostgreSQL", async () => {
++    const body = payload();
++    body.answers = [...Array(6).fill(0), ...Array(6).fill(3)];
++    const response = await post(body);
++    expect(response.status).toBe(201);
++    const saved = await response.json();
++    expect(saved.result).toEqual({
++      profileId: "everyday-soulmate",
++      self: { pace: -100, closeness: -100, care: -100 },
++      partner: { pace: 100, closeness: 100, care: 100 },
++    });
++    const row = await orm.em
++      .fork()
++      .findOneOrFail(MarryTestResult, { id: saved.id });
++    expect(row.answers).toEqual(body.answers);
++    expect(row.quizVersion).toBe("marry-v1");
++    expect(row.submissionId).toBe(body.submissionId);
++    expect(row.createdAt.toISOString()).toBe(saved.createdAt);
++  });
++  it("deduplicates concurrent retries across separate requests", async () => {
++    const body = payload();
++    const replies = await Promise.all(
++      Array.from({ length: 12 }, () => post(body)),
++    );
++    expect(replies.every((r) => r.status === 201)).toBe(true);
++    const rows = await Promise.all(replies.map((r) => r.json()));
++    expect(new Set(rows.map((r) => r.id)).size).toBe(1);
++    expect(
++      await orm.em
++        .fork()
++        .count(MarryTestResult, { submissionId: body.submissionId }),
++    ).toBe(1);
++  });
++  it("rejects reuse of a submission key with changed answers without overwriting", async () => {
++    const body = payload();
++    await post(body);
++    expect((await post({ ...body, answers: Array(12).fill(3) })).status).toBe(
++      409,
++    );
++    const row = await orm.em
++      .fork()
++      .findOneOrFail(MarryTestResult, { submissionId: body.submissionId });
++    expect(row.answers).toEqual(Array(12).fill(0));
++  });
++  it.each([
++    { answers: Array(11).fill(0) },
++    { answers: Array(13).fill(0) },
++    { answers: [-1, ...Array(11).fill(0)] },
++    { answers: [4, ...Array(11).fill(0)] },
++    { answers: [null, ...Array(11).fill(0)] },
++    { answers: ["1", ...Array(11).fill(0)] },
++    { answers: [0.5, ...Array(11).fill(0)] },
++    { quizVersion: "marry-v2" },
++    { submissionId: "not-a-uuid" },
++    { profileId: "forged" },
++    { userId: randomUUID() },
++  ])("rejects invalid/forged payload %# without writing", async (patch) => {
++    const before = await orm.em.fork().count(MarryTestResult, {});
++    expect((await post({ ...payload(), ...patch })).status).toBe(400);
++    expect(await orm.em.fork().count(MarryTestResult, {})).toBe(before);
++  });
++  it("does not publish stored answers through a public read endpoint", async () => {
++    expect((await fetch(`${origin}/marry-test/results`)).status).toBe(404);
++  });
++});
+diff --git a/src/marry-test/marry-test.module.ts b/src/marry-test/marry-test.module.ts
+new file mode 100644
+index 0000000..8091b83
+--- /dev/null
++++ b/src/marry-test/marry-test.module.ts
+@@ -0,0 +1,6 @@
++import { Module } from "@nestjs/common";
++import { MarryTestController } from "./marry-test.controller";
++import { MarryTestService } from "./marry-test.service";
++
++@Module({ controllers: [MarryTestController], providers: [MarryTestService] })
++export class MarryTestModule {}
+diff --git a/src/marry-test/marry-test.scoring.spec.ts b/src/marry-test/marry-test.scoring.spec.ts
+new file mode 100644
+index 0000000..dab3e94
+--- /dev/null
++++ b/src/marry-test/marry-test.scoring.spec.ts
+@@ -0,0 +1,44 @@
++import { scoreMarryTest } from "./marry-test.scoring";
++import { QUIZ_CONTRACT } from "./quiz-contract";
++
++describe("marry-v1 scoring contract", () => {
++  it.each(QUIZ_CONTRACT.profileIds.map((id, index) => [id, index] as const))(
++    "reaches %s independently of partner answers",
++    (id, index) => {
++      const self = [
++        index & 4 ? 3 : 0,
++        index & 2 ? 3 : 0,
++        index & 1 ? 3 : 0,
++      ].flatMap((v) => [v, v]);
++      for (const partner of [0, 3])
++        expect(
++          scoreMarryTest("marry-v1", [...self, ...Array(6).fill(partner)])
++            .profileId,
++        ).toBe(id);
++    },
++  );
++  it("preserves balanced axes and computes partner independently", () => {
++    expect(
++      scoreMarryTest("marry-v1", [0, 3, 0, 3, 0, 3, 3, 3, 0, 0, 1, 1]),
++    ).toEqual({
++      profileId: "everyday-soulmate",
++      self: { pace: 0, closeness: 0, care: 0 },
++      partner: { pace: 100, closeness: -100, care: -33 },
++    });
++  });
++  it.each(
++    [
++      [],
++      Array(11).fill(0),
++      Array(13).fill(0),
++      [4, ...Array(11).fill(0)],
++      [null, ...Array(11).fill(0)],
++      [1.5, ...Array(11).fill(0)],
++      ["1", ...Array(11).fill(0)],
++    ].map((answers) => [answers]),
++  )("rejects invalid answers %#", (answers) => {
++    expect(() => scoreMarryTest("marry-v1", answers as number[])).toThrow();
++  });
++  it("rejects unknown versions", () =>
++    expect(() => scoreMarryTest("marry-v2", Array(12).fill(0))).toThrow());
++});
+diff --git a/src/marry-test/marry-test.scoring.ts b/src/marry-test/marry-test.scoring.ts
+new file mode 100644
+index 0000000..8eea44d
+--- /dev/null
++++ b/src/marry-test/marry-test.scoring.ts
+@@ -0,0 +1,56 @@
++import { BadRequestException } from "@nestjs/common";
++import { QUIZ_CONTRACT } from "./quiz-contract";
++
++export type AxisScores = { pace: number; closeness: number; care: number };
++export type MarryTestScore = {
++  profileId: string;
++  self: AxisScores;
++  partner: AxisScores;
++};
++
++export function scoreMarryTest(
++  version: string,
++  answers: number[],
++): MarryTestScore {
++  if (
++    version !== QUIZ_CONTRACT.version ||
++    !Array.isArray(answers) ||
++    answers.length !== 12
++  ) {
++    throw new BadRequestException("테스트 버전과 12개 답변을 확인해 주세요.");
++  }
++  const scores = {
++    self: { pace: 0, closeness: 0, care: 0 },
++    partner: { pace: 0, closeness: 0, care: 0 },
++  };
++  const max = {
++    self: { pace: 0, closeness: 0, care: 0 },
++    partner: { pace: 0, closeness: 0, care: 0 },
++  };
++  QUIZ_CONTRACT.questions.forEach((question, index) => {
++    const answer = answers[index];
++    if (
++      !Number.isInteger(answer) ||
++      answer < 0 ||
++      answer >= question.scores.length
++    ) {
++      throw new BadRequestException("답변은 0부터 3 사이의 정수여야 합니다.");
++    }
++    scores[question.perspective][question.axis] += question.scores[answer];
++    max[question.perspective][question.axis] += Math.max(
++      ...question.scores.map(Math.abs),
++    );
++  });
++  for (const perspective of ["self", "partner"] as const) {
++    for (const axis of ["pace", "closeness", "care"] as const) {
++      scores[perspective][axis] = Math.round(
++        (scores[perspective][axis] / max[perspective][axis]) * 100,
++      );
++    }
++  }
++  const profileIndex =
++    (scores.self.pace > 0 ? 4 : 0) +
++    (scores.self.closeness > 0 ? 2 : 0) +
++    (scores.self.care > 0 ? 1 : 0);
++  return { profileId: QUIZ_CONTRACT.profileIds[profileIndex], ...scores };
++}
+diff --git a/src/marry-test/marry-test.service.ts b/src/marry-test/marry-test.service.ts
+new file mode 100644
+index 0000000..be7b96c
+--- /dev/null
++++ b/src/marry-test/marry-test.service.ts
+@@ -0,0 +1,56 @@
++import { randomUUID } from "node:crypto";
++import { ConflictException, Injectable } from "@nestjs/common";
++import { EntityManager } from "@mikro-orm/postgresql";
++import { CreateMarryTestResultDto } from "./marry-test.dto";
++import { MarryTestResult } from "./entities/marry-test-result.entity";
++import { scoreMarryTest } from "./marry-test.scoring";
++
++@Injectable()
++export class MarryTestService {
++  constructor(private readonly em: EntityManager) {}
++
++  async create(dto: CreateMarryTestResultDto) {
++    const result = scoreMarryTest(dto.quizVersion, dto.answers);
++    // A unique DB constraint also serializes simultaneous retries across server instances.
++    // Never overwrite a prior result when the same submission key has different answers.
++    await this.em.getConnection().execute(
++      `insert into marry_test_results
++        (id, submission_id, quiz_version, answers, profile_id, self_scores, partner_scores, created_at, updated_at)
++       values (?, ?, ?, ?::jsonb, ?, ?::jsonb, ?::jsonb, now(), now())
++       on conflict (submission_id) do nothing`,
++      [
++        randomUUID(),
++        dto.submissionId,
++        dto.quizVersion,
++        JSON.stringify(dto.answers),
++        result.profileId,
++        JSON.stringify(result.self),
++        JSON.stringify(result.partner),
++      ],
++    );
++    const saved = await this.em.findOneOrFail(
++      MarryTestResult,
++      { submissionId: dto.submissionId },
++      { refresh: true },
++    );
++    if (
++      saved.quizVersion !== dto.quizVersion ||
++      JSON.stringify(saved.answers) !== JSON.stringify(dto.answers)
++    ) {
++      throw new ConflictException(
++        "이미 저장된 제출 번호입니다. 새로운 테스트는 새 제출 번호를 사용해 주세요.",
++      );
++    }
++    return {
++      id: saved.id,
++      submissionId: saved.submissionId,
++      quizVersion: saved.quizVersion,
++      result: {
++        profileId: saved.profileId,
++        self: saved.selfScores,
++        partner: saved.partnerScores,
++      },
++      createdAt: saved.createdAt.toISOString(),
++    };
++  }
++}
+diff --git a/src/marry-test/quiz-contract.ts b/src/marry-test/quiz-contract.ts
+new file mode 100644
+index 0000000..1f0cc60
+--- /dev/null
++++ b/src/marry-test/quiz-contract.ts
+@@ -0,0 +1,88 @@
++// Immutable v1 scoring contract. Keep identical in marry-test and lookatme-backend.
++export const QUIZ_CONTRACT = {
++  version: "marry-v1",
++  questions: [
++    {
++      id: "self-weekend",
++      axis: "pace",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "self-dinner",
++      axis: "pace",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "self-evening",
++      axis: "closeness",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "self-hobby",
++      axis: "closeness",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "self-comfort",
++      axis: "care",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "self-disagreement",
++      axis: "care",
++      perspective: "self",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-weekend",
++      axis: "pace",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-anniversary",
++      axis: "pace",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-time",
++      axis: "closeness",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-hobby",
++      axis: "closeness",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-comfort",
++      axis: "care",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++    {
++      id: "partner-disagreement",
++      axis: "care",
++      perspective: "partner",
++      scores: [-3, -1, 1, 3],
++    },
++  ],
++  profileIds: [
++    "everyday-soulmate",
++    "steady-teammate",
++    "quiet-garden",
++    "reliable-companion",
++    "romantic-explorer",
++    "adventure-partner",
++    "free-spirited-friend",
++    "growth-companion",
++  ],
++} as const;
+-- 
+2.54.0 (Apple Git-157)
+

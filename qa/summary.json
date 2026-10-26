@@ -1,204 +1,22 @@
 {
-  "date": "2026-10-26T02:05:57.457Z",
-  "command": "npx playwright test",
-  "stats": {
-    "startTime": "2026-10-26T02:04:41.719Z",
-    "duration": 16719.667999999998,
-    "expected": 15,
-    "skipped": 0,
-    "unexpected": 0,
-    "flaky": 0
+  "framework": "Next.js 16.4.3",
+  "environment": "local production build + real NestJS + PostgreSQL 16",
+  "frontendUnitTests": 52,
+  "backendScoringTests": 17,
+  "backendIntegrationTests": 15,
+  "backendModuleTests": 1,
+  "backendOrmConfigTests": 20,
+  "browserFullRun": {
+    "passed": 21,
+    "uiMockedApi": 15,
+    "realApi": 6
   },
-  "accessibility": [
-    {
-      "device": "desktop",
-      "states": [
-        {
-          "state": "home",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 41
-            }
-          ]
-        },
-        {
-          "state": "preview",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 2
-            }
-          ]
-        },
-        {
-          "state": "question",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 29
-            }
-          ]
-        },
-        {
-          "state": "result",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 43
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "device": "android",
-      "states": [
-        {
-          "state": "home",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 41
-            }
-          ]
-        },
-        {
-          "state": "preview",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 2
-            }
-          ]
-        },
-        {
-          "state": "question",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 28
-            }
-          ]
-        },
-        {
-          "state": "result",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 42
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "device": "iphone",
-      "states": [
-        {
-          "state": "home",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 41
-            }
-          ]
-        },
-        {
-          "state": "preview",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 1
-            }
-          ]
-        },
-        {
-          "state": "question",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 25
-            }
-          ]
-        },
-        {
-          "state": "result",
-          "violations": 0,
-          "incomplete": [
-            {
-              "rule": "color-contrast",
-              "nodes": 42
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "narrowViewportCheck": {
-    "width": 320,
-    "states": [
-      "home",
-      "question",
-      "result"
-    ],
-    "devices": [
-      "desktop",
-      "android",
-      "iphone"
-    ],
-    "horizontalOverflow": false
+  "nextMigrationTargeted": {
+    "passed": 3
   },
-  "downloads": [
-    {
-      "path": "desktop-download.png",
-      "width": 1080,
-      "height": 1350
-    },
-    {
-      "path": "android-download.png",
-      "width": 1080,
-      "height": 1350
-    },
-    {
-      "path": "iphone-download.png",
-      "width": 1080,
-      "height": 1350
-    }
-  ],
-  "runtimeErrors": 0,
-  "share": {
-    "realNativeShareInvoked": false,
-    "clipboard": "stubbed success and rejection",
-    "genericResultExcludesPartnerTraits": true
-  },
-  "finalRefinement": {
-    "command": "node qa/refinement-check.mjs",
-    "report": "refinement-results.json",
-    "devices": [
-      "desktop",
-      "android",
-      "iphone"
-    ],
-    "status": "passed",
-    "checks": [
-      "cold-shared-route PNG download 1080x1350",
-      "explicit canvas fonts ready",
-      "hero caption characters unobscured",
-      "home screenshot refreshed",
-      "320px no horizontal overflow",
-      "desktop home axe zero detected violations"
-    ]
-  }
+  "databaseRows": 12,
+  "databaseUniqueSubmissions": 12,
+  "productionDeployed": false,
+  "mobilePhysicalDevices": false,
+  "report": "QA.md"
 }

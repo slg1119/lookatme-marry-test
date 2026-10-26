@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-26T02:09:16.414Z",
+  "date": "2026-10-26T02:58:09.939Z",
   "results": [
     {
       "name": "desktop",
@@ -420,6 +420,38 @@
                 "html": "<span>가입 없이, 가볍게</span>",
                 "target": [
                   ".hero-meta > span:nth-child(3)"
+                ],
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
+              },
+              {
+                "any": [
+                  {
+                    "id": "color-contrast",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "8.3pt (11px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgImage",
+                      "expectedContrastRatio": "4.5:1"
+                    },
+                    "relatedNodes": [
+                      {
+                        "html": "<body>",
+                        "target": [
+                          "body"
+                        ]
+                      }
+                    ],
+                    "impact": "serious",
+                    "message": "Element's background color could not be determined due to a background image"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "serious",
+                "html": "<p class=\"storage-notice\">테스트를 완료하면 답변과 결과가 룩앳미 서버에 익명으로 저장돼요.</p>",
+                "target": [
+                  ".storage-notice"
                 ],
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
               },
@@ -1057,7 +1089,7 @@
                 "all": [],
                 "none": [],
                 "impact": "serious",
-                "html": "<span class=\"type-index\">01</span>",
+                "html": "<span class=\"type-index\">0<!-- -->1</span>",
                 "target": [
                   ".type-card:nth-child(1) > .type-art > .type-index"
                 ],
@@ -1089,7 +1121,7 @@
                 "all": [],
                 "none": [],
                 "impact": "serious",
-                "html": "<span class=\"type-index\">02</span>",
+                "html": "<span class=\"type-index\">0<!-- -->2</span>",
                 "target": [
                   ".type-card:nth-child(2) > .type-art > .type-index"
                 ],
@@ -1121,7 +1153,7 @@
                 "all": [],
                 "none": [],
                 "impact": "serious",
-                "html": "<span class=\"type-index\">03</span>",
+                "html": "<span class=\"type-index\">0<!-- -->3</span>",
                 "target": [
                   ".type-card:nth-child(3) > .type-art > .type-index"
                 ],
@@ -1153,7 +1185,7 @@
                 "all": [],
                 "none": [],
                 "impact": "serious",
-                "html": "<span class=\"type-index\">04</span>",
+                "html": "<span class=\"type-index\">0<!-- -->4</span>",
                 "target": [
                   ".type-card:nth-child(4) > .type-art > .type-index"
                 ],
@@ -1302,7 +1334,7 @@
                 "all": [],
                 "none": [],
                 "impact": "serious",
-                "html": "<span>© 2026 marry test</span>",
+                "html": "<span>© <!-- -->2026<!-- --> marry test</span>",
                 "target": [
                   "footer > div > span"
                 ],

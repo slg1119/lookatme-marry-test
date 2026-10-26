@@ -1,0 +1,2 @@
+# Unified patch context lines intentionally begin with a space.
+integration/*.patch -whitespace

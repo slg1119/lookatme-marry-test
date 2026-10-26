@@ -380,6 +380,38 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgImage",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<body>",
+                    "target": [
+                      "body"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background image"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"storage-notice\">테스트를 완료하면 답변과 결과가 룩앳미 서버에 익명으로 저장돼요.</p>",
+            "target": [
+              ".storage-notice"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
                   "fontSize": "8.3pt (11px)",
                   "fontWeight": "normal",
                   "messageKey": "bgImage",
@@ -439,12 +471,19 @@
                   "contrastRatio": 0,
                   "fontSize": "12.8pt (17px)",
                   "fontWeight": "normal",
-                  "messageKey": "bgOverlap",
+                  "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
-                "relatedNodes": [],
+                "relatedNodes": [
+                  {
+                    "html": "<svg viewBox=\"0 0 600 480\" fill=\"none\" class=\"hero-illustration\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\">",
+                    "target": [
+                      ".hero-illustration"
+                    ]
+                  }
+                ],
                 "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
+                "message": "Element's background color could not be determined because element contains an image node"
               }
             ],
             "all": [],
@@ -454,32 +493,7 @@
             "target": [
               ".paper-caption > span"
             ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
-                  "fontSize": "6.8pt (9px)",
-                  "fontWeight": "normal",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<i>Our ordinary, lovely days.</i>",
-            "target": [
-              ".paper-caption > i"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
           {
             "any": [
@@ -1019,7 +1033,7 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">01</span>",
+            "html": "<span class=\"type-index\">0<!-- -->1</span>",
             "target": [
               ".type-card:nth-child(1) > .type-art > .type-index"
             ],
@@ -1051,7 +1065,7 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">02</span>",
+            "html": "<span class=\"type-index\">0<!-- -->2</span>",
             "target": [
               ".type-card:nth-child(2) > .type-art > .type-index"
             ],
@@ -1083,7 +1097,7 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">03</span>",
+            "html": "<span class=\"type-index\">0<!-- -->3</span>",
             "target": [
               ".type-card:nth-child(3) > .type-art > .type-index"
             ],
@@ -1108,7 +1122,7 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">04</span>",
+            "html": "<span class=\"type-index\">0<!-- -->4</span>",
             "target": [
               ".type-card:nth-child(4) > .type-art > .type-index"
             ],
@@ -1257,7 +1271,7 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span>© 2026 marry test</span>",
+            "html": "<span>© <!-- -->2026<!-- --> marry test</span>",
             "target": [
               "footer > div > span"
             ],
@@ -2583,6 +2597,70 @@
             "html": "<p>당신이 고른 작은 장면들을 한 장의 이야기로 모았어요.</p>",
             "target": [
               ".result-heading > p"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgImage",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<body style=\"\">",
+                    "target": [
+                      "body"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background image"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>결과가 안전하게 저장됐어요.</strong>",
+            "target": [
+              ".result-storage > div > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgImage",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<body style=\"\">",
+                    "target": [
+                      "body"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background image"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p>답변과 결과를 룩앳미 서버에 익명으로 보관했어요.</p>",
+            "target": [
+              ".result-storage > div > p"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image"
           },

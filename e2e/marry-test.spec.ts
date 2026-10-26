@@ -2,6 +2,7 @@ import { test as base, expect, type Page, type TestInfo } from '@playwright/test
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { calculateResult } from '../src/lib/quiz';
 
 const evidence = path.resolve('qa');
 const test = base.extend<{ browserHealth: void }>({
@@ -9,8 +10,18 @@ const test = base.extend<{ browserHealth: void }>({
     const errors: string[] = [];
     const observe = (target: Page) => {
       target.on('pageerror', error => errors.push(`pageerror: ${error.message}`));
-      target.on('console', message => { if (message.type() === 'error') errors.push(`console: ${message.text()}`); });
+      target.on('console', message => { if (message.type() === 'error' && !(message.location().url.includes('/type/not-a-profile') && message.text().includes('404'))) errors.push(`console: ${message.text()}`); });
     };
+    // UI suite is independent of a running API; real PostgreSQL flow lives in result-storage.spec.ts.
+    await context.route('**/api/marry-test/results', async route => {
+      const body = route.request().postDataJSON();
+      const result = calculateResult(body.answers);
+      await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({
+        id: '0cc2b0c3-aab1-4c7a-a6cf-6ca9ada63a65', submissionId: body.submissionId,
+        quizVersion: body.quizVersion, createdAt: '2026-10-26T03:00:00.000Z',
+        result: {profileId: result.profile.id, self: result.self, partner: result.partner},
+      }) });
+    });
     observe(page);
     context.on('page', observe);
     await use();
@@ -47,7 +58,7 @@ async function completeTest(page: Page) {
     await page.getByRole('radio').nth(i < 6 ? 0 : 3).check();
     await page.getByRole('button', { name: i === 11 ? '나의 결과 만나보기' : '다음 질문', exact: true }).click();
   }
-  await expect(page).toHaveURL(/#\/result$/);
+  await expect(page).toHaveURL(/\/result$/);
   await expect(page.getByRole('heading', { name: '곁에 이런 사람이 있다면' })).toBeVisible();
 }
 
@@ -77,24 +88,24 @@ test('12 answers, editing, refresh, resume, result navigation, and restart', asy
     await page.getByRole('radio').nth(i % 4).check();
     await page.getByRole('button', { name: i === 11 ? '나의 결과 만나보기' : '다음 질문', exact: true }).click();
   }
-  await expect(page).toHaveURL(/#\/result$/);
+  await expect(page).toHaveURL(/\/result$/);
   await expect(page.getByRole('heading', { name: '내 마음의 세 가지 방향' })).toBeVisible();
   await expect(page.locator('.partner-section li')).toHaveCount(3);
   await expect(page.locator('.conversation-grid article')).toHaveCount(3);
   await screenshot(page, info, 'result');
   await page.getByRole('link', { name: '본문으로 이동' }).focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/#\/result$/);
+  await expect(page).toHaveURL(/\/result$/);
   await expect(page.locator('#main-content')).toBeFocused();
   await page.getByRole('button', { name: '결혼 스타일', exact: true }).click();
-  await expect(page).toHaveURL(/#\/$/);
+  await expect(page).toHaveURL(/\/#types$/);
   await expect(page.locator('#types')).toBeInViewport();
   await page.getByRole('button', { name: '지난 결과 다시 보기' }).click();
-  await expect(page).toHaveURL(/#\/result$/);
+  await expect(page).toHaveURL(/\/result$/);
   await page.getByRole('button', { name: '처음부터 다시 해보기' }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.getByRole('button', { name: '돌아가기', exact: true }).click();
-  await expect(page).toHaveURL(/#\/result$/);
+  await expect(page).toHaveURL(/\/result$/);
   await page.getByRole('button', { name: '처음부터 다시 해보기' }).click();
   await page.getByRole('button', { name: '처음부터 시작', exact: true }).click();
   await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '1');
@@ -121,11 +132,11 @@ test('all eight previews, modal dismissal, and test information', async ({ page 
   await page.getByRole('button', { name: '접어두기', exact: true }).click();
   await expect(cards).toHaveCount(4);
   await page.getByRole('button', { name: '테스트 안내', exact: true }).click();
-  await expect(page.getByRole('dialog')).toContainText('답변은 서버로 전송하지 않고');
+  await expect(page.getByRole('dialog')).toContainText('답변과 결과를 룩앳미 서버에 익명으로 저장해요');
   await page.getByRole('button', { name: '알겠어요', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.getByRole('button', { name: '3분이면 충분해요', exact: true }).click();
-  await expect(page).toHaveURL(/#\/test$/);
+  await expect(page).toHaveURL(/\/test$/);
 });
 
 test('PNG download and privacy-preserving copy/manual share paths', async ({ page, context }, info) => {
@@ -140,7 +151,8 @@ test('PNG download and privacy-preserving copy/manual share paths', async ({ pag
   await expect(page.getByRole('status')).toContainText('결과 링크를 복사했어요');
   const link = await page.evaluate(() => (window as typeof window & { copiedLink?: string }).copiedLink!);
   expect(new URL(link).search).toBe('');
-  expect(new URL(link).hash).toMatch(/^#\/type\/[a-z-]+$/);
+  expect(new URL(link).pathname).toMatch(/^\/type\/[a-z-]+$/);
+  expect(new URL(link).hash).toBe('');
   expect(link).not.toContain('private-value');
   const shared = await context.newPage();
   await shared.goto(link);
@@ -170,20 +182,20 @@ test('PNG download and privacy-preserving copy/manual share paths', async ({ pag
 });
 
 test('malformed URLs and invalid session data recover without a crash', async ({ page }) => {
-  await page.goto('/#/type/not-a-profile');
-  await expect(page.getByRole('button', { name: '나의 결혼상대 알아보기', exact: true })).toBeVisible();
-  await page.goto('/#/result');
+  await page.goto('/type/not-a-profile');
+  await expect(page.getByRole('heading', { name: '이 이야기는 아직 없어요.' })).toBeVisible();
+  await page.goto('/result');
   await expect(page.getByRole('button', { name: '나의 결혼상대 알아보기', exact: true })).toBeVisible();
   const invalidSessions = ['not-json', JSON.stringify({ answers: [99], step: 0 }), JSON.stringify({ answers: [0], step: 9 }), JSON.stringify({ answers: [null], step: 0 }), JSON.stringify({ answers: Array(13).fill(0), step: 0 })];
   for (const session of invalidSessions) {
     await page.evaluate(value => sessionStorage.setItem('marry-test:v1', value), session);
-    await page.goto('/#/test');
+    await page.goto('/test');
     await page.reload();
     await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '1');
     await expect(page.getByRole('button', { name: '다음 질문', exact: true })).toBeDisabled();
   }
   await page.evaluate(() => sessionStorage.setItem('marry-test:v1', JSON.stringify({ answers: [0], step: 1, complete: true })));
-  await page.goto('/#/result');
+  await page.goto('/result');
   await page.reload();
   await expect(page.getByRole('button', { name: '나의 결혼상대 알아보기', exact: true })).toBeVisible();
 });

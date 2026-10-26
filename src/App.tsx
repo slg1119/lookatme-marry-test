@@ -1,3 +1,7 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useQuizSession } from "./components/QuizSessionProvider";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
@@ -21,10 +25,12 @@ import { calculateResult, getProfile, PROFILES, QUESTIONS } from "./lib/quiz";
 import type { Axis, Profile } from "./lib/quiz";
 import { clearSession, readSession, saveSession } from "./lib/session";
 import { downloadCard, resultUrl, shareResult } from "./lib/share";
+import { useResultSync } from "./lib/use-result-sync";
+import type { SyncStatus } from "./lib/use-result-sync";
 
 type Route = { page: "home" | "quiz" | "result" | "shared"; profile?: Profile };
 const MEETING_URL =
-  import.meta.env.VITE_MEETING_URL || "https://www.lookatme.my";
+  process.env.NEXT_PUBLIC_MEETING_URL || "https://www.lookatme.my";
 const AXES: { id: Axis; label: string; left: string; right: string }[] = [
   {
     id: "pace",
@@ -45,17 +51,6 @@ const AXES: { id: Axis; label: string; left: string; right: string }[] = [
     right: "함께 해결하기",
   },
 ];
-
-function readRoute(): Route {
-  const hash = window.location.hash;
-  if (hash === "#/test") return { page: "quiz" };
-  if (hash === "#/result") return { page: "result" };
-  if (hash.startsWith("#/type/")) {
-    const profile = getProfile(hash.slice(7));
-    if (profile) return { page: "shared", profile };
-  }
-  return { page: "home" };
-}
 
 function Brand({ onClick }: { onClick: () => void }) {
   return (
@@ -133,6 +128,9 @@ function Landing({
             </span>
             <span>가입 없이, 가볍게</span>
           </div>
+          <p className="storage-notice">
+            테스트를 완료하면 답변과 결과가 룩앳미 서버에 익명으로 저장돼요.
+          </p>
           {saved && saved.answers.length > 0 && (
             <button className="resume-link" onClick={onResume}>
               {saved.complete
@@ -444,6 +442,8 @@ function Result({
   onShare,
   onSave,
   cardRef,
+  syncStatus,
+  onRetrySync,
 }: {
   profile: Profile;
   result: ReturnType<typeof calculateResult> | null;
@@ -452,6 +452,8 @@ function Result({
   onShare: () => void;
   onSave: () => void;
   cardRef: React.RefObject<HTMLDivElement | null>;
+  syncStatus: SyncStatus;
+  onRetrySync: () => void;
 }) {
   return (
     <main className="result-page page-width">
@@ -478,6 +480,38 @@ function Result({
             : "당신이 고른 작은 장면들을 한 장의 이야기로 모았어요."}
         </p>
       </div>
+      {!shared && (
+        <div
+          className={`result-storage ${syncStatus}`}
+          aria-live="polite"
+          data-testid="result-storage"
+        >
+          <div>
+            <strong>
+              {syncStatus === "saved"
+                ? "결과가 안전하게 저장됐어요."
+                : syncStatus === "saving"
+                  ? "결과를 저장하고 있어요."
+                  : syncStatus === "error"
+                    ? "아직 서버에 저장되지 않았어요."
+                    : "이전 결과를 서버에 저장할 수 있어요."}
+            </strong>
+            <p>
+              {syncStatus === "saved"
+                ? "답변과 결과를 룩앳미 서버에 익명으로 보관했어요."
+                : syncStatus === "saving"
+                  ? "잠시만 기다려주세요. 아래에서 결과를 먼저 볼 수 있어요."
+                  : "답변은 이 탭에 남아 있어요. 연결을 확인한 뒤 저장해주세요."}
+            </p>
+          </div>
+          {(syncStatus === "error" || syncStatus === "idle") && (
+            <button className="button outline" onClick={onRetrySync}>
+              {syncStatus === "error" ? "저장 다시 시도" : "결과 저장하기"}
+            </button>
+          )}
+          {syncStatus === "saved" && <Check size={22} aria-hidden="true" />}
+        </div>
+      )}
       <div className="result-layout">
         <div className="result-card-wrap">
           <div
@@ -654,47 +688,52 @@ function Result({
   );
 }
 
-export default function App() {
-  const [route, setRoute] = useState<Route>(readRoute);
-  const [saved, setSaved] = useState(readSession);
-  const [answers, setAnswers] = useState<number[]>(
-    () => readSession()?.answers ?? [],
-  );
-  const [step, setStep] = useState(() => readSession()?.step ?? 0);
+export default function App({
+  page,
+  typeId,
+}: {
+  page: Route["page"];
+  typeId?: string;
+}) {
+  const router = useRouter();
+  const route: Route = {
+    page,
+    profile: typeId ? getProfile(typeId) : undefined,
+  };
+  const { saved, setSaved, answers, setAnswers, step, setStep, hydrated } =
+    useQuizSession();
   const [about, setAbout] = useState(false);
   const [preview, setPreview] = useState<Profile | null>(null);
   const [restart, setRestart] = useState(false);
   const [toast, setToast] = useState("");
   const [manualLink, setManualLink] = useState("");
   const [saving, setSaving] = useState(false);
-  const [pendingSection, setPendingSection] = useState("");
+  const sync = useResultSync(
+    saved?.submissionId,
+    answers,
+    route.page === "result" && saved?.complete === true,
+  );
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const update = () => {
-      setRoute(readRoute());
-      window.scrollTo({ top: 0, behavior: "instant" });
-    };
-    window.addEventListener("hashchange", update);
-    return () => window.removeEventListener("hashchange", update);
-  }, []);
+    if (page !== "home") return;
+    const oldPath = window.location.hash.slice(1);
+    if (
+      oldPath === "/test" ||
+      oldPath === "/result" ||
+      /^\/type\/[a-z-]+$/.test(oldPath)
+    ) {
+      router.replace(oldPath);
+    } else if (oldPath === "/") {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, [page, router]);
   useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(""), 4200);
     return () => clearTimeout(timer);
   }, [toast]);
-  useEffect(() => {
-    if (pendingSection && route.page === "home") {
-      document
-        .getElementById(pendingSection)
-        ?.scrollIntoView({ behavior: "instant" });
-      setPendingSection("");
-    }
-  }, [pendingSection, route.page]);
-  const go = (hash: string) => {
-    if (window.location.hash === hash) {
-      setRoute(readRoute());
-      window.scrollTo({ top: 0, behavior: "instant" });
-    } else window.location.hash = hash;
+  const go = (path: string) => {
+    router.push(path);
   };
   const start = () => {
     setPreview(null);
@@ -707,14 +746,20 @@ export default function App() {
     setAnswers([]);
     setStep(0);
     setRestart(false);
-    go("#/test");
+    go("/test");
   };
   const persist = (
     nextAnswers: number[],
     nextStep: number,
     complete = false,
+    submissionId?: string,
   ) => {
-    const value = { answers: nextAnswers, step: nextStep, complete };
+    const value = {
+      answers: nextAnswers,
+      step: nextStep,
+      complete,
+      submissionId,
+    };
     saveSession(value);
     setSaved(value);
   };
@@ -727,8 +772,8 @@ export default function App() {
   const next = () => {
     if (answers[step] === undefined) return;
     if (step === QUESTIONS.length - 1) {
-      persist(answers, step, true);
-      go("#/result");
+      persist(answers, step, true, saved?.submissionId ?? crypto.randomUUID());
+      go("/result");
     } else {
       setStep(step + 1);
       persist(answers, step + 1);
@@ -744,7 +789,7 @@ export default function App() {
     if (saved) {
       setAnswers(saved.answers);
       setStep(saved.step);
-      go(saved.complete ? "#/result" : "#/test");
+      go(saved.complete ? "/result" : "/test");
     }
   };
   const result =
@@ -760,8 +805,7 @@ export default function App() {
           : "smooth",
       });
     else if (id === "types") {
-      setPendingSection(id);
-      go("#/");
+      go(`/#${id}`);
     } else setAbout(true);
   };
   const share = async () => {
@@ -801,7 +845,7 @@ export default function App() {
         본문으로 이동
       </a>
       <header className="header page-width">
-        <Brand onClick={() => go("#/")} />
+        <Brand onClick={() => go("/")} />
         <nav aria-label="주요 메뉴">
           <button onClick={() => scrollSection("about")}>테스트 소개</button>
           <button onClick={() => scrollSection("types")}>결혼 스타일</button>
@@ -812,14 +856,18 @@ export default function App() {
         </nav>
       </header>
       <div id="main-content" tabIndex={-1}>
-        {route.page === "quiz" ? (
+        {!hydrated && (page === "quiz" || page === "result") ? (
+          <main className="route-message page-width" aria-live="polite">
+            나의 이야기를 불러오고 있어요.
+          </main>
+        ) : route.page === "quiz" ? (
           <Quiz
             answers={answers}
             step={step}
             onChoose={choose}
             onNext={next}
             onPrevious={previous}
-            onExit={() => go("#/")}
+            onExit={() => go("/")}
           />
         ) : showResult ? (
           <Result
@@ -830,6 +878,12 @@ export default function App() {
             onShare={share}
             onSave={save}
             cardRef={cardRef}
+            syncStatus={sync.status}
+            onRetrySync={() => {
+              if (!saved?.submissionId)
+                persist(answers, step, true, crypto.randomUUID());
+              else sync.retry();
+            }}
           />
         ) : (
           <main>
@@ -867,8 +921,9 @@ export default function App() {
           </div>
           <p className="modal-small">
             정식 MBTI 검사나 심리 진단이 아니며, 실제 관계의 궁합이나 결혼을
-            예측하지 않아요. 답변은 서버로 전송하지 않고 이 브라우저의 탭에만
-            잠시 저장해요. 공유 링크에는 유형만 담겨요.
+            예측하지 않아요. 진행 중 답변은 이 탭에 잠시 저장하며, 완료하면
+            답변과 결과를 룩앳미 서버에 익명으로 저장해요. 이름이나 연락처는
+            수집하지 않아요. 공유 링크에는 유형만 담겨요.
           </p>
           <button className="button primary" onClick={() => setAbout(false)}>
             알겠어요 <Check size={17} />
@@ -904,7 +959,10 @@ export default function App() {
           title="새로운 마음으로 시작할까요?"
           onClose={() => setRestart(false)}
         >
-          <p>지금까지 고른 답변을 지우고 첫 질문부터 다시 시작해요.</p>
+          <p>
+            이 탭의 답변을 지우고 첫 질문부터 다시 시작해요. 이미 서버에 저장한
+            익명 결과는 그대로 남아요.
+          </p>
           <div className="modal-actions">
             <button
               className="button outline"

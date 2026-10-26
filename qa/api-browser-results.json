@@ -1,0 +1,455 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.12.0/bin/node",
+      "/Users/rokong.me/Documents/lookatme/marry-test/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/Users/rokong.me/Documents/lookatme/marry-test/playwright.config.ts",
+    "rootDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "android",
+        "name": "android",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "iphone",
+        "name": "iphone",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "desktop",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "snapshotDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "acceptDownloads": true,
+          "browserName": "chromium",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "android",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "snapshotDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "acceptDownloads": true,
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 915
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "browserName": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "android"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/rokong.me/Documents/lookatme/marry-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "iphone",
+        "testDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "snapshotDir": "/Users/rokong.me/Documents/lookatme/marry-test/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "acceptDownloads": true,
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "webkit",
+          "browserName": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "iphone"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "qa/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 3,
+    "webServer": {
+      "command": "npm run dev -- --port 4173",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "result-storage.spec.ts",
+      "file": "result-storage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real API: complete, save, reload idempotently; shared page never submits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2173,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:52:58.213Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "real-api-receipt",
+                      "contentType": "application/json",
+                      "body": "eyJpZCI6ImNhZDQ4MzNlLTgwNDgtNDg2OC04ZjY5LTUxYjlmMGJjZDJlZiIsInN1Ym1pc3Npb25JZCI6ImViMzVhZjc1LTJmNzUtNDU3Ny04MDcxLTkyZjQ4MDdmYjg3ZCIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDI6NTI6NTkuNDAxWiJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-c35e05016c81c72f68fb",
+          "file": "result-storage.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "real API: network failure keeps answers and retry uses the same submission key",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:52:58.485Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-2203c27c1440f70719a5",
+          "file": "result-storage.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "real API: complete, save, reload idempotently; shared page never submits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1773,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:53:04.112Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "real-api-receipt",
+                      "contentType": "application/json",
+                      "body": "eyJpZCI6IjlhZWMzOGFmLTk5NjItNDk0Yi04YjNkLTI4N2QxYjZjNTUxNyIsInN1Ym1pc3Npb25JZCI6ImYwYzRlNTM3LTA4MDEtNDk3My05NTdhLTUxYjI1Y2IwZDU0ZiIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDI6NTM6MDUuMjEyWiJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-adb8e04428fa95ded5fd",
+          "file": "result-storage.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "real API: network failure keeps answers and retry uses the same submission key",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1760,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:53:04.135Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-4900f708b6849eb2eb41",
+          "file": "result-storage.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "real API: complete, save, reload idempotently; shared page never submits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1909,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:53:10.738Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "real-api-receipt",
+                      "contentType": "application/json",
+                      "body": "eyJpZCI6Ijk1MDgxODFkLTQyYWItNGRiYi04OWNiLWRhMDUwOThhNTFiZCIsInN1Ym1pc3Npb25JZCI6IjRiZDE1MTc1LTU5MjEtNDJhOS1hYTFhLTFiZTRlNTE4MzdmNSIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDI6NTM6MTIuMjcxWiJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-e8d99c8a4371afc3fe3b",
+          "file": "result-storage.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "real API: network failure keeps answers and retry uses the same submission key",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1801,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T02:53:11.731Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a26c345ce13f20624f4-ff907641fffe713c7d3a",
+          "file": "result-storage.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "note": "Subset of the verified Next.js 21-test run",
+    "expected": 6,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0
+  }
+}

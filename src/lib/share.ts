@@ -3,7 +3,8 @@ import type { Profile } from "./quiz";
 export function resultUrl(profile: Profile): string {
   const url = new URL(window.location.href);
   url.search = "";
-  url.hash = `/type/${profile.id}`;
+  url.hash = "";
+  url.pathname = `/type/${profile.id}`;
   return url.toString();
 }
 

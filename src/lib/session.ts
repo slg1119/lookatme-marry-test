@@ -5,6 +5,7 @@ export type SavedSession = {
   answers: number[];
   step: number;
   complete: boolean;
+  submissionId?: string;
 };
 
 export function readSession(): SavedSession | null {
@@ -37,6 +38,13 @@ export function readSession(): SavedSession | null {
       step: parsed.step,
       complete:
         parsed.complete === true && parsed.answers.length === QUESTIONS.length,
+      submissionId:
+        typeof parsed.submissionId === "string" &&
+        /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+          parsed.submissionId,
+        )
+          ? parsed.submissionId
+          : undefined,
     };
   } catch {
     return null;

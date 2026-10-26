@@ -19,7 +19,7 @@ for (const [name, engine, use] of [
     const coldContext = await browser.newContext({ ...use, reducedMotion: 'reduce', acceptDownloads: true });
     const cold = await coldContext.newPage();
     observe(cold);
-    await cold.goto('http://127.0.0.1:4173/#/type/everyday-soulmate');
+    await cold.goto('http://127.0.0.1:4173/type/everyday-soulmate');
     const downloading = cold.waitForEvent('download');
     await cold.getByRole('button', { name: '카드 저장', exact: true }).click();
     const download = await downloading;
