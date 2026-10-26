@@ -26,4 +26,9 @@
 - [카카오톡 공유 JavaScript](https://developers.kakao.com/docs/ko/kakaotalk-share/js-link): 사용자 정의 버튼에서 `Kakao.Share.sendDefault`를 호출하는 피드 공유.
 - [SDK 설정과 도메인 등록](https://developers.kakao.com/docs/en/tutorial/js-share): JavaScript SDK 도메인과 제품 링크 웹 도메인 등록, JavaScript 키, 공식 2.8.4 SRI.
 
-운영 도메인에서의 실제 SDK/팝업 확인은 배포 후 별도로 기록한다. 자동 검사 통과를 실제 카카오 메시지 수신 완료로 간주하지 않는다.
+## 운영 확인
+
+- 2026-10-26 13:17 KST, 구현 커밋 `457f2bb`의 Vercel Production 배포가 Ready인 것을 확인했다.
+- 실제 Chrome에서 `https://test.lookatme.my/type/everyday-soulmate`를 열어 SDK 준비 후 노란 공유 버튼이 표시되는 것을 확인했다. 버튼을 클릭하자 실제 카카오 공유용 로그인 창이 열렸고, 로그인 후 이동 목적지는 `sharer.kakao.com/picker/link`였다.
+- 로그인·수신자 선택·메시지 발송은 진행하지 않았다. 메시지 수신, 로그인 이후 링크 도메인 검증, 실물 모바일 앱 실행까지 완료했다고 주장하지 않는다.
+- 사용자가 요청한 기존 프로젝트 환경변수 확인은 Vercel MCP가 세션에 제공되지 않아 인증된 Vercel CLI로 수행했다. `lookatme-web`에 카카오 JavaScript 키 환경변수가 있음을 확인했으나 Sensitive 값은 내려받을 수 없어, 동일 프로젝트의 운영 타로 클라이언트에 공개된 키를 재사용했다. marry-test의 Production에 해당 변수 등록과 배포 반영을 확인했다. 기존 프로젝트의 DB·로그인 비밀키는 복사하지 않았다.
