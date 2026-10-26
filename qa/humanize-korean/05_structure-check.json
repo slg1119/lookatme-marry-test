@@ -1,0 +1,5 @@
+{
+  "pass": true,
+  "files": 18,
+  "check": "Non-copy AST structure and all identifiers, numeric values, non-Korean literals, runtime expressions remain unchanged."
+}

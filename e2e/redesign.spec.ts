@@ -96,7 +96,7 @@ test("native sharing sends one readable message with a separate, public-only lin
     () => (window as typeof window & { sharedResult?: ShareData }).sharedResult,
   );
   expect(payload?.text).toBe(
-    `나의 결혼 스타일은 ‘나란한 동반자’\n각자의 하루를 존중하고, 필요한 순간 나란히.\n\n당신의 결혼 스타일은?\n${new URL("/type/reliable-companion", page.url())}`,
+    `나의 결혼 스타일은 ‘나란한 동반자’\n각자의 하루를 존중하고 필요한 순간 나란히.\n\n당신의 결혼 스타일은?\n${new URL("/type/reliable-companion", page.url())}`,
   );
   expect(payload?.url).toBeUndefined();
   expect(payload?.text?.match(/https?:\/\//g)).toHaveLength(1);

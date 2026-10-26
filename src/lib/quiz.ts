@@ -98,7 +98,7 @@ export const QUESTIONS: Question[] = [
     chapter: "내가 사랑하는 일상",
     scene: "하루를 마친 저녁",
     prompt: "퇴근 후 집에 돌아왔어요.\n나에게 가장 편안한 시간은?",
-    hint: "사랑의 크기가 아니라, 에너지를 채우는 방식에 관한 질문이에요.",
+    hint: "사랑의 크기가 아니라 에너지를 채우는 방식에 관한 질문이에요.",
     axis: "closeness",
     perspective: "self",
     options: [
@@ -108,7 +108,7 @@ export const QUESTIONS: Question[] = [
         score: -3,
       },
       {
-        text: "잠깐 쉬고, 함께 보내는 저녁",
+        text: "잠깐 쉬고 함께 보내는 저녁",
         detail: "나만의 숨 돌릴 시간도 조금 필요해요.",
         score: -1,
       },
@@ -139,7 +139,7 @@ export const QUESTIONS: Question[] = [
         score: -3,
       },
       {
-        text: "함께 해보고, 안 맞으면 따로 해요",
+        text: "함께 해보고 안 맞으면 따로 해요",
         detail: "우선 같이할 기회부터 만들어 봐요.",
         score: -1,
       },
@@ -160,7 +160,7 @@ export const QUESTIONS: Question[] = [
     chapter: "내가 사랑하는 일상",
     scene: "상대의 어깨가 처진 날",
     prompt: "“오늘 회사에서 너무 힘들었어.”\n그 말을 들은 내가 먼저 하는 일은?",
-    hint: "내가 자연스럽게 건네는 다정함의 모양을 골라주세요.",
+    hint: "평소에 다정함을 어떻게 표현하는지 골라주세요.",
     axis: "care",
     perspective: "self",
     options: [
@@ -222,7 +222,7 @@ export const QUESTIONS: Question[] = [
     chapter: "내가 바라는 당신",
     scene: "함께 살게 될 누군가",
     prompt: "앞으로의 주말을 떠올릴 때,\n어떤 제안을 하는 사람에게 끌리나요?",
-    hint: "지금부터는 나의 행동이 아니라, 상대에게 바라는 모습을 골라주세요.",
+    hint: "지금부터는 나의 행동이 아니라 상대에게 바라는 모습을 골라주세요.",
     axis: "pace",
     perspective: "partner",
     options: [
@@ -243,7 +243,7 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: "“가보고 싶은 곳, 같이 떠날래?”",
-        detail: "처음의 설렘을 자주 데려오는 사람.",
+        detail: "처음의 설렘을 자주 느끼게 해주는 사람.",
         score: 3,
       },
     ],
@@ -295,12 +295,12 @@ export const QUESTIONS: Question[] = [
         score: -3,
       },
       {
-        text: "함께하는 시간이 많고, 가끔 따로 쉬어요",
+        text: "함께하는 시간이 많고 가끔 따로 쉬어요",
         detail: "함께하는 일상이 기본이면 좋아요.",
         score: -1,
       },
       {
-        text: "각자 충분히 쉬고, 약속한 시간을 함께해요",
+        text: "각자 충분히 쉬고 약속한 시간을 함께해요",
         detail: "서로의 시간을 챙겨주는 게 좋아요.",
         score: 1,
       },
@@ -327,12 +327,12 @@ export const QUESTIONS: Question[] = [
         score: -3,
       },
       {
-        text: "“가끔 같이 가고, 함께할 취미도 찾자”",
+        text: "“가끔 같이 가고 함께할 취미도 찾자”",
         detail: "공통의 즐거움을 만들어 가는 사람.",
         score: -1,
       },
       {
-        text: "“각자 즐기고, 가끔 초대해 줘”",
+        text: "“각자 즐기고 가끔 초대해 줘”",
         detail: "다른 취향을 편안하게 응원하는 사람.",
         score: 1,
       },
@@ -379,7 +379,7 @@ export const QUESTIONS: Question[] = [
     chapter: "내가 바라는 당신",
     scene: "오래 함께하기 위한 대화",
     prompt: "서운했던 일을 이야기한 뒤,\n어떤 반응에 다시 가까워질까요?",
-    hint: "마지막 질문이에요. 나에게 닿는 다정함을 골라주세요.",
+    hint: "마지막 질문이에요. 내가 바라는 다정함을 골라주세요.",
     axis: "care",
     perspective: "partner",
     options: [
@@ -415,7 +415,7 @@ export const PROFILES: Profile[] = [
     englishName: "The Everyday Soulmate",
     tagline: "별일 없는 하루도, 둘이라서 특별하게.",
     description:
-      "함께 먹는 저녁과 서로의 하루를 듣는 시간을 소중히 여겨요. 익숙한 일상을 함께 쌓고, 마음이 편히 머물 수 있는 관계를 그리고 있어요.",
+      "함께 먹는 저녁과 서로의 하루를 듣는 시간을 소중히 여겨요. 익숙한 일상을 함께 쌓고 마음이 편히 머물 수 있는 관계를 그리고 있어요.",
     tags: ["함께하는 일상", "다정한 공감", "익숙한 행복"],
     color: "#b95343",
     scene: "home",
@@ -436,7 +436,7 @@ export const PROFILES: Profile[] = [
     englishName: "The Steady Teammate",
     tagline: "소소한 오늘을, 함께 더 좋은 내일로.",
     description:
-      "익숙한 일상을 함께 꾸리고, 어려운 일은 둘이 나눠 풀어가고 싶어 해요. 좋아하는 마음을 구체적인 도움과 실천으로 전하는 쪽에 가까워요.",
+      "익숙한 일상을 함께 꾸리고 어려운 일은 둘이 나눠 풀어가고 싶어 해요. 좋아하는 마음을 구체적인 도움과 실천으로 전하는 쪽에 가까워요.",
     tags: ["함께하는 일상", "행동하는 다정함", "차곡차곡 신뢰"],
     color: "#a87542",
     scene: "table",
@@ -455,9 +455,9 @@ export const PROFILES: Profile[] = [
     id: "quiet-garden",
     name: "서로의 작은 정원",
     englishName: "The Quiet Garden",
-    tagline: "각자의 속도로 자라며, 서로의 편이 되어.",
+    tagline: "각자의 속도로 자라며 서로의 편이 되어.",
     description:
-      "편안한 생활 속에서 각자의 시간을 지키는 관계를 그리고 있어요. 늘 같은 일을 하지 않아도, 마음을 나눌 때 충분히 들어주는 사람이 되고 싶어 해요.",
+      "편안한 생활 속에서 각자의 시간을 지키는 관계를 그리고 있어요. 늘 같은 일을 하지 않아도 마음을 나눌 때 충분히 들어주는 사람이 되고 싶어 해요.",
     tags: ["편안한 거리", "마음을 듣는 시간", "잔잔한 일상"],
     color: "#78836a",
     scene: "garden",
@@ -476,7 +476,7 @@ export const PROFILES: Profile[] = [
     id: "reliable-companion",
     name: "나란한 동반자",
     englishName: "The Reliable Companion",
-    tagline: "각자의 하루를 존중하고, 필요한 순간 나란히.",
+    tagline: "각자의 하루를 존중하고 필요한 순간 나란히.",
     description:
       "서로의 생활 리듬을 존중하면서 오래 이어지는 관계를 좋아해요. 각자의 시간을 보내다가도 도움이 필요한 순간에는 구체적으로 힘을 보태고 싶어 해요.",
     tags: ["서로의 리듬", "실천하는 배려", "편안한 신뢰"],
@@ -520,7 +520,7 @@ export const PROFILES: Profile[] = [
     englishName: "The Adventure Partner",
     tagline: "우리의 다음 페이지를, 같이 펼쳐볼까요.",
     description:
-      "새로운 일에 함께 도전하고, 예상 밖의 문제도 둘이 풀어가는 관계를 그리고 있어요. 해보고 싶은 것을 이야기로만 남기지 않고 함께 움직이는 쪽에 가까워요.",
+      "새로운 일에 함께 도전하고 예상 밖의 문제도 둘이 풀어가는 관계를 그리고 있어요. 해보고 싶은 것을 이야기로만 남기지 않고 함께 움직이는 쪽에 가까워요.",
     tags: ["함께하는 도전", "든든한 실행력", "새로운 일상"],
     color: "#a37a48",
     scene: "journey",
@@ -539,7 +539,7 @@ export const PROFILES: Profile[] = [
     id: "free-spirited-friend",
     name: "서로의 세계를 잇는 친구",
     englishName: "The Open-hearted Friend",
-    tagline: "다른 곳을 보고 와도, 이야기는 서로에게.",
+    tagline: "다른 곳을 보고 와도 이야기는 서로에게.",
     description:
       "새로운 것을 발견하는 즐거움과 각자의 자유를 함께 소중히 여겨요. 서로 다른 하루를 보내고 돌아와 마음을 나눌 수 있는 관계를 그리고 있어요.",
     tags: ["각자의 호기심", "열린 대화", "응원하는 사이"],
@@ -567,7 +567,7 @@ export const PROFILES: Profile[] = [
     color: "#8b7892",
     scene: "table",
     strengths: [
-      "서로의 도전에 공간을 내어주는 마음",
+      "서로의 도전을 존중하는 마음",
       "응원을 구체적인 도움으로 전하는 태도",
       "각자의 변화와 성장을 받아들이는 호기심",
     ],
@@ -671,7 +671,7 @@ export function calculateResult(answers: number[]): {
   const balancedPartnerAxes = AXES.filter((axis) => partner[axis] === 0);
   const balanceNotes = [
     balancedSelfAxes.length > 0
-      ? `나의 '${balancedSelfAxes.map((axis) => AXIS_LABELS[axis]).join("·")}' 응답은 균형을 이루고 있어요. 유형 이름은 대표 표현이며, 두 성향을 함께 가진 것으로 읽어주세요.`
+      ? `나의 '${balancedSelfAxes.map((axis) => AXIS_LABELS[axis]).join("·")}' 응답은 균형을 이루고 있어요. 유형 이름은 대표 표현이며 두 성향을 함께 가진 것으로 읽어주세요.`
       : "",
     balancedPartnerAxes.length > 0
       ? `상대에게 바라는 '${balancedPartnerAxes.map((axis) => AXIS_LABELS[axis]).join("·")}' 역시 균형에 가까워요.`

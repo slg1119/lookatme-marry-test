@@ -235,12 +235,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 846,
+                  "duration": 924,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "startTime": "2026-10-26T08:08:21.184Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -269,12 +269,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 858,
+                  "duration": 900,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "startTime": "2026-10-26T08:08:21.177Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -303,12 +303,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 647,
+                  "duration": 670,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "startTime": "2026-10-26T08:08:21.191Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -342,7 +342,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:37.513Z",
+                  "startTime": "2026-10-26T08:08:22.128Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -369,14 +369,14 @@
               "results": [
                 {
                   "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 713,
+                  "duration": 725,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:43.845Z",
+                  "startTime": "2026-10-26T08:08:29.338Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -405,12 +405,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 635,
+                  "duration": 791,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:44.875Z",
+                  "startTime": "2026-10-26T08:08:29.845Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -437,14 +437,14 @@
               "results": [
                 {
                   "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 371,
+                  "duration": 493,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:44.667Z",
+                  "startTime": "2026-10-26T08:08:30.174Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -471,14 +471,14 @@
               "results": [
                 {
                   "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 554,
+                  "duration": 535,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:45.043Z",
+                  "startTime": "2026-10-26T08:08:30.671Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -505,14 +505,14 @@
               "results": [
                 {
                   "workerIndex": 6,
-                  "parallelIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1342,
+                  "duration": 1344,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:54.952Z",
+                  "startTime": "2026-10-26T08:08:39.904Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -539,14 +539,14 @@
               "results": [
                 {
                   "workerIndex": 7,
-                  "parallelIndex": 0,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1159,
+                  "duration": 1113,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:55.215Z",
+                  "startTime": "2026-10-26T08:08:40.741Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -573,14 +573,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 846,
+                  "duration": 839,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:55.238Z",
+                  "startTime": "2026-10-26T08:08:41.314Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -606,15 +606,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 812,
+                  "duration": 797,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:56.321Z",
+                  "startTime": "2026-10-26T08:08:41.543Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -648,15 +648,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3070,
+                  "duration": 3324,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:37.755Z",
+                  "startTime": "2026-10-26T08:08:22.398Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -688,15 +688,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1801,
+                  "duration": 1774,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:37.765Z",
+                  "startTime": "2026-10-26T08:08:22.419Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -731,12 +731,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 3025,
+                  "duration": 3077,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:38.015Z",
+                  "startTime": "2026-10-26T08:08:22.629Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -768,15 +768,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2346,
+                  "duration": 2859,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:39.572Z",
+                  "startTime": "2026-10-26T08:08:24.199Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -808,15 +808,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2543,
+                  "duration": 2620,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:40.830Z",
+                  "startTime": "2026-10-26T08:08:25.712Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -848,15 +848,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2944,
+                  "duration": 2932,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:45.642Z",
+                  "startTime": "2026-10-26T08:08:30.787Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -888,15 +888,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 1,
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1690,
+                  "duration": 1664,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:45.697Z",
+                  "startTime": "2026-10-26T08:08:31.249Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -928,15 +928,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 1,
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3036,
+                  "duration": 2095,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:47.392Z",
+                  "startTime": "2026-10-26T08:08:32.918Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -968,15 +968,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2362,
+                  "duration": 2308,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:48.590Z",
+                  "startTime": "2026-10-26T08:08:33.724Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1008,15 +1008,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 1,
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2466,
+                  "duration": 2457,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:50.432Z",
+                  "startTime": "2026-10-26T08:08:35.019Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1048,15 +1048,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 2,
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3587,
+                  "duration": 3269,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:56.634Z",
+                  "startTime": "2026-10-26T08:08:42.140Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1088,15 +1088,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 7,
+                  "workerIndex": 6,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1906,
+                  "duration": 1916,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:56.658Z",
+                  "startTime": "2026-10-26T08:08:42.386Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1129,14 +1129,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2852,
+                  "duration": 2768,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:57.178Z",
+                  "startTime": "2026-10-26T08:08:42.432Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1168,15 +1168,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 7,
+                  "workerIndex": 6,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3048,
+                  "duration": 2983,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:58.569Z",
+                  "startTime": "2026-10-26T08:08:44.308Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1209,14 +1209,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 3620,
+                  "duration": 3575,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:00.035Z",
+                  "startTime": "2026-10-26T08:08:45.207Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1256,15 +1256,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 715,
+                  "duration": 822,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:41.048Z",
+                  "startTime": "2026-10-26T08:08:25.730Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1290,15 +1290,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 724,
+                  "duration": 698,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:50.958Z",
+                  "startTime": "2026-10-26T08:08:36.038Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1324,15 +1324,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 2,
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1054,
+                  "duration": 1046,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:00.230Z",
+                  "startTime": "2026-10-26T08:08:45.417Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1366,15 +1366,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1694,
+                  "duration": 1847,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:41.771Z",
+                  "startTime": "2026-10-26T08:08:26.562Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1385,6 +1385,40 @@
           "id": "8c55c0801a27607fa79e-4ccb769eb49b9b2fb249",
           "file": "redesign.spec.ts",
           "line": 7,
+          "column": 1
+        },
+        {
+          "title": "native sharing sends one readable message with a separate, public-only link line",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T08:08:27.067Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-b478cf73e4e43aa78aec",
+          "file": "redesign.spec.ts",
+          "line": 82,
           "column": 1
         },
         {
@@ -1400,15 +1434,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1472,
+                  "duration": 1530,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:41.927Z",
+                  "startTime": "2026-10-26T08:08:27.440Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1418,7 +1452,7 @@
           ],
           "id": "8c55c0801a27607fa79e-56a5819c4fff7fc53148",
           "file": "redesign.spec.ts",
-          "line": 83,
+          "line": 105,
           "column": 1
         },
         {
@@ -1434,15 +1468,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 9353,
+                  "duration": 10935,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:43.382Z",
+                  "startTime": "2026-10-26T08:08:28.340Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1452,7 +1486,7 @@
           ],
           "id": "8c55c0801a27607fa79e-374f00787d2e2077c993",
           "file": "redesign.spec.ts",
-          "line": 123,
+          "line": 145,
           "column": 1
         },
         {
@@ -1471,12 +1505,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1092,
+                  "duration": 1068,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:43.403Z",
+                  "startTime": "2026-10-26T08:08:28.415Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1486,7 +1520,7 @@
           ],
           "id": "8c55c0801a27607fa79e-37580c3be0b93f9ee338",
           "file": "redesign.spec.ts",
-          "line": 182,
+          "line": 204,
           "column": 1
         },
         {
@@ -1502,15 +1536,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1726,
+                  "duration": 1695,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:51.690Z",
+                  "startTime": "2026-10-26T08:08:36.744Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1521,6 +1555,40 @@
           "id": "8c55c0801a27607fa79e-7222eb18cb45824508e8",
           "file": "redesign.spec.ts",
           "line": 7,
+          "column": 1
+        },
+        {
+          "title": "native sharing sends one readable message with a separate, public-only link line",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T08:08:37.484Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-b99922264eb13a077f4a",
+          "file": "redesign.spec.ts",
+          "line": 82,
           "column": 1
         },
         {
@@ -1536,15 +1604,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1531,
+                  "duration": 1619,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:53.181Z",
+                  "startTime": "2026-10-26T08:08:37.891Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1554,7 +1622,7 @@
           ],
           "id": "8c55c0801a27607fa79e-a9ab8e824f69e479dff5",
           "file": "redesign.spec.ts",
-          "line": 83,
+          "line": 105,
           "column": 1
         },
         {
@@ -1573,12 +1641,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1962,
+                  "duration": 1923,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:52.908Z",
+                  "startTime": "2026-10-26T08:08:38.443Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1588,7 +1656,7 @@
           ],
           "id": "8c55c0801a27607fa79e-16009f221beb57131fc0",
           "file": "redesign.spec.ts",
-          "line": 123,
+          "line": 145,
           "column": 1
         },
         {
@@ -1604,15 +1672,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1142,
+                  "duration": 1143,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:53.422Z",
+                  "startTime": "2026-10-26T08:08:39.705Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1622,7 +1690,7 @@
           ],
           "id": "8c55c0801a27607fa79e-d43823de50bbc1307316",
           "file": "redesign.spec.ts",
-          "line": 182,
+          "line": 204,
           "column": 1
         },
         {
@@ -1638,15 +1706,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 2,
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2067,
+                  "duration": 2008,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:01.293Z",
+                  "startTime": "2026-10-26T08:08:46.473Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1657,6 +1725,40 @@
           "id": "8c55c0801a27607fa79e-a1cc45f643ded46633d1",
           "file": "redesign.spec.ts",
           "line": 7,
+          "column": 1
+        },
+        {
+          "title": "native sharing sends one readable message with a separate, public-only link line",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 592,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T08:08:47.300Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-b8d8d5866c4171f99b6f",
+          "file": "redesign.spec.ts",
+          "line": 82,
           "column": 1
         },
         {
@@ -1672,15 +1774,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 7,
+                  "workerIndex": 6,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2038,
+                  "duration": 2029,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:01.627Z",
+                  "startTime": "2026-10-26T08:08:47.896Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1690,7 +1792,7 @@
           ],
           "id": "8c55c0801a27607fa79e-a2b50a457d9bc8b5e772",
           "file": "redesign.spec.ts",
-          "line": 83,
+          "line": 105,
           "column": 1
         },
         {
@@ -1706,15 +1808,15 @@
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 2,
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2403,
+                  "duration": 2367,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:03.365Z",
+                  "startTime": "2026-10-26T08:08:48.487Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1724,7 +1826,7 @@
           ],
           "id": "8c55c0801a27607fa79e-b1f0b0ab8787a6377f49",
           "file": "redesign.spec.ts",
-          "line": 123,
+          "line": 145,
           "column": 1
         },
         {
@@ -1741,14 +1843,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1657,
+                  "duration": 1692,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:03.666Z",
+                  "startTime": "2026-10-26T08:08:48.790Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1758,7 +1860,7 @@
           ],
           "id": "8c55c0801a27607fa79e-b71ba72335b60c3e151f",
           "file": "redesign.spec.ts",
-          "line": 182,
+          "line": 204,
           "column": 1
         }
       ]
@@ -1800,7 +1902,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:43.470Z",
+                  "startTime": "2026-10-26T08:08:28.975Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -1854,7 +1956,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:43.470Z",
+                  "startTime": "2026-10-26T08:08:28.975Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -1908,7 +2010,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:54.570Z",
+                  "startTime": "2026-10-26T08:08:39.516Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -1962,7 +2064,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:25:54.570Z",
+                  "startTime": "2026-10-26T08:08:39.516Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -2016,7 +2118,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:03.671Z",
+                  "startTime": "2026-10-26T08:08:49.929Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -2070,7 +2172,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T07:26:03.671Z",
+                  "startTime": "2026-10-26T08:08:49.929Z",
                   "annotations": [
                     {
                       "type": "skip",
@@ -2098,9 +2200,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-26T07:25:36.133Z",
-    "duration": 29706.335000000003,
-    "expected": 42,
+    "startTime": "2026-10-26T08:08:20.610Z",
+    "duration": 30328.526,
+    "expected": 45,
     "skipped": 6,
     "unexpected": 0,
     "flaky": 0

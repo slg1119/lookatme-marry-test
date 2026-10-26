@@ -324,7 +324,7 @@ function Result({
             ) : (
               <>
                 <p>
-                  같은 유형이어도 바라는 상대는 다를 수 있어요. 직접 답하고,
+                  같은 유형이어도 바라는 상대는 다를 수 있어요. 직접 답하고
                   나만의 동반자 이야기를 확인해보세요.
                 </p>
                 <button className="text-link" onClick={onStart}>

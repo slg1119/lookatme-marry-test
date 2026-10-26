@@ -1,0 +1,135 @@
+{
+  "mode": "public",
+  "checkedAt": "2026-10-26T08:10:16.835353+00:00",
+  "origin": "http://127.0.0.1:4183",
+  "site": "https://test.lookatme.my",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "결혼 성향 테스트, 나와 잘 살 사람은?",
+      "canonical": "https://test.lookatme.my",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebSite"
+      ]
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "결혼 성향 테스트 안내와 8가지 스타일 | marry test",
+      "canonical": "https://test.lookatme.my/about",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "FAQPage"
+      ]
+    },
+    {
+      "path": "/type/adventure-partner",
+      "status": 200,
+      "title": "함께 떠나는 모험가 | marry test",
+      "canonical": "https://test.lookatme.my/type/adventure-partner",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/everyday-soulmate",
+      "status": 200,
+      "title": "일상의 단짝 | marry test",
+      "canonical": "https://test.lookatme.my/type/everyday-soulmate",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/free-spirited-friend",
+      "status": 200,
+      "title": "서로의 세계를 잇는 친구 | marry test",
+      "canonical": "https://test.lookatme.my/type/free-spirited-friend",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/growth-companion",
+      "status": 200,
+      "title": "꿈을 응원하는 동료 | marry test",
+      "canonical": "https://test.lookatme.my/type/growth-companion",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/quiet-garden",
+      "status": 200,
+      "title": "서로의 작은 정원 | marry test",
+      "canonical": "https://test.lookatme.my/type/quiet-garden",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/reliable-companion",
+      "status": 200,
+      "title": "나란한 동반자 | marry test",
+      "canonical": "https://test.lookatme.my/type/reliable-companion",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/romantic-explorer",
+      "status": 200,
+      "title": "설렘을 나누는 여행자 | marry test",
+      "canonical": "https://test.lookatme.my/type/romantic-explorer",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/steady-teammate",
+      "status": 200,
+      "title": "든든한 한 팀 | marry test",
+      "canonical": "https://test.lookatme.my/type/steady-teammate",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    }
+  ],
+  "sitemapCount": 10,
+  "faqMatches": 5,
+  "socialImages": 9,
+  "socialImageUrls": [
+    "https://test.lookatme.my/og/adventure-partner?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/everyday-soulmate?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/free-spirited-friend?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/growth-companion?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/home?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/quiet-garden?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/reliable-companion?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/romantic-explorer?v=20261026-korean-copy",
+    "https://test.lookatme.my/og/steady-teammate?v=20261026-korean-copy"
+  ],
+  "invalidRoutes404": 3,
+  "privateRoutesNoindex": 2,
+  "passed": true
+}

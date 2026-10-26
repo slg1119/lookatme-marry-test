@@ -311,31 +311,6 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<p>함께 먹는 저녁과 서로의 하루를 듣는 시간을 소중히 여겨요. 익숙한 일상을 함께 쌓고, 마음이 편히 머물 수 있는 관계를 그리고 있어요.</p>",
-            "target": [
-              ".modal-body > p:nth-child(3)"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
                   "fontSize": "8.3pt (11px)",
                   "fontWeight": "normal",
                   "messageKey": "elmPartiallyObscuring",
