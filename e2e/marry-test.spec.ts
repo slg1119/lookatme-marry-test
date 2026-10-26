@@ -130,7 +130,7 @@ test('all eight previews, modal dismissal, and test information', async ({ page 
   }
   await expect(cards).toHaveCount(8);
   await page.getByRole('button', { name: '테스트 안내', exact: true }).click();
-  await expect(page.getByRole('dialog')).toContainText('답변과 결과를 룩앳미 서버에 익명으로 저장해요');
+  await expect(page.getByRole('dialog')).toContainText('진행 중 답변은 이 탭에 잠시 저장해요');
   await page.getByRole('button', { name: '알겠어요', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.getByRole('button', { name: '3분이면 충분해요', exact: true }).click();

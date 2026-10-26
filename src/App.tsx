@@ -654,9 +654,7 @@ export default function App({
           </div>
           <p className="modal-small">
             정식 MBTI 검사나 심리 진단이 아니며, 실제 관계의 궁합이나 결혼을
-            예측하지 않아요. 진행 중 답변은 이 탭에 잠시 저장하며, 완료하면
-            답변과 결과를 룩앳미 서버에 익명으로 저장해요. 이름이나 연락처는
-            수집하지 않아요. 공유 링크에는 유형만 담겨요.
+            예측하지 않아요. 진행 중 답변은 이 탭에 잠시 저장해요.
           </p>
           <button className="button primary" onClick={() => setAbout(false)}>
             알겠어요 <Check size={17} />
