@@ -1,0 +1,290 @@
+[
+  {
+    "path": "/about",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"everyday-soulmate\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">01</span>",
+            "target": [
+              "a[href$=\"everyday-soulmate\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"steady-teammate\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">02</span>",
+            "target": [
+              "a[href$=\"steady-teammate\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"quiet-garden\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">03</span>",
+            "target": [
+              "a[href$=\"quiet-garden\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"reliable-companion\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">04</span>",
+            "target": [
+              "a[href$=\"reliable-companion\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"romantic-explorer\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">05</span>",
+            "target": [
+              "a[href$=\"romantic-explorer\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"adventure-partner\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">06</span>",
+            "target": [
+              "a[href$=\"adventure-partner\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"free-spirited-friend\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">07</span>",
+            "target": [
+              "a[href$=\"free-spirited-friend\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      "a[href$=\"growth-companion\"] > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">08</span>",
+            "target": [
+              "a[href$=\"growth-companion\"] > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/type/free-spirited-friend",
+    "violations": [],
+    "incomplete": []
+  }
+]

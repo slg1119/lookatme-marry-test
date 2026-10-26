@@ -40,7 +40,7 @@ test("Kakao shares only the public type, image and two destinations directly fro
   expect(payload.content).toEqual({
     title: "나의 결혼 스타일은 일상의 단짝",
     description: "별일 없는 하루도, 둘이라서 특별하게.",
-    imageUrl: "https://test.lookatme.my/og/everyday-soulmate?v=20261026-light",
+    imageUrl: "https://test.lookatme.my/og/everyday-soulmate?v=20261026-open-design",
     imageWidth: 1200, imageHeight: 630,
     link: { mobileWebUrl: "https://test.lookatme.my/type/everyday-soulmate", webUrl: "https://test.lookatme.my/type/everyday-soulmate" },
   });

@@ -13,12 +13,14 @@ test("Next.js renders share content on the server and preserves legacy hash link
   expect(html).toContain("일상의 단짝");
   expect(html).toContain("<title>일상의 단짝 | marry test</title>");
   await page.goto("/#/type/everyday-soulmate");
-  await expect(page).toHaveURL(/\/type\/everyday-soulmate$/);
-  await expect(
-    page.getByRole("heading", { name: "이런 매일을 꿈꾸는 사람이에요." }),
-  ).toBeVisible();
+  await expect(page).toHaveURL(
+    (url) => url.pathname === "/type/everyday-soulmate" && !url.hash,
+  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "일상의 단짝",
+  );
   await page.goto("/#/test");
-  await expect(page).toHaveURL(/\/test$/);
+  await expect(page).toHaveURL((url) => url.pathname === "/test" && !url.hash);
   await expect(page.getByRole("progressbar")).toHaveAttribute(
     "aria-valuenow",
     "1",

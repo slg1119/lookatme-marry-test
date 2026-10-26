@@ -1,7 +1,7 @@
 // Shared by server metadata and client-side sharing. Never use the current
 // browser URL, which may contain private state or a preview/localhost origin.
 export const PRODUCTION_SITE_URL = "https://test.lookatme.my";
-export const SOCIAL_IMAGE_VERSION = "20261026-light";
+export const SOCIAL_IMAGE_VERSION = "20261026-open-design";
 
 export function socialImageUrl(
   id: string,

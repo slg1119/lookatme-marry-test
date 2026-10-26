@@ -50,7 +50,7 @@ export function Modal({
         </button>
       </div>
       <h2 id={id}>{title}</h2>
-      {children}
+      <div className="modal-body">{children}</div>
     </dialog>
   );
 }

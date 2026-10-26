@@ -5,27 +5,25 @@ import Link from "next/link";
 import { useQuizSession } from "./components/QuizSessionProvider";
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
   Check,
-  ChevronRight,
-  Clock3,
   Download,
-  Heart,
   Link2,
   RotateCcw,
   Sparkles,
   X,
 } from "lucide-react";
+import { Landing } from "./components/Landing";
+import { BrandMark } from "./components/DesignParts";
 import { Illustration } from "./components/Illustration";
 import { Modal } from "./components/Modal";
 import { KakaoShareButton } from "./components/KakaoShareButton";
-import { calculateResult, getProfile, PROFILES, QUESTIONS } from "./lib/quiz";
+import { calculateResult, getProfile, QUESTIONS } from "./lib/quiz";
 import type { Axis, Profile } from "./lib/quiz";
-import { clearSession, readSession, saveSession } from "./lib/session";
+import { clearSession, saveSession } from "./lib/session";
 import { downloadCard, resultUrl, shareResult } from "./lib/share";
 import { useResultSync } from "./lib/use-result-sync";
 import type { SyncStatus } from "./lib/use-result-sync";
@@ -56,204 +54,27 @@ const AXES: { id: Axis; label: string; left: string; right: string }[] = [
 
 function Brand({ onClick }: { onClick: () => void }) {
   return (
-    <button className="brand" onClick={onClick} aria-label="marry test 홈으로">
-      <span className="brand-mark">
-        <Heart size={22} strokeWidth={1.6} />
-        <Heart size={22} strokeWidth={1.6} />
-      </span>
-      <span>
-        marry <i>test</i>
-        <span className="brand-dot">.</span>
-      </span>
+    <button className="brand" onClick={onClick}>
+      <BrandMark />
+      <span className="sr-only">홈으로</span>
     </button>
   );
 }
-
 function Footer({ onAbout }: { onAbout: () => void }) {
   return (
-    <footer className="footer">
-      <span className="footer-brand">
-        marry test<span>둘의 시작은, 나를 아는 것부터.</span>
-      </span>
+    <footer className="site-footer page-width">
       <div>
+        <Link className="footer-brand" href="/">
+          LOOK AT ME
+        </Link>
+        <p>둘의 시작은, 나를 아는 것부터.</p>
+      </div>
+      <div className="footer-links">
         <Link href="/about">테스트 자세히 알아보기</Link>
         <button onClick={onAbout}>테스트 안내</button>
-        <span>© {new Date().getFullYear()} marry test</span>
+        <span>© {new Date().getFullYear()} LOOK AT ME</span>
       </div>
     </footer>
-  );
-}
-
-function Landing({
-  onStart,
-  onResume,
-  saved,
-  onPreview,
-  onAbout,
-}: {
-  onStart: () => void;
-  onResume: () => void;
-  saved: ReturnType<typeof readSession>;
-  onPreview: (p: Profile) => void;
-  onAbout: () => void;
-}) {
-  const [showAll, setShowAll] = useState(false);
-  return (
-    <>
-      <section className="hero page-width">
-        <div className="hero-copy">
-          <h1>
-            어떤 사람과,
-            <br />
-            어떤 매일을
-            <br />
-            함께할까요?
-          </h1>
-          <p className="hero-description">
-            설레는 첫 만남, 그다음의 우리.
-            <br />
-            12개의 작은 질문으로
-            <br className="mobile-break" /> 나의 결혼 스타일을 만나보세요.
-          </p>
-          <button className="button primary hero-button" onClick={onStart}>
-            나의 결혼상대 알아보기
-          </button>
-          <div className="hero-meta">
-            <span>
-              <Clock3 size={16} />약 3분
-            </span>
-            <span>
-              <BookOpen size={16} />
-              12개의 질문
-            </span>
-            <span>가입 없이, 가볍게</span>
-          </div>
-          {saved && saved.answers.length > 0 && (
-            <button className="resume-link" onClick={onResume}>
-              {saved.complete
-                ? "지난 결과 다시 보기"
-                : `${saved.answers.length}개의 답변이 남아 있어요. 이어서 할까요?`}{" "}
-              <ChevronRight size={15} />
-            </button>
-          )}
-        </div>
-        <figure className="hero-art">
-          <Illustration scene="home" className="hero-illustration" />
-          <figcaption className="paper-caption">
-            <strong>너와 나의 보통날</strong>
-            <p className="art-note">
-              거창하지 않아도 좋아. 같이 보내는 매일이라면.
-            </p>
-          </figcaption>
-        </figure>
-      </section>
-      <section className="types-section" id="types">
-        <div className="page-width">
-          <div className="section-heading">
-            <div>
-              <h2>우리의 행복은, 어떤 모양일까요?</h2>
-            </div>
-            <span className="section-note">8가지 결혼 스타일 미리보기</span>
-          </div>
-          <div className="type-grid">
-            {(showAll ? PROFILES : PROFILES.slice(0, 4)).map((profile, i) => (
-              <button
-                className="type-card"
-                key={profile.id}
-                onClick={() => onPreview(profile)}
-                style={{ "--card-color": profile.color } as React.CSSProperties}
-              >
-                <div className="type-art">
-                  <span className="type-index">0{i + 1}</span>
-                  <Illustration scene={profile.scene} compact />
-                  <span className="type-arrow">
-                    <ArrowUpRight size={18} />
-                  </span>
-                </div>
-                <div className="type-copy">
-                  <h3>{profile.name}</h3>
-                  <p>{profile.tagline}</p>
-                  <span className="type-english">{profile.englishName}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-          <button
-            className="text-button all-types"
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? "접어두기" : "8가지 스타일 모두 보기"}{" "}
-            <ArrowDown
-              size={15}
-              style={{ transform: showAll ? "rotate(180deg)" : undefined }}
-            />
-          </button>
-        </div>
-      </section>
-      <section className="about-section page-width" id="about">
-        <div className="about-intro">
-          <h2>
-            좋아하는 사람에서,
-            <br />
-            함께 살고 싶은 사람으로.
-          </h2>
-          <p>
-            우리가 궁금한 건 네 글자보다
-            <br />
-            조금 더 가까운, 당신의 일상이에요.
-          </p>
-          <button className="text-button" onClick={onAbout}>
-            이 테스트가 궁금하다면
-          </button>
-        </div>
-        <div className="about-points">
-          <article>
-            <span className="point-number">01</span>
-            <div>
-              <h3>내가 편안해지는 관계</h3>
-              <p>
-                어떤 주말을 보내고, 어떤 말에 위로받는지.
-                <br />
-                나도 몰랐던 마음의 취향을 알아봐요.
-              </p>
-            </div>
-          </article>
-          <article>
-            <span className="point-number">02</span>
-            <div>
-              <h3>내가 바라는 동반자</h3>
-              <p>
-                나와 같은 사람을 원할 수도, 다를 수도 있죠.
-                <br />
-                나의 모습과 원하는 상대를 따로 살펴봐요.
-              </p>
-            </div>
-          </article>
-          <article>
-            <span className="point-number">03</span>
-            <div>
-              <h3>첫 만남이 조금 더 깊어지도록</h3>
-              <p>
-                “취미가 뭐예요?” 다음에 나눌 이야기.
-                <br />
-                당신의 결과에 어울리는 대화 질문도 준비했어요.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section className="bottom-cta page-width">
-        <div>
-          <h2>
-            우리의 이야기를 시작하기 전에,
-            <br />내 마음부터 들여다볼까요?
-          </h2>
-        </div>
-        <button className="button cream" onClick={onStart}>
-          3분이면 충분해요
-        </button>
-      </section>
-    </>
   );
 }
 
@@ -281,16 +102,15 @@ function Quiz({
   return (
     <main className="quiz-page page-width">
       <div className="quiz-top">
-        <button className="text-button" onClick={onExit}>
+        <button className="text-link" onClick={onExit}>
           <ArrowLeft size={15} /> 잠시 쉬어가기
         </button>
         <span className="quiz-count">
-          <strong>{String(step + 1).padStart(2, "0")}</strong> /{" "}
-          {QUESTIONS.length}
+          <b>{String(step + 1).padStart(2, "0")}</b> / {QUESTIONS.length}
         </span>
       </div>
       <div
-        className="progress-track"
+        className="quiz-progress"
         role="progressbar"
         aria-label="테스트 진행"
         aria-valuemin={0}
@@ -301,96 +121,70 @@ function Quiz({
           <span key={q.id} className={i <= step ? "filled" : ""} />
         ))}
       </div>
-      <div className="quiz-layout">
-        <aside className="quiz-scene">
-          <h2>
-            {question.perspective === "self" ? (
-              <>
-                나의 보통날을
-                <br />
-                상상해보세요.
-              </>
-            ) : (
-              <>
-                곁에 있을 사람을
-                <br />
-                떠올려보세요.
-              </>
-            )}
-          </h2>
-          <Illustration
-            scene={
-              step % 3 === 0 ? "home" : step % 3 === 1 ? "table" : "garden"
-            }
-          />
-        </aside>
-        <section className="question-panel" key={question.id}>
-          <div className="question-label">
-            <span>
-              {question.perspective === "self"
-                ? "나의 모습"
-                : "내가 바라는 상대"}
-            </span>
-            <span>{question.chapter}</span>
-          </div>
-          <p className="question-scene">{question.scene}</p>
-          <h1 ref={titleRef} tabIndex={-1}>
-            {question.prompt}
-          </h1>
-          <p className="question-hint">{question.hint}</p>
-          <fieldset className="answers">
-            <legend className="sr-only">
-              가장 가까운 답변 하나를 선택해주세요
-            </legend>
-            {question.options.map((option, index) => (
-              <label
-                className={`answer ${answers[step] === index ? "selected" : ""}`}
-                key={option.text}
-              >
-                <input
-                  type="radio"
-                  name={question.id}
-                  checked={answers[step] === index}
-                  onChange={() => onChoose(index)}
-                />
-                <span className="answer-letter" aria-hidden="true">
-                  {answers[step] === index ? (
-                    <Check size={16} />
-                  ) : (
-                    String.fromCharCode(65 + index)
-                  )}
-                </span>
-                <span className="answer-copy">
-                  <strong>{option.text}</strong>
-                  {option.detail && <span>{option.detail}</span>}
-                </span>
-              </label>
-            ))}
-          </fieldset>
-          <div className="question-actions">
-            <button
-              className="text-button"
-              onClick={onPrevious}
-              disabled={step === 0}
-            >
-              <ArrowLeft size={16} /> 이전 질문
-            </button>
-            <button
-              className="button primary"
-              onClick={onNext}
-              disabled={answers[step] === undefined}
-            >
-              {step === QUESTIONS.length - 1
-                ? "나의 결과 만나보기"
-                : "다음 질문"}{" "}
-              <ArrowRight size={18} />
-            </button>
-          </div>
-          <p className="question-reassurance">
-            정답은 없어요. 조금 더 나다운 쪽을 골라주세요.
-          </p>
-        </section>
+      <div className="phase-line">
+        <span className={step < 6 ? "active" : ""}>01 나의 모습</span>
+        <span className={step >= 6 ? "active" : ""}>02 내가 바라는 상대</span>
       </div>
+      <section className="question-panel" key={question.id}>
+        <p className="eyebrow">
+          {question.chapter}
+          <span className="question-number">질문 {step + 1}</span>
+        </p>
+        <p className="question-scene">{question.scene}</p>
+        <h1 ref={titleRef} tabIndex={-1}>
+          {question.prompt}
+        </h1>
+        <p className="question-hint">{question.hint}</p>
+        <fieldset className="answers">
+          <legend className="sr-only">
+            가장 가까운 답변 하나를 선택해주세요
+          </legend>
+          {question.options.map((option, index) => (
+            <label
+              className={`answer ${answers[step] === index ? "selected" : ""}`}
+              key={option.text}
+            >
+              <input
+                type="radio"
+                name={question.id}
+                checked={answers[step] === index}
+                onChange={() => onChoose(index)}
+              />
+              <span className="answer-marker" aria-hidden="true">
+                {answers[step] === index ? (
+                  <Check size={16} />
+                ) : (
+                  String.fromCharCode(65 + index)
+                )}
+              </span>
+              <span className="answer-copy">
+                <strong>{option.text}</strong>
+                {option.detail && <span>{option.detail}</span>}
+              </span>
+            </label>
+          ))}
+        </fieldset>
+        <div className="question-actions">
+          <button
+            className="text-link"
+            onClick={onPrevious}
+            disabled={step === 0}
+          >
+            <ArrowLeft size={16} /> 이전 질문
+          </button>
+          <button
+            className="button primary"
+            onClick={onNext}
+            disabled={answers[step] === undefined}
+          >
+            {step === QUESTIONS.length - 1 ? "나의 결과 만나보기" : "다음 질문"}{" "}
+            <ArrowRight size={18} />
+          </button>
+        </div>
+        <p className="question-reassurance">
+          정답은 없어요. 조금 더 나다운 쪽을 골라주세요.
+        </p>
+      </section>
     </main>
   );
 }
@@ -421,55 +215,12 @@ function Result({
   return (
     <main className="result-page page-width">
       <div className="result-heading">
-        <h1>
-          {shared ? (
-            "이런 매일을 꿈꾸는 사람이에요."
-          ) : (
-            <>
-              당신이 꿈꾸는 결혼은,
-              <br />
-              이런 모습이네요.
-            </>
-          )}
-        </h1>
-        <p>
-          {shared
-            ? "공유받은 결혼 스타일이에요. 나의 모습도 알아볼까요?"
-            : "당신이 고른 작은 장면들을 한 장의 이야기로 모았어요."}
+        <p className="eyebrow">
+          {shared ? "여덟 가지 이야기 중 하나" : "당신이 꿈꾸는 결혼 스타일"}
         </p>
+        <h1>{profile.name}</h1>
+        <p>{profile.tagline}</p>
       </div>
-      {!shared && (
-        <div
-          className={`result-storage ${syncStatus}`}
-          aria-live="polite"
-          data-testid="result-storage"
-        >
-          <div>
-            <strong>
-              {syncStatus === "saved"
-                ? "결과가 안전하게 저장됐어요."
-                : syncStatus === "saving"
-                  ? "결과를 저장하고 있어요."
-                  : syncStatus === "error"
-                    ? "아직 서버에 저장되지 않았어요."
-                    : "이전 결과를 서버에 저장할 수 있어요."}
-            </strong>
-            <p>
-              {syncStatus === "saved"
-                ? "답변과 결과를 룩앳미 서버에 익명으로 보관했어요."
-                : syncStatus === "saving"
-                  ? "잠시만 기다려주세요. 아래에서 결과를 먼저 볼 수 있어요."
-                  : "답변은 이 탭에 남아 있어요. 연결을 확인한 뒤 저장해주세요."}
-            </p>
-          </div>
-          {(syncStatus === "error" || syncStatus === "idle") && (
-            <button className="button outline" onClick={onRetrySync}>
-              {syncStatus === "error" ? "저장 다시 시도" : "결과 저장하기"}
-            </button>
-          )}
-          {syncStatus === "saved" && <Check size={22} aria-hidden="true" />}
-        </div>
-      )}
       <div className="result-layout">
         <div className="result-card-wrap">
           <div
@@ -477,21 +228,22 @@ function Result({
             ref={cardRef}
             style={{ "--card-color": profile.color } as React.CSSProperties}
           >
+            <div className="result-card-brand">
+              LOOK AT ME<span>나의 결혼 스타일</span>
+            </div>
             <div className="result-illustration">
-              <Illustration scene={profile.scene} />
+              <Illustration scene={profile.scene} typeId={profile.id} />
             </div>
-            <h2>{profile.name}</h2>
-            <span className="type-english">{profile.englishName}</span>
-            <p className="result-tagline">{profile.tagline}</p>
-            <div className="tags">
-              {profile.tags.map((tag) => (
-                <span key={tag}>#{tag}</span>
-              ))}
+            <div className="result-card-copy">
+              <h2>{profile.name}</h2>
+              <p>{profile.tagline}</p>
+              <div className="tags">
+                {profile.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
-            <div className="card-signature">
-              marry <i>test.</i>
-              <span>our ordinary, lovely days</span>
-            </div>
+            <div className="card-signature">둘의 시작은, 나를 아는 것부터.</div>
           </div>
           <div className="share-actions">
             <KakaoShareButton profile={profile} onNotice={onNotice} />
@@ -506,6 +258,11 @@ function Result({
         </div>
         <div className="result-details">
           <section className="result-section">
+            <p className="eyebrow">
+              {shared
+                ? "이런 매일을 꿈꾸는 사람이에요."
+                : "나의 관계를 읽는 작은 이야기"}
+            </p>
             <h2>이런 관계에서 편안해져요</h2>
             <p>{profile.description}</p>
             <ul className="strengths">
@@ -559,21 +316,18 @@ function Result({
               {result ? "곁에 이런 사람이 있다면" : "나에게 맞는 동반자는?"}
             </h2>
             {result ? (
-              <ul>
-                {result.partnerTraits.map((trait, i) => (
-                  <li key={trait}>
-                    <span>0{i + 1}</span>
-                    {trait}
-                  </li>
+              <ol>
+                {result.partnerTraits.map((trait) => (
+                  <li key={trait}>{trait}</li>
                 ))}
-              </ul>
+              </ol>
             ) : (
               <>
                 <p>
                   같은 유형이어도 바라는 상대는 다를 수 있어요. 직접 답하고,
                   나만의 동반자 이야기를 확인해보세요.
                 </p>
-                <button className="text-button" onClick={onStart}>
+                <button className="text-link" onClick={onStart}>
                   테스트 하기 <ArrowRight size={15} />
                 </button>
               </>
@@ -599,6 +353,38 @@ function Result({
             ))}
         </div>
       </section>
+      {!shared && (
+        <div
+          className={`result-storage ${syncStatus}`}
+          aria-live="polite"
+          data-testid="result-storage"
+        >
+          <div>
+            <strong>
+              {syncStatus === "saved"
+                ? "결과가 안전하게 저장됐어요."
+                : syncStatus === "saving"
+                  ? "결과를 저장하고 있어요."
+                  : syncStatus === "error"
+                    ? "아직 서버에 저장되지 않았어요."
+                    : "이전 결과를 서버에 저장할 수 있어요."}
+            </strong>
+            <p>
+              {syncStatus === "saved"
+                ? "답변과 결과를 룩앳미 서버에 익명으로 보관했어요."
+                : syncStatus === "saving"
+                  ? "잠시만 기다려주세요. 아래에서 결과를 먼저 볼 수 있어요."
+                  : "답변은 이 탭에 남아 있어요. 연결을 확인한 뒤 저장해주세요."}
+            </p>
+          </div>
+          {(syncStatus === "error" || syncStatus === "idle") && (
+            <button className="button outline" onClick={onRetrySync}>
+              {syncStatus === "error" ? "저장 다시 시도" : "결과 저장하기"}
+            </button>
+          )}
+          {syncStatus === "saved" && <Check size={22} aria-hidden="true" />}
+        </div>
+      )}
       <section className="meeting-banner">
         <div>
           <h2>
@@ -619,7 +405,7 @@ function Result({
         </a>
       </section>
       <div className="result-end">
-        <button className="text-button" onClick={onStart}>
+        <button className="text-link" onClick={onStart}>
           <RotateCcw size={15} />
           {shared ? "나의 결혼 스타일 알아보기" : "처음부터 다시 해보기"}
         </button>
@@ -789,13 +575,18 @@ export default function App({
       >
         본문으로 이동
       </a>
-      <header className="header page-width">
-        <Brand onClick={() => go("/")} />
-        <nav aria-label="주요 메뉴">
-          <button onClick={() => scrollSection("about")}>테스트 소개</button>
-          <button onClick={() => scrollSection("types")}>결혼 스타일</button>
-          <span className="nav-note">조금 더 나다운 사랑</span>
-        </nav>
+      <header className="site-header">
+        <div className="page-width header-inner">
+          <Brand onClick={() => go("/")} />
+          <nav aria-label="주요 메뉴">
+            <button onClick={() => scrollSection("types")}>결혼 스타일</button>
+            <Link href="/about">테스트 소개</Link>
+            <button className="header-start" onClick={start}>
+              시작하기
+              <ArrowUpRight size={17} />
+            </button>
+          </nav>
+        </div>
       </header>
       <div id="main-content" tabIndex={-1}>
         {!hydrated && (page === "quiz" || page === "result") ? (
@@ -835,7 +626,6 @@ export default function App({
               onResume={resume}
               saved={saved}
               onPreview={setPreview}
-              onAbout={() => setAbout(true)}
             />
           </main>
         )}
@@ -847,8 +637,8 @@ export default function App({
           onClose={() => setAbout(false)}
         >
           <p>
-            marry test는 내가 편안해지는 일상과 바라는 관계를 알아보는 12문항의
-            작은 테스트예요.
+            룩앳미 결혼 스타일 테스트는 내가 편안해지는 일상과 바라는 관계를
+            알아보는 12문항의 작은 테스트예요.
           </p>
           <div className="about-modal-list">
             <p>
@@ -879,7 +669,7 @@ export default function App({
             className="preview-illustration"
             style={{ "--card-color": preview.color } as React.CSSProperties}
           >
-            <Illustration scene={preview.scene} compact />
+            <Illustration scene={preview.scene} typeId={preview.id} compact />
           </div>
           <span className="type-english">{preview.englishName}</span>
           <p>{preview.description}</p>

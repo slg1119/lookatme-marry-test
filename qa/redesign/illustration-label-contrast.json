@@ -1,0 +1,50 @@
+[
+  {
+    "type": "adventure-partner",
+    "foreground": "#6f625d",
+    "background": "#f8f2e5",
+    "ratio": 5.26
+  },
+  {
+    "type": "everyday-soulmate",
+    "foreground": "#6f625d",
+    "background": "#fff1f2",
+    "ratio": 5.34
+  },
+  {
+    "type": "free-spirited-friend",
+    "foreground": "#6f625d",
+    "background": "#edf4f0",
+    "ratio": 5.25
+  },
+  {
+    "type": "growth-companion",
+    "foreground": "#6f625d",
+    "background": "#f4eff7",
+    "ratio": 5.18
+  },
+  {
+    "type": "quiet-garden",
+    "foreground": "#6f625d",
+    "background": "#eef3eb",
+    "ratio": 5.21
+  },
+  {
+    "type": "reliable-companion",
+    "foreground": "#6f625d",
+    "background": "#f0f1f7",
+    "ratio": 5.2
+  },
+  {
+    "type": "romantic-explorer",
+    "foreground": "#6f625d",
+    "background": "#fff0eb",
+    "ratio": 5.28
+  },
+  {
+    "type": "steady-teammate",
+    "foreground": "#6f625d",
+    "background": "#f4f1e9",
+    "ratio": 5.2
+  }
+]

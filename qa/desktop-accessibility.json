@@ -28,16 +28,16 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "10.5pt (14px)",
+                  "fontSize": "9.0pt (12px)",
                   "fontWeight": "normal",
                   "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
                     "target": [
-                      ".type-card:nth-child(1) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
+                      ".style-tile.type-card:nth-child(1) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
                     ]
                   }
                 ],
@@ -48,9 +48,9 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">0<!-- -->1</span>",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">01</span>",
             "target": [
-              ".type-card:nth-child(1) > .type-art > .type-index"
+              ".style-tile.type-card:nth-child(1) > .style-art > .style-number"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
@@ -60,16 +60,16 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "10.5pt (14px)",
+                  "fontSize": "9.0pt (12px)",
                   "fontWeight": "normal",
                   "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"table\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
                     "target": [
-                      "svg[data-scene=\"table\"]"
+                      ".style-tile.type-card:nth-child(2) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
                     ]
                   }
                 ],
@@ -80,9 +80,9 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">0<!-- -->2</span>",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">02</span>",
             "target": [
-              ".type-card:nth-child(2) > .type-art > .type-index"
+              ".style-tile.type-card:nth-child(2) > .style-art > .style-number"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
@@ -92,16 +92,16 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "10.5pt (14px)",
+                  "fontSize": "9.0pt (12px)",
                   "fontWeight": "normal",
                   "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"garden\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
                     "target": [
-                      "svg[data-scene=\"garden\"]"
+                      ".style-tile.type-card:nth-child(3) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
                     ]
                   }
                 ],
@@ -112,9 +112,9 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">0<!-- -->3</span>",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">03</span>",
             "target": [
-              ".type-card:nth-child(3) > .type-art > .type-index"
+              ".style-tile.type-card:nth-child(3) > .style-art > .style-number"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
@@ -124,16 +124,16 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "10.5pt (14px)",
+                  "fontSize": "9.0pt (12px)",
                   "fontWeight": "normal",
                   "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
                     "target": [
-                      ".type-card:nth-child(4) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
+                      ".style-tile.type-card:nth-child(4) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
                     ]
                   }
                 ],
@@ -144,9 +144,137 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span class=\"type-index\">0<!-- -->4</span>",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">04</span>",
             "target": [
-              ".type-card:nth-child(4) > .type-art > .type-index"
+              ".style-tile.type-card:nth-child(4) > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      ".style-tile.type-card:nth-child(5) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">05</span>",
+            "target": [
+              ".style-tile.type-card:nth-child(5) > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      ".style-tile.type-card:nth-child(6) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">06</span>",
+            "target": [
+              ".style-tile.type-card:nth-child(6) > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      ".style-tile.type-card:nth-child(7) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">07</span>",
+            "target": [
+              ".style-tile.type-card:nth-child(7) > .style-art > .style-number"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"illustration \" width=\"600\" height=\"480\" viewBox=\"0 0 600 480\" aria-hidden=\"true\">",
+                    "target": [
+                      ".style-tile.type-card:nth-child(8) > .style-art > .illustration[viewBox=\"0 0 600 480\"][width=\"600\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"style-number\" aria-hidden=\"true\">08</span>",
+            "target": [
+              ".style-tile.type-card:nth-child(8) > .style-art > .style-number"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           }
@@ -183,31 +311,6 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<p>함께 먹는 저녁과 서로의 하루를 듣는 시간을 소중히 여겨요. 익숙한 일상을 함께 쌓고, 마음이 편히 머물 수 있는 관계를 그리고 있어요.</p>",
-            "target": [
-              "dialog > p:nth-child(5)"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
                   "fontSize": "10.5pt (14px)",
                   "fontWeight": "normal",
                   "messageKey": "elmPartiallyObscuring",
@@ -221,9 +324,9 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span>#다정한 공감</span>",
+            "html": "<p class=\"modal-small\">8가지 결과 중 하나를 미리 보고 있어요. 나의 답변으로 나만의 이야기를 만나보세요.</p>",
             "target": [
-              ".tags > span:nth-child(2)"
+              ".modal-small"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
           }

@@ -115,7 +115,6 @@ test('12 answers, editing, refresh, resume, result navigation, and restart', asy
 
 test('all eight previews, modal dismissal, and test information', async ({ page }, info) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '8가지 스타일 모두 보기', exact: true }).click();
   const cards = page.locator('.type-card');
   await expect(cards).toHaveCount(8);
   for (let i = 0; i < 8; i++) {
@@ -129,8 +128,7 @@ test('all eight previews, modal dismissal, and test information', async ({ page 
     else await page.keyboard.press('Escape');
     await expect(page.getByRole('dialog')).toHaveCount(0);
   }
-  await page.getByRole('button', { name: '접어두기', exact: true }).click();
-  await expect(cards).toHaveCount(4);
+  await expect(cards).toHaveCount(8);
   await page.getByRole('button', { name: '테스트 안내', exact: true }).click();
   await expect(page.getByRole('dialog')).toContainText('답변과 결과를 룩앳미 서버에 익명으로 저장해요');
   await page.getByRole('button', { name: '알겠어요', exact: true }).click();
@@ -156,7 +154,7 @@ test('PNG download and privacy-preserving copy/manual share paths', async ({ pag
   expect(link).not.toContain('private-value');
   const shared = await context.newPage();
   await shared.goto(link);
-  await expect(shared.getByRole('heading', { name: '이런 매일을 꿈꾸는 사람이에요.' })).toBeVisible();
+  await expect(shared.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(shared.getByRole('heading', { name: '내 마음의 세 가지 방향' })).toHaveCount(0);
   await expect(shared.locator('.partner-section li')).toHaveCount(0);
   for (const trait of traits) await expect(shared.locator('main')).not.toContainText(trait);

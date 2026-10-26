@@ -66,7 +66,7 @@ test("real API: complete, save, reload idempotently; shared page never submits",
   await page.goto("/type/everyday-soulmate");
   await expect(page.getByTestId("result-storage")).toHaveCount(0);
   await expect(
-    page.getByRole("heading", { name: "이런 매일을 꿈꾸는 사람이에요." }),
+    page.getByRole("heading", { level: 1 }),
   ).toBeVisible();
   expect(requests).toEqual([]);
   expect(pageErrors).toEqual([]);

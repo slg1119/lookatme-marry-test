@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/opt/homebrew/Cellar/node/26.12.0/bin/node",
+      "/Users/rokong.me/.nvm/versions/node/v22.18.0/bin/node",
       "/Users/rokong.me/Documents/lookatme/marry-test/node_modules/.bin/playwright",
       "test"
     ],
@@ -214,6 +214,422 @@
   },
   "suites": [
     {
+      "title": "kakao-share.spec.ts",
+      "file": "kakao-share.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Kakao shares only the public type, image and two destinations directly from a click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-3d050b74519517989eef",
+          "file": "kakao-share.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "SDK loads only on a result with official integrity and recovers from failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-d887c781b3b6d5048988",
+          "file": "kakao-share.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "a stalled SDK times out with a retry and leaves other share actions available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:36.590Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-54556032785800d72def",
+          "file": "kakao-share.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "a synchronous SDK error keeps the existing copy fallback usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:37.513Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-0c8d8823e6730dde9450",
+          "file": "kakao-share.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "Kakao shares only the public type, image and two destinations directly from a click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 713,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:43.845Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-ee5fa291cd677eeb0b38",
+          "file": "kakao-share.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "SDK loads only on a result with official integrity and recovers from failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:44.875Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-a17dd6f257cf3319c1f3",
+          "file": "kakao-share.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "a stalled SDK times out with a retry and leaves other share actions available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:44.667Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-3f8a708f717de513de38",
+          "file": "kakao-share.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "a synchronous SDK error keeps the existing copy fallback usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:45.043Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-38e7500739de2ff6efe3",
+          "file": "kakao-share.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "Kakao shares only the public type, image and two destinations directly from a click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:54.952Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-acc8c5db1becd942e8b2",
+          "file": "kakao-share.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "SDK loads only on a result with official integrity and recovers from failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1159,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:55.215Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-10876d80ddb3fca4440f",
+          "file": "kakao-share.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "a stalled SDK times out with a retry and leaves other share actions available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:55.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-feba9291dbf4773a1006",
+          "file": "kakao-share.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "a synchronous SDK error keeps the existing copy fallback usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:56.321Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7aa96d7df6a06eb795fb-2fdfbf154726d18b1a40",
+          "file": "kakao-share.spec.ts",
+          "line": 101,
+          "column": 1
+        }
+      ]
+    },
+    {
       "title": "marry-test.spec.ts",
       "file": "marry-test.spec.ts",
       "column": 0,
@@ -235,12 +651,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5211,
+                  "duration": 3070,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:37.947Z",
+                  "startTime": "2026-10-26T07:25:37.755Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -275,12 +691,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3034,
+                  "duration": 1801,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:37.950Z",
+                  "startTime": "2026-10-26T07:25:37.765Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -315,12 +731,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 3146,
+                  "duration": 3025,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:37.954Z",
+                  "startTime": "2026-10-26T07:25:38.015Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -336,7 +752,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-87218031a08a254029c5",
           "file": "marry-test.spec.ts",
-          "line": 142,
+          "line": 140,
           "column": 1
         },
         {
@@ -355,12 +771,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2783,
+                  "duration": 2346,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:41.397Z",
+                  "startTime": "2026-10-26T07:25:39.572Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -376,7 +792,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-bb4b8e0849478adbab35",
           "file": "marry-test.spec.ts",
-          "line": 184,
+          "line": 182,
           "column": 1
         },
         {
@@ -392,15 +808,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4812,
+                  "duration": 2543,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:41.504Z",
+                  "startTime": "2026-10-26T07:25:40.830Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -416,7 +832,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-d5e8389cf2b46787e1c5",
           "file": "marry-test.spec.ts",
-          "line": 203,
+          "line": 201,
           "column": 1
         },
         {
@@ -435,12 +851,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 4023,
+                  "duration": 2944,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:46.942Z",
+                  "startTime": "2026-10-26T07:25:45.642Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -473,14 +889,14 @@
               "results": [
                 {
                   "workerIndex": 4,
-                  "parallelIndex": 0,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2084,
+                  "duration": 1690,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:47.552Z",
+                  "startTime": "2026-10-26T07:25:45.697Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -512,15 +928,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 4,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3404,
+                  "duration": 3036,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:47.563Z",
+                  "startTime": "2026-10-26T07:25:47.392Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -536,7 +952,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-262a666252c067bc0d15",
           "file": "marry-test.spec.ts",
-          "line": 142,
+          "line": 140,
           "column": 1
         },
         {
@@ -552,15 +968,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2406,
+                  "duration": 2362,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:49.906Z",
+                  "startTime": "2026-10-26T07:25:48.590Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -576,7 +992,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-c49a7d2c1d1edae89ce7",
           "file": "marry-test.spec.ts",
-          "line": 184,
+          "line": 182,
           "column": 1
         },
         {
@@ -592,15 +1008,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 2,
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3477,
+                  "duration": 2466,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:51.214Z",
+                  "startTime": "2026-10-26T07:25:50.432Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -616,7 +1032,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-5733958062b9220bdd52",
           "file": "marry-test.spec.ts",
-          "line": 203,
+          "line": 201,
           "column": 1
         },
         {
@@ -633,14 +1049,14 @@
               "results": [
                 {
                   "workerIndex": 6,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 5123,
+                  "duration": 3587,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:54.803Z",
+                  "startTime": "2026-10-26T07:25:56.634Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -675,12 +1091,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3458,
+                  "duration": 1906,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:54.834Z",
+                  "startTime": "2026-10-26T07:25:56.658Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -713,14 +1129,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 2,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 4228,
+                  "duration": 2852,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:55.442Z",
+                  "startTime": "2026-10-26T07:25:57.178Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -736,7 +1152,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-56c99fa615e8204456aa",
           "file": "marry-test.spec.ts",
-          "line": 142,
+          "line": 140,
           "column": 1
         },
         {
@@ -755,12 +1171,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3184,
+                  "duration": 3048,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:58.842Z",
+                  "startTime": "2026-10-26T07:25:58.569Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -776,7 +1192,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-e2f7c43f669148c808e3",
           "file": "marry-test.spec.ts",
-          "line": 184,
+          "line": 182,
           "column": 1
         },
         {
@@ -793,14 +1209,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 2,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 5467,
+                  "duration": 3620,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:39:00.204Z",
+                  "startTime": "2026-10-26T07:26:00.035Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -816,7 +1232,7 @@
           ],
           "id": "e7de2babcc45c4f6e952-fe5256198de6404a7e27",
           "file": "marry-test.spec.ts",
-          "line": 203,
+          "line": 201,
           "column": 1
         }
       ]
@@ -840,15 +1256,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 879,
+                  "duration": 715,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:43.601Z",
+                  "startTime": "2026-10-26T07:25:41.048Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -874,15 +1290,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 5,
-                  "parallelIndex": 1,
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 810,
+                  "duration": 724,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:51.231Z",
+                  "startTime": "2026-10-26T07:25:50.958Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -909,14 +1325,14 @@
               "results": [
                 {
                   "workerIndex": 6,
-                  "parallelIndex": 1,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1211,
+                  "duration": 1054,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:39:00.511Z",
+                  "startTime": "2026-10-26T07:26:00.230Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -927,6 +1343,422 @@
           "id": "64077f6eb71f8b5e56ae-4433b8bf4641b64ed091",
           "file": "next-migration.spec.ts",
           "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "redesign.spec.ts",
+      "file": "redesign.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "controlled API failure retries the same completed answers and public types never submit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1694,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:41.771Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-4ccb769eb49b9b2fb249",
+          "file": "redesign.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "narrow and tablet layouts keep primary controls inside the viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:41.927Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-56a5819c4fff7fc53148",
+          "file": "redesign.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "every public style exports its artwork and preserves canonical SEO",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9353,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:43.382Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-374f00787d2e2077c993",
+          "file": "redesign.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "about and longest public title remain accessible with keyboard and reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1092,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:43.403Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-37580c3be0b93f9ee338",
+          "file": "redesign.spec.ts",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "controlled API failure retries the same completed answers and public types never submit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1726,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:51.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-7222eb18cb45824508e8",
+          "file": "redesign.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "narrow and tablet layouts keep primary controls inside the viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1531,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:53.181Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-a9ab8e824f69e479dff5",
+          "file": "redesign.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "every public style exports its artwork and preserves canonical SEO",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:52.908Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-16009f221beb57131fc0",
+          "file": "redesign.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "about and longest public title remain accessible with keyboard and reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:25:53.422Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-d43823de50bbc1307316",
+          "file": "redesign.spec.ts",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "controlled API failure retries the same completed answers and public types never submit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2067,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:26:01.293Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-a1cc45f643ded46633d1",
+          "file": "redesign.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "narrow and tablet layouts keep primary controls inside the viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2038,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:26:01.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-a2b50a457d9bc8b5e772",
+          "file": "redesign.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "every public style exports its artwork and preserves canonical SEO",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:26:03.365Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-b1f0b0ab8787a6377f49",
+          "file": "redesign.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "about and longest public title remain accessible with keyboard and reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "iphone",
+              "projectName": "iphone",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1657,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T07:26:03.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c55c0801a27607fa79e-b71ba72335b60c3e151f",
+          "file": "redesign.spec.ts",
+          "line": 182,
           "column": 1
         }
       ]
@@ -944,32 +1776,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "desktop",
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 2552,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:44.198Z",
-                  "annotations": [],
-                  "attachments": [
+                  "startTime": "2026-10-26T07:25:43.470Z",
+                  "annotations": [
                     {
-                      "name": "real-api-receipt",
-                      "contentType": "application/json",
-                      "body": "eyJpZCI6Ijg4NDU3NzQ1LWQ0YjItNDY0Yi1iYzdkLTY0MDM1ZDM1YzgxZiIsInN1Ym1pc3Npb25JZCI6IjNjNWVlZGVmLWFiNjYtNDhhMy1iMWViLWJmNGI5N2RiZjZiNiIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDM6Mzg6NDYuMTEwWiJ9"
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
                     }
-                  ]
+                  ],
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-c35e05016c81c72f68fb",
@@ -984,26 +1830,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "desktop",
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2233,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:44.509Z",
-                  "annotations": [],
+                  "startTime": "2026-10-26T07:25:43.470Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
                   "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-2203c27c1440f70719a5",
@@ -1018,32 +1884,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "android",
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 5,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 1966,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:52.076Z",
-                  "annotations": [],
-                  "attachments": [
+                  "startTime": "2026-10-26T07:25:54.570Z",
+                  "annotations": [
                     {
-                      "name": "real-api-receipt",
-                      "contentType": "application/json",
-                      "body": "eyJpZCI6ImVlZGRmNmM3LTU2MWUtNGJmNC1hOWMwLWY5YTBhYzY5MjhkOSIsInN1Ym1pc3Npb25JZCI6IjJmY2MxMTQxLWYyOWQtNDAyMC1hMGU5LTg4MmM0ODg4OGExYSIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDM6Mzg6NTMuNDA3WiJ9"
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
                     }
-                  ]
+                  ],
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-adb8e04428fa95ded5fd",
@@ -1058,26 +1938,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "android",
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1755,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:38:52.326Z",
-                  "annotations": [],
+                  "startTime": "2026-10-26T07:25:54.570Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
                   "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-4900f708b6849eb2eb41",
@@ -1092,32 +1992,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "iphone",
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 2897,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:39:01.738Z",
-                  "annotations": [],
-                  "attachments": [
+                  "startTime": "2026-10-26T07:26:03.671Z",
+                  "annotations": [
                     {
-                      "name": "real-api-receipt",
-                      "contentType": "application/json",
-                      "body": "eyJpZCI6IjE1MTM1ZDUwLWUxNGItNDE0Zi05YzVkLTFjYjg5NDFjMTQzNSIsInN1Ym1pc3Npb25JZCI6ImYzNjBjODRhLTQxYjItNGZiYy04Njk5LTgwZWNjYTNlYzAwZiIsInF1aXpWZXJzaW9uIjoibWFycnktdjEiLCJyZXN1bHQiOnsicHJvZmlsZUlkIjoiZXZlcnlkYXktc291bG1hdGUiLCJzZWxmIjp7ImNhcmUiOi0xMDAsInBhY2UiOi0xMDAsImNsb3NlbmVzcyI6LTEwMH0sInBhcnRuZXIiOnsiY2FyZSI6MTAwLCJwYWNlIjoxMDAsImNsb3NlbmVzcyI6MTAwfX0sImNyZWF0ZWRBdCI6IjIwMjYtMTAtMjZUMDM6Mzk6MDQuMTM2WiJ9"
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
                     }
-                  ]
+                  ],
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-e8d99c8a4371afc3fe3b",
@@ -1132,26 +2046,46 @@
           "tests": [
             {
               "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                  "location": {
+                    "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                    "line": 3,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
               "projectId": "iphone",
               "projectName": "iphone",
               "results": [
                 {
-                  "workerIndex": 7,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2709,
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-26T03:39:02.039Z",
-                  "annotations": [],
+                  "startTime": "2026-10-26T07:26:03.671Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the real local NestJS API and PostgreSQL; see README.",
+                      "location": {
+                        "file": "/Users/rokong.me/Documents/lookatme/marry-test/e2e/result-storage.spec.ts",
+                        "line": 3,
+                        "column": 6
+                      }
+                    }
+                  ],
                   "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "5a26c345ce13f20624f4-ff907641fffe713c7d3a",
@@ -1164,10 +2098,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-26T03:38:37.266Z",
-    "duration": 28449.429,
-    "expected": 24,
-    "skipped": 0,
+    "startTime": "2026-10-26T07:25:36.133Z",
+    "duration": 29706.335000000003,
+    "expected": 42,
+    "skipped": 6,
     "unexpected": 0,
     "flaky": 0
   }

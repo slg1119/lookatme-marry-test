@@ -38,17 +38,32 @@ export async function GET(
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "56px 60px",
+        padding: "72px 76px",
         background: token("--color-paper"),
         color: ink,
         fontFamily: family,
       }}
     >
-      <div style={{ display: "flex", position: "absolute", right: 0, top: 69 }}>
+      <div
+        style={{
+          display: "flex",
+          position: "absolute",
+          left: 36,
+          top: 36,
+          width: 1128,
+          height: 558,
+          border: `2px solid ${token("--color-rule")}`,
+          borderRadius: 24,
+        }}
+      />
+      <div
+        style={{ display: "flex", position: "absolute", right: 76, top: 112 }}
+      >
         <Illustration
           scene={profile?.scene ?? "home"}
-          width={620}
-          height={496}
+          typeId={profile?.id ?? "everyday-soulmate"}
+          width={480}
+          height={384}
         />
       </div>
       <div
@@ -57,40 +72,41 @@ export async function GET(
           color: accent,
         }}
       >
-        <span style={{ fontSize: 32, fontWeight: 700 }}>marry test.</span>
+        <span style={{ fontSize: 30, fontWeight: 700 }}>LOOK AT ME</span>
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          width: 520,
+          width: 510,
           flex: 1,
           justifyContent: "center",
-          gap: 24,
+          gap: 20,
         }}
       >
+        <div style={{ display: "flex", color: accent, fontSize: 22 }}>
+          {profile ? "나의 결혼 스타일" : "나의 결혼 스타일 테스트"}
+        </div>
         <div
           style={{
-            fontSize: profile ? 64 : 80,
-            lineHeight: 1.2,
+            fontSize: profile ? 54 : 58,
+            lineHeight: 1.3,
             fontWeight: 700,
             whiteSpace: "pre-wrap",
           }}
         >
-          {profile ? profile.name : "나와 잘 살\n사람은?"}
+          {profile ? profile.name : "어떤 사람과,\n어떤 매일을\n함께할까요?"}
         </div>
         <div
           style={{
-            fontSize: 28,
+            fontSize: 26,
             lineHeight: 1.5,
             whiteSpace: "pre-wrap",
             color: token("--color-ink-2"),
             maxWidth: 490,
           }}
         >
-          {profile
-            ? profile.tagline
-            : "12개의 질문으로 알아보는\n나의 결혼 스타일과 동반자"}
+          {profile ? profile.tagline : "약 3분 · 12개의 작은 질문"}
         </div>
       </div>
       <div
@@ -101,7 +117,11 @@ export async function GET(
           fontSize: 24,
         }}
       >
-        <span>{profile ? profile.englishName : "결혼 성향 테스트"}</span>
+        <span>
+          {profile
+            ? "어떤 사람과, 어떤 매일을 함께할까요?"
+            : "둘의 시작은, 나를 아는 것부터."}
+        </span>
       </div>
     </div>,
     {

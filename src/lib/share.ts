@@ -61,11 +61,11 @@ export async function downloadCard(
   const color = (name: string) => theme.getPropertyValue(name).trim();
   const font = theme.getPropertyValue("--font-body").trim();
   await Promise.all([
-    document.fonts.load(`700 57px ${font}`, profile.name),
-    document.fonts.load(`700 36px ${font}`, "marry test"),
+    document.fonts.load(`720 60px ${font}`, profile.name),
+    document.fonts.load(`800 34px ${font}`, "LOOK AT ME"),
     document.fonts.load(
-      `30px ${font}`,
-      `${profile.englishName}${profile.tagline}${profile.tags.join("")}나와 잘 살 사람을 알아가는 작은 여행당신은 어떤 매일을 꿈꾸나요?`,
+      `450 30px ${font}`,
+      `${profile.tagline}${profile.tags.join("")}나의 결혼 스타일둘의 시작은, 나를 아는 것부터.`,
     ),
   ]);
   await document.fonts.ready;
@@ -79,19 +79,15 @@ export async function downloadCard(
   ctx.strokeStyle = color("--color-rule");
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.roundRect(40, 40, 1000, 1270, 32);
+  ctx.roundRect(40, 40, 1000, 1270, 24);
   ctx.stroke();
   ctx.textAlign = "center";
   ctx.fillStyle = color("--color-accent");
-  ctx.font = `700 36px ${font}`;
-  ctx.fillText("marry test", 540, 115);
-  ctx.font = `24px ${font}`;
+  ctx.font = `800 34px ${font}`;
+  ctx.fillText("LOOK AT ME", 540, 116);
+  ctx.font = `450 26px ${font}`;
   ctx.fillStyle = color("--color-muted");
-  ctx.fillText("나와 잘 살 사람을 알아가는 작은 여행", 540, 165);
-  ctx.fillStyle = color("--color-art-paper");
-  ctx.beginPath();
-  ctx.roundRect(120, 210, 840, 565, 32);
-  ctx.fill();
+  ctx.fillText("나의 결혼 스타일", 540, 166);
   if (illustration) {
     const source = new XMLSerializer().serializeToString(illustration);
     const blob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
@@ -101,26 +97,28 @@ export async function downloadCard(
       img.src = url;
       await img.decode();
       // Preserve the illustration's 600:480 aspect ratio in the export.
-      ctx.drawImage(img, 120, 179, 840, 672);
+      ctx.drawImage(img, 120, 212, 840, 672);
     } finally {
       URL.revokeObjectURL(url);
     }
   }
-  ctx.fillStyle = color("--color-muted");
-  ctx.font = `24px ${font}`;
-  ctx.fillText(profile.englishName, 540, 835);
   ctx.fillStyle = color("--color-ink");
-  ctx.font = `700 57px ${font}`;
-  const end = wrapText(ctx, profile.name, 540, 925, 880, 82);
-  ctx.font = `30px ${font}`;
+  ctx.font = `720 60px ${font}`;
+  const end = wrapText(ctx, profile.name, 540, 956, 880, 78);
+  ctx.font = `450 30px ${font}`;
   ctx.fillStyle = color("--color-ink-2");
-  wrapText(ctx, profile.tagline, 540, end + 26, 820, 48);
+  wrapText(ctx, profile.tagline, 540, end + 8, 840, 46);
   ctx.fillStyle = color("--color-accent");
-  ctx.font = `25px ${font}`;
-  ctx.fillText(profile.tags.map((t) => `#${t}`).join("   "), 540, 1175);
-  ctx.font = `22px ${font}`;
+  ctx.font = `550 25px ${font}`;
+  ctx.fillText(profile.tags.join("  ·  "), 540, 1190);
+  ctx.strokeStyle = color("--color-rule");
+  ctx.beginPath();
+  ctx.moveTo(112, 1230);
+  ctx.lineTo(968, 1230);
+  ctx.stroke();
+  ctx.font = `450 24px ${font}`;
   ctx.fillStyle = color("--color-muted");
-  ctx.fillText("당신은 어떤 매일을 꿈꾸나요?", 540, 1260);
+  ctx.fillText("둘의 시작은, 나를 아는 것부터.", 540, 1276);
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob(
       (value) =>

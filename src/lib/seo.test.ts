@@ -22,7 +22,7 @@ describe("search publication policy", () => {
         path: "/",
       });
       expect(metadata.openGraph).toMatchObject({
-        images: [{ url: "https://test.lookatme.my/og/home?v=20261026-light" }],
+        images: [{ url: "https://test.lookatme.my/og/home?v=20261026-open-design" }],
       });
     },
   );
@@ -37,7 +37,7 @@ describe("search publication policy", () => {
       path: "/",
     });
     expect(metadata.openGraph).toMatchObject({
-      images: [{ url: "https://test.lookatme.my/og/home?v=20261026-light" }],
+      images: [{ url: "https://test.lookatme.my/og/home?v=20261026-open-design" }],
     });
   });
   it("keeps an unconfigured site out of the index and emits no invented canonical", () => {
@@ -104,7 +104,7 @@ describe("search publication policy", () => {
     expect(metadata.openGraph).toMatchObject({
       images: [
         {
-          url: "https://marry.example/og/quiet-garden?v=20261026-light",
+          url: "https://marry.example/og/quiet-garden?v=20261026-open-design",
           width: 1200,
           height: 630,
           type: "image/png",

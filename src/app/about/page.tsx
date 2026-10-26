@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { PROFILES } from "../../lib/quiz";
+import { ArrowRight } from "lucide-react";
+import { BrandMark, Faq, StyleTiles } from "../../components/DesignParts";
+import { Illustration } from "../../components/Illustration";
 import { TEST_FAQ } from "../../lib/test-guide";
 import { StructuredData } from "../../components/StructuredData";
 import { pageMetadata } from "../../lib/seo";
@@ -28,28 +30,40 @@ export default function AboutPage() {
       <a className="skip-link" href="#main-content">
         본문으로 이동
       </a>
-      <header className="header page-width">
-        <Link className="brand" href="/" aria-label="marry test 홈으로">
-          marry test.
-        </Link>
-        <nav aria-label="주요 메뉴">
-          <Link href="/test">테스트 시작하기</Link>
-        </nav>
+      <header className="site-header">
+        <div className="page-width header-inner">
+          <Link className="brand" href="/">
+            <BrandMark />
+            <span className="sr-only">홈으로</span>
+          </Link>
+          <nav aria-label="주요 메뉴">
+            <Link href="/#types">결혼 스타일</Link>
+            <Link className="text-link" href="/test">
+              테스트 시작하기
+              <ArrowRight size={16} />
+            </Link>
+          </nav>
+        </div>
       </header>
-
-      <main id="main-content" className="guide-page page-width" tabIndex={-1}>
-        <section className="guide-intro" aria-labelledby="guide-title">
-          <h1 id="guide-title">결혼 성향 테스트, 무엇을 알아볼 수 있나요?</h1>
+      <main id="main-content" className="about-page page-width" tabIndex={-1}>
+        <div className="about-heading">
+          <p className="eyebrow">테스트 이야기</p>
+          <h1>
+            둘의 시작은,
+            <br />
+            <em>나를 아는 것부터.</em>
+          </h1>
           <p>
-            12개의 질문으로 나의 결혼 스타일과 바라는 동반자를 살펴보고, 함께
-            나눌 대화 질문을 만나요.
+            12개의 질문으로 나의 결혼 스타일과 바라는 동반자를 살펴보고,
+            <br />
+            함께 나눌 대화 질문을 만나요.
           </p>
           <Link className="button primary" href="/test">
             나의 결혼 스타일 알아보기
+            <ArrowRight size={20} />
           </Link>
-        </section>
-
-        <section className="guide-section" aria-labelledby="guide-questions">
+        </div>
+        <section className="about-content" aria-labelledby="guide-questions">
           <h2 id="guide-questions">나의 일상에서, 내가 바라는 관계까지</h2>
           <p>
             앞의 6문항은 나의 생활과 마음을, 뒤의 6문항은 내가 바라는 상대를
@@ -61,43 +75,35 @@ export default function AboutPage() {
             질문을 확인할 수 있어요. 나의 모습과 원하는 상대를 따로 살펴보며
             이야기를 시작해 보세요.
           </p>
-        </section>
-
-        <section className="guide-section" aria-labelledby="guide-types-title">
-          <h2 id="guide-types-title">8가지 결혼 스타일을 만나보세요</h2>
-          <p>각 유형의 이름을 누르면 소개와 대화 질문을 미리 볼 수 있어요.</p>
-          <ul className="guide-types">
-            {PROFILES.map((profile) => (
-              <li key={profile.id}>
-                <Link href={`/type/${profile.id}`}>
-                  <h3>{profile.name}</h3>
-                  <p>{profile.tagline}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="guide-section" aria-labelledby="guide-faq-title">
-          <h2 id="guide-faq-title">테스트 전, 궁금한 것들</h2>
-          <div className="guide-faq">
-            {TEST_FAQ.map(({ question, answer }) => (
-              <article key={question}>
-                <h3>{question}</h3>
-                <p>{answer}</p>
-              </article>
-            ))}
+          <div className="about-illustration">
+            <Illustration typeId="quiet-garden" />
           </div>
+          <h2>테스트 전, 궁금한 것들</h2>
+          <Faq full />
         </section>
-
-        <section className="guide-section" aria-labelledby="guide-start-title">
-          <h2 id="guide-start-title">나는 어떤 매일을 함께하고 싶을까요?</h2>
-          <p>멋져 보이는 답보다, 평소 내 모습에 가까운 답을 골라주세요.</p>
-          <Link className="button primary" href="/test">
-            테스트 시작하기
-          </Link>
+        <section className="about-types" aria-labelledby="guide-types-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">어떤 모습이든, 저마다의 다정함</p>
+              <h2 id="guide-types-title">8가지 결혼 스타일을 만나보세요</h2>
+            </div>
+          </div>
+          <StyleTiles />
         </section>
       </main>
+      <footer className="site-footer page-width">
+        <div>
+          <Link className="footer-brand" href="/">
+            LOOK AT ME
+          </Link>
+          <p>둘의 시작은, 나를 아는 것부터.</p>
+        </div>
+        <div className="footer-links">
+          <Link href="/test">테스트 하기</Link>
+          <Link href="/">홈으로 돌아가기</Link>
+          <span>© LOOK AT ME</span>
+        </div>
+      </footer>
     </>
   );
 }

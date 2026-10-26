@@ -1,54 +1,53 @@
-# Design: marry-test
+# Design: LOOK AT ME · marry-test
 
-The shared system for the home, questionnaire, result, shared type, and public test guide pages.
+2026-10-26 Open Design Local Codex 시안을 기존 Next.js 앱에 적용한 디자인 규칙입니다. 참고 저장소 lookatme-web은 읽기 전용으로 사용했습니다.
 
-## System
-- Genre: playful, bright and friendly.
-- Shape: a large opening scene, the collection of marriage styles, relationship notes, a closing invitation.
-- Theme: existing brand, recomposed. Keep the wine accent, ink, logo and original illustrations.
-- User request: Pretendard throughout, like the admin site. No serif display or decorative English labels.
-- Surface: light cream, soft blush for scenes, sage for quiet secondary regions.
-- The test is a conversation starter. Never imply a clinical diagnosis or measured compatibility.
+## 시각 방향
 
-## Tokens
-`src/tokens.css` is the source of truth.
+- 밝고 친근한 종이색 화면, 로즈 행동 버튼, 연한 분홍·세이지·하늘색 일러스트.
+- 제목과 본문 모두 자체 제공 Pretendard Variable. 장식용 영문 제목은 사용하지 않습니다.
+- 홈은 8개 유형을 소개하는 풍부한 단일 페이지. 질문·개인 결과·공개 유형·안내는 기존 경로를 유지합니다.
+- 점수와 결과는 관계 취향을 살펴보는 대화의 시작이며 임상 진단이나 궁합 예측으로 표현하지 않습니다.
 
-```css
-:root {
-  --color-paper: #fdfbf7;
-  --color-paper-2: #f6eae5;
-  --color-ink: #343b32;
-  --color-muted: #5e6359;
-  --color-accent: #753d45;
-  --color-accent-ink: #fdfbf7;
-  --color-sage: #eef2e8;
-  --font-display: "Pretendard Variable", sans-serif;
-  --font-body: "Pretendard Variable", sans-serif;
-  --radius-card: 24px;
-  --radius-input: 12px;
-}
-```
+## 토큰
 
-## Layout and controls
-- One centered content container, capped at 1280px.
-- Home: large sans headings, open surfaces, horizontal illustrated type entries.
-- Questionnaire: one question, native radio options, clear selected state and progress.
-- Result: a shareable illustrated identity beside the explanation, then conversation prompts.
-- Primary: wine fill and paper text, 52px minimum height, 12px radius.
-- Secondary: neutral border or text; every target at least 44px high.
-- Focus appears instantly; disabled controls change fill, ink and cursor.
-- Labels use sentence case, body face and normal tracking.
+`src/tokens.css`를 화면·PNG·OG의 공통 기준으로 사용합니다.
 
-## Motion
-- Calm, only press and state feedback. No scroll reveals or decorative animation.
-- Reduced motion disables transitions. Content is visible without animation.
+| 용도                        | 값                             |
+| --------------------------- | ------------------------------ |
+| 기본 면                     | #fffdfa                        |
+| 카드                        | #ffffff                        |
+| 분홍 면                     | #fff4f5                        |
+| 로즈 포인트 / hover         | #b52f4b / #96243d              |
+| 본문 / 보조 텍스트          | #251714 / #6f625d              |
+| 간격                        | 4, 8, 12, 16, 24, 32, 48, 64px |
+| 본문 폭 / 읽기 폭           | 1168px / 704px                 |
+| 컨트롤 / 최소 터치 높이     | 48px / 44px                    |
+| 컨트롤 / 카드 / 패널 모서리 | 8px / 12px / 16px              |
 
-## Preservation
-- Keep every route, link, event handler, test hook and original question and result fact.
-- Keep all privacy and diagnostic disclaimers verbatim.
-- Original illustration assets are retained under the redesign content rule.
-- Test scoring, storage contracts and API behavior are outside the design system.
+## 화면 구성
 
-## Exports
-`src/tokens.css`, `src/base.css`, `src/styles.css`.
-The browser uses the locally served Pretendard variable subsets. Social previews use bundled Pretendard OTF subsets; their colors are read from the same tokens.
+- 홈: 질문형 제목과 예고 카드, 문항 소개, 8개 유형 격자, 세 성향 축, 대화 예시, FAQ, 시작 행동.
+- 질문: 최대 800px 폭, 12칸 진행률, 자기·상대 단계 표시, 네 개의 라디오 선택지, 이전·다음 행동. 질문 변경 시 제목으로 포커스를 옮깁니다.
+- 결과: 유형명과 설명을 우선하고 공유 카드·유형 해설·성향·동반자·대화·저장 상태를 구분합니다.
+- 공개 유형: 개인 점수·답변·상대 선호 없이 일반 유형 내용과 시작 CTA만 제공합니다. 기존 일반 대화 질문과 공유 기능은 유지합니다.
+- 모달: native dialog, Escape와 포커스 복귀. 안내·유형 미리보기·재시작·수동 링크 복사를 같은 규칙으로 표현합니다.
+
+## 일러스트와 공유
+
+`src/components/Illustration.tsx`에 유형 ID별 원본 벡터 경로를 둡니다. 명시적 SVG 색상이 브라우저·Canvas·서버 OG에서 동일하게 렌더됩니다.
+
+- 저장 카드: 1080×1350 PNG, Pretendard, 유형만 포함.
+- OG: 1200×630 PNG, 홈과 유형 8개. 기존 `/og/[id]` 경로 유지.
+- 이미지 버전 문자열만 갱신해 기존 카카오 미리보기 캐시와 구분합니다.
+- 카카오 SDK 로딩·클릭·재시도와 `결과 보기`, `테스트 하기` 목적지는 기존 계약을 유지합니다.
+
+## 동작과 접근성
+
+hover·선택·모달 진입에만 짧은 전환을 사용합니다. reduced-motion에서는 전환과 부드러운 스크롤을 끕니다. 콘텐츠는 애니메이션 없이도 보이며 키보드 포커스를 명확하게 표시합니다. 화면은 320/390/412/768/1440px 기준으로 검증합니다.
+
+## 구현 경계
+
+문항·선택지·유형 ID·채점·세션·API 저장/재시도·메타데이터 정책은 바꾸지 않습니다. 생성 시안의 임시 세션/저장/공유 구현은 가져오지 않습니다. 홈에는 삭제 요청한 익명 저장 안내 문구를 다시 넣지 않습니다.
+
+스타일 진입점은 `src/styles.css`와 `src/tokens.css`입니다. 검증 범위와 생성 시안 링크는 `qa/OPEN-DESIGN-REDESIGN.md`에 기록합니다.
