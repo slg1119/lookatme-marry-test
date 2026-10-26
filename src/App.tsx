@@ -128,9 +128,6 @@ function Landing({
             </span>
             <span>가입 없이, 가볍게</span>
           </div>
-          <p className="storage-notice">
-            테스트를 완료하면 답변과 결과가 룩앳미 서버에 익명으로 저장돼요.
-          </p>
           {saved && saved.answers.length > 0 && (
             <button className="resume-link" onClick={onResume}>
               {saved.complete
