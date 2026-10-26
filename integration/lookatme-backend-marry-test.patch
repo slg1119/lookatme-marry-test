@@ -1,16 +1,19 @@
-From 0835a0bf0f773291eea539b0d62756b73d70f65e Mon Sep 17 00:00:00 2001
+From 7ebe7e850b5f139c5f0a8ea4dc4fd44460fa330c Mon Sep 17 00:00:00 2001
 From: RokHyung Son <fhrgud1264@gmail.com>
-Date: Mon, 26 Oct 2026 12:00:18 +0900
+Date: Mon, 26 Oct 2026 18:07:01 +0900
 Subject: [PATCH] =?UTF-8?q?feat:=20=EA=B2=B0=ED=98=BC=20=EC=84=B1=ED=96=A5?=
  =?UTF-8?q?=20=ED=85=8C=EC=8A=A4=ED=8A=B8=20=EA=B2=B0=EA=B3=BC=20=EC=A0=80?=
- =?UTF-8?q?=EC=9E=A5=20API=20=EC=B6=94=EA=B0=80?=
+ =?UTF-8?q?=EC=9E=A5=20API=20=EB=B0=B0=ED=8F=AC?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
+최신 운영 코드의 재고 기능을 유지하고 결과 저장 API를 추가한다. 기존 마이그레이션 번호 충돌을 피해 Migration20261026170000을 사용한다.
+
+검증: Node 22 빌드, 관련 단위 테스트 44개, PostgreSQL 통합 테스트 15개 통과.
 ---
  .gitignore                                    |   1 +
- migrations/Migration20261026120000.ts         |  27 ++++
+ migrations/Migration20261026170000.ts         |  27 ++++
  mikro-orm.config.spec.ts                      |   1 +
  mikro-orm.config.ts                           |   2 +
  scripts/marry-test-local.ts                   |  44 ++++++
@@ -26,7 +29,7 @@ Content-Transfer-Encoding: 8bit
  src/marry-test/marry-test.service.ts          |  56 ++++++++
  src/marry-test/quiz-contract.ts               |  88 ++++++++++++
  16 files changed, 619 insertions(+)
- create mode 100644 migrations/Migration20261026120000.ts
+ create mode 100644 migrations/Migration20261026170000.ts
  create mode 100644 scripts/marry-test-local.ts
  create mode 100644 src/marry-test/README.md
  create mode 100644 src/marry-test/entities/marry-test-result.entity.ts
@@ -40,26 +43,26 @@ Content-Transfer-Encoding: 8bit
  create mode 100644 src/marry-test/quiz-contract.ts
 
 diff --git a/.gitignore b/.gitignore
-index 8561d77..547d855 100644
+index b7d34ee..03c159d 100644
 --- a/.gitignore
 +++ b/.gitignore
 @@ -9,6 +9,7 @@ npm-debug.log*
  .cate/
  .omo/
  migrations/*
-+!migrations/Migration20261026120000.ts
++!migrations/Migration20261026170000.ts
  !migrations/Migration20260705000100.ts
  !migrations/Migration20260708000100.ts
  !migrations/Migration20260819000100.ts
-diff --git a/migrations/Migration20261026120000.ts b/migrations/Migration20261026120000.ts
+diff --git a/migrations/Migration20261026170000.ts b/migrations/Migration20261026170000.ts
 new file mode 100644
-index 0000000..d13f72a
+index 0000000..3d0d8d3
 --- /dev/null
-+++ b/migrations/Migration20261026120000.ts
++++ b/migrations/Migration20261026170000.ts
 @@ -0,0 +1,27 @@
 +import { Migration } from "@mikro-orm/migrations";
 +
-+export class Migration20261026120000 extends Migration {
++export class Migration20261026170000 extends Migration {
 +  async up(): Promise<void> {
 +    this.addSql(`create table "marry_test_results" (
 +      "id" uuid not null default gen_random_uuid(),
@@ -85,37 +88,38 @@ index 0000000..d13f72a
 +  }
 +}
 diff --git a/mikro-orm.config.spec.ts b/mikro-orm.config.spec.ts
-index d08a602..511b5dc 100644
+index 738039e..dbab2e4 100644
 --- a/mikro-orm.config.spec.ts
 +++ b/mikro-orm.config.spec.ts
-@@ -133,6 +133,7 @@ describe("mikro-orm database config", () => {
- 
+@@ -134,6 +134,7 @@ describe("mikro-orm database config", () => {
    it("Given Vercel bundles only imported modules When configuring MikroORM Then entities are explicit class references", () => {
      expect(ormEntities.map((entity) => entity.name)).toEqual([
+       "InventoryItem", "InventoryRecord", "InventoryEvent", "InventoryPhoto", "InventoryAnalysis",
 +      "MarryTestResult",
        "AiQuestion",
        "AiAssistantSettings",
        "AiAssistantLock",
 diff --git a/mikro-orm.config.ts b/mikro-orm.config.ts
-index b325e4c..c6ecc74 100644
+index dfa5421..3fce5fe 100644
 --- a/mikro-orm.config.ts
 +++ b/mikro-orm.config.ts
-@@ -1,3 +1,4 @@
+@@ -1,4 +1,5 @@
+ import { InventoryItem, InventoryRecord, InventoryEvent, InventoryPhoto, InventoryAnalysis } from './src/inventory/inventory.entity';
 +import { MarryTestResult } from "./src/marry-test/entities/marry-test-result.entity";
  import { RoyalAiReview } from "./src/royal-ai-reviews/entities/royal-ai-review.entity";
  import { RoyalAiSettings } from "./src/royal-ai-reviews/entities/royal-ai-settings.entity";
  import { AiAssistantSettings, AiAssistantLock } from "./src/ai-questions/entities/ai-assistant-policy.entity";
-@@ -156,6 +157,7 @@ export function buildDatabaseDriverOptions(clientUrl: string) {
- const clientUrl = buildDatabaseClientUrl(process.env);
+@@ -158,6 +159,7 @@ const clientUrl = buildDatabaseClientUrl(process.env);
  
  export const ormEntities = [
+   InventoryItem, InventoryRecord, InventoryEvent, InventoryPhoto, InventoryAnalysis,
 +  MarryTestResult,
    AiQuestion, AiAssistantSettings, AiAssistantLock,
    RotationAvoidPair,
    DemandForecastRun, DemandForecastDraftEntity, DemandForecastSpecialProposalEntity,
 diff --git a/scripts/marry-test-local.ts b/scripts/marry-test-local.ts
 new file mode 100644
-index 0000000..3f526bc
+index 0000000..346d7b7
 --- /dev/null
 +++ b/scripts/marry-test-local.ts
 @@ -0,0 +1,44 @@
@@ -126,7 +130,7 @@ index 0000000..3f526bc
 +import { MikroOrmModule } from "@mikro-orm/nestjs";
 +import { MikroORM, PostgreSqlDriver } from "@mikro-orm/postgresql";
 +import { Migrator } from "@mikro-orm/migrations";
-+import { Migration20261026120000 } from "../migrations/Migration20261026120000";
++import { Migration20261026170000 } from "../migrations/Migration20261026170000";
 +import { MarryTestModule } from "../src/marry-test/marry-test.module";
 +import { MarryTestResult } from "../src/marry-test/entities/marry-test-result.entity";
 +
@@ -147,7 +151,7 @@ index 0000000..3f526bc
 +      entities: [MarryTestResult],
 +      extensions: [Migrator],
 +      debug: false,
-+      migrations: { migrationsList: [Migration20261026120000] },
++      migrations: { migrationsList: [Migration20261026170000] },
 +    }),
 +    MarryTestModule,
 +  ],
@@ -164,25 +168,26 @@ index 0000000..3f526bc
 +}
 +void start();
 diff --git a/src/app.module.ts b/src/app.module.ts
-index 6f29f4c..0c1e0c2 100644
+index f3b9707..eaed5cd 100644
 --- a/src/app.module.ts
 +++ b/src/app.module.ts
-@@ -1,3 +1,4 @@
+@@ -1,4 +1,5 @@
+ import { InventoryModule } from './inventory/inventory.module';
 +import { MarryTestModule } from "./marry-test/marry-test.module";
  import { RoyalAiReviewsModule } from "./royal-ai-reviews/royal-ai-reviews.module";
  import { AssistantModule } from "./assistant/assistant.module";
  import { AiQuestionsModule } from "./ai-questions/ai-questions.module";
-@@ -38,6 +39,7 @@ import { ManualDepositAccountModule } from "./manual-deposit-account/manual-depo
- 
+@@ -40,6 +41,7 @@ import { ManualDepositAccountModule } from "./manual-deposit-account/manual-depo
  @Module({
    imports: [
+     InventoryModule,
 +    MarryTestModule,
      AssistantModule,
      AiQuestionsModule,
      WeeklyReportsModule,
 diff --git a/src/marry-test/README.md b/src/marry-test/README.md
 new file mode 100644
-index 0000000..9fedb5a
+index 0000000..0bdbf1b
 --- /dev/null
 +++ b/src/marry-test/README.md
 @@ -0,0 +1,49 @@
@@ -209,7 +214,7 @@ index 0000000..9fedb5a
 +
 +`marry_test_results`: 제출 번호, 문항 버전, 답변 배열, 서버 계산 유형과 자기/상대의 세 축 점수, 생성·수정 시각. 회원 연결 및 관리자 조회 UI는 별도 범위다.
 +
-+`Migration20261026120000`이 테이블·고유 제약·생성일 인덱스를 만든다. 서비스 앱과 ORM 설정에 모듈/엔티티가 등록돼 있다. 운영 적용에는 API 배포와 마이그레이션이 필요하다. marry-test의 Next.js 서버가 이 API를 호출하므로 브라우저의 교차 출처 요청은 발생하지 않는다.
++`Migration20261026170000`이 테이블·고유 제약·생성일 인덱스를 만든다. 서비스 앱과 ORM 설정에 모듈/엔티티가 등록돼 있다. 운영 적용에는 API 배포와 마이그레이션이 필요하다. marry-test의 Next.js 서버가 이 API를 호출하므로 브라우저의 교차 출처 요청은 발생하지 않는다.
 +
 +`quiz-contract.ts`는 marry-test 프런트와 동일한 불변 계약이다. 기존 버전의 질문 순서·점수·유형 순서를 수정하지 말고 변경 시 새 버전을 추가한다. 프런트는 표시 문항과 계약의 일치를 테스트하고 API 응답의 점수까지 검증한다.
 +
@@ -369,7 +374,7 @@ index 0000000..480705f
 +}
 diff --git a/src/marry-test/marry-test.integration.spec.ts b/src/marry-test/marry-test.integration.spec.ts
 new file mode 100644
-index 0000000..c95592f
+index 0000000..288003a
 --- /dev/null
 +++ b/src/marry-test/marry-test.integration.spec.ts
 @@ -0,0 +1,129 @@
@@ -379,7 +384,7 @@ index 0000000..c95592f
 +import { MikroOrmModule } from "@mikro-orm/nestjs";
 +import { MikroORM, PostgreSqlDriver } from "@mikro-orm/postgresql";
 +import { Migrator } from "@mikro-orm/migrations";
-+import { Migration20261026120000 } from "../../migrations/Migration20261026120000";
++import { Migration20261026170000 } from "../../migrations/Migration20261026170000";
 +import { MarryTestModule } from "./marry-test.module";
 +import { MarryTestResult } from "./entities/marry-test-result.entity";
 +
@@ -420,7 +425,7 @@ index 0000000..c95592f
 +          entities: [MarryTestResult],
 +          extensions: [Migrator],
 +          debug: false,
-+          migrations: { migrationsList: [Migration20261026120000] },
++          migrations: { migrationsList: [Migration20261026170000] },
 +        }),
 +        MarryTestModule,
 +      ],

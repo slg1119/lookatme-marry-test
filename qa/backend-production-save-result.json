@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-26T09:10:50.078Z",
+  "origin": "https://test.lookatme.my",
+  "backend": "https://api.lookatme.my",
+  "status": 201,
+  "receipt": {
+    "id": "c53d3d4e-b45f-40c9-a3e5-339198e0e31b",
+    "submissionId": "a89d6a70-988c-4e5b-a6c3-5bb79505f902",
+    "quizVersion": "marry-v1",
+    "result": {
+      "profileId": "everyday-soulmate",
+      "self": {
+        "care": -100,
+        "pace": -100,
+        "closeness": -100
+      },
+      "partner": {
+        "care": 100,
+        "pace": 100,
+        "closeness": 100
+      }
+    },
+    "createdAt": "2026-10-26T09:10:46.419Z"
+  },
+  "reloadSameReceipt": true,
+  "retrySameReceipt": true,
+  "conflictingAnswersStatus": 409,
+  "sharedPageSubmissions": 0,
+  "pageErrors": [],
+  "syntheticSubmissionCount": 2
+}
