@@ -116,3 +116,12 @@ npx ts-node scripts/marry-test-local.ts
 - 공유 이미지에는 제작한 두 의자 일러스트와 Pretendard 문구가 들어갑니다. `og:image`와 Twitter 이미지에는 공개 HTTPS 절대 주소를 사용하며 localhost로 대체하지 않습니다. 제작·복구 기록: [qa/SOCIAL-PREVIEW.md](qa/SOCIAL-PREVIEW.md).
 
 진단·측정 계획: [qa/SEO.md](qa/SEO.md). 리디자인 기록: [qa/REDESIGN.md](qa/REDESIGN.md).
+
+## 카카오톡 공유
+
+결과와 공개 유형 화면에서 카카오톡 피드로 유형명·설명·공유 이미지를 보낼 수 있습니다. 메시지에는 `결과 보기`와 `나도 테스트하기` 버튼이 들어가며, 답변·점수·원하는 상대의 개인 결과는 포함하지 않습니다.
+
+- `NEXT_PUBLIC_KAKAO_JS_KEY`에 카카오 **JavaScript 키**를 설정한 뒤 빌드합니다. 키가 없으면 타로 서비스와 동일하게 카카오 전용 버튼을 표시하지 않고 기존 결과 공유·카드 저장을 유지합니다.
+- 카카오디벨로퍼스에서 JavaScript SDK 도메인과 제품 링크 웹 도메인에 `https://test.lookatme.my`를 등록해야 합니다. OAuth 로그인 redirect URI와는 별도 설정입니다.
+- 결과 화면에서만 공식 SDK를 불러오고, 10초 타임아웃·다시 연결을 제공합니다. SDK 준비 후 사용자 클릭에서 바로 호출하므로 팝업을 열기 전 비동기 저장 요청을 기다리지 않습니다.
+- 타로 구현을 참고한 범위와 브라우저 검증은 [qa/KAKAO-SHARE.md](qa/KAKAO-SHARE.md)에 기록합니다.

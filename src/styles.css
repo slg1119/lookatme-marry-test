@@ -865,6 +865,27 @@ svg {
   white-space: nowrap;
   padding-inline: var(--space-sm);
 }
+.share-actions .kakao-share {
+  grid-column: 1 / -1;
+  background: var(--color-kakao);
+  color: var(--color-kakao-ink);
+}
+.share-actions .kakao-share:disabled {
+  background: var(--color-disabled);
+  color: var(--color-disabled-ink);
+}
+@media (hover: hover) {
+  .share-actions .kakao-share:not(:disabled):hover {
+    background: var(--color-kakao-hover);
+  }
+}
+.kakao-share-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
 .share-note {
   margin-top: var(--space-sm);
   font-size: var(--text-xs);

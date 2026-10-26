@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Illustration } from "./components/Illustration";
 import { Modal } from "./components/Modal";
+import { KakaoShareButton } from "./components/KakaoShareButton";
 import { calculateResult, getProfile, PROFILES, QUESTIONS } from "./lib/quiz";
 import type { Axis, Profile } from "./lib/quiz";
 import { clearSession, readSession, saveSession } from "./lib/session";
@@ -407,6 +408,7 @@ function Result({
   cardRef,
   syncStatus,
   onRetrySync,
+  onNotice,
 }: {
   profile: Profile;
   result: ReturnType<typeof calculateResult> | null;
@@ -417,6 +419,7 @@ function Result({
   cardRef: React.RefObject<HTMLDivElement | null>;
   syncStatus: SyncStatus;
   onRetrySync: () => void;
+  onNotice: (message: string) => void;
 }) {
   return (
     <main className="result-page page-width">
@@ -494,6 +497,7 @@ function Result({
             </div>
           </div>
           <div className="share-actions">
+            <KakaoShareButton profile={profile} onNotice={onNotice} />
             <button className="button outline" onClick={onSave}>
               <Download size={17} /> 카드 저장
             </button>
@@ -818,6 +822,7 @@ export default function App({
             onStart={start}
             onShare={share}
             onSave={save}
+            onNotice={setToast}
             cardRef={cardRef}
             syncStatus={sync.status}
             onRetrySync={() => {

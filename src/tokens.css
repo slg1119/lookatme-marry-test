@@ -60,6 +60,9 @@
   --color-disabled: #e7e7df;
   --color-disabled-ink: #5d6258;
   --color-overlay: #343b3266;
+  --color-kakao: #fee500;
+  --color-kakao-hover: #f1da00;
+  --color-kakao-ink: #191600;
   --font-display: "Pretendard Variable", sans-serif;
   --font-body: "Pretendard Variable", sans-serif;
   --font-outlier: var(--font-body);

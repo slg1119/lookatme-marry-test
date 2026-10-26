@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { PROFILES } from "./quiz";
+import { PRODUCTION_SITE_URL, socialImageUrl } from "./public-site";
+export { PRODUCTION_SITE_URL } from "./public-site";
 
 export const SITE_NAME = "marry test";
-export const PRODUCTION_SITE_URL = "https://test.lookatme.my";
 export const HOME_TITLE = "결혼 성향 테스트, 나와 잘 살 사람은?";
 export const HOME_DESCRIPTION =
   "12개의 일상 질문으로 나의 결혼 스타일과 내가 바라는 동반자를 알아보세요. 약 3분, 가입 없이 참여하고 8가지 결혼 스타일, 관계 취향, 첫 만남에서 나눌 대화 질문을 만나보세요.";
@@ -56,10 +57,7 @@ export function pageMetadata({
 }): Metadata {
   const site = getSiteUrl();
   const index = isPublicSite(site) && !privatePage;
-  const imageUrl = new URL(
-    `/og/${imageId}?v=20261026`,
-    site ?? PRODUCTION_SITE_URL,
-  ).href;
+  const imageUrl = socialImageUrl(imageId, site ?? PRODUCTION_SITE_URL);
   const images = [
     {
       url: imageUrl,
