@@ -104,7 +104,7 @@ export function createKakaoSharePayload(profile: Profile): KakaoSharePayload {
     buttons: [
       { title: "결과 보기", link: { mobileWebUrl: url, webUrl: url } },
       {
-        title: "나도 테스트하기",
+        title: "테스트 하기",
         link: { mobileWebUrl: start, webUrl: start },
       },
     ],

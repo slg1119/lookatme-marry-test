@@ -46,7 +46,7 @@ test("Kakao shares only the public type, image and two destinations directly fro
   });
   expect(payload.buttons.map(({ title, link }) => [title, link.webUrl])).toEqual([
     ["결과 보기", "https://test.lookatme.my/type/everyday-soulmate"],
-    ["나도 테스트하기", "https://test.lookatme.my/test"],
+    ["테스트 하기", "https://test.lookatme.my/test"],
   ]);
   expect(JSON.stringify(payload)).not.toMatch(/private|answers|scores|submissionId|localhost/);
   expect(await page.evaluate(() => window.kakaoHadActivation)).toBe(true);

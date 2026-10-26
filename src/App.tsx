@@ -574,7 +574,7 @@ function Result({
                   나만의 동반자 이야기를 확인해보세요.
                 </p>
                 <button className="text-button" onClick={onStart}>
-                  나도 테스트하기 <ArrowRight size={15} />
+                  테스트 하기 <ArrowRight size={15} />
                 </button>
               </>
             )}
