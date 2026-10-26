@@ -1,0 +1,7 @@
+http://localhost:4173/test
+  WAIVED 80 :1 [1440px] drawn illustration: aside.quiz-scene (406x325, 65 shapes)
+http://localhost:4173/type/everyday-soulmate
+  WAIVED 80 :1 [1440px] drawn illustration: div.result-illustration (437x349, 65 shapes)
+src/styles.css
+  ANSWERED F7 :443 the pill radius on 5 non-control selectors (.type-arrow, .progress-track span, .answer-lett…)
+sloplint: 0 FAIL, 0 WARN, 2 WAIVED, 1 ANSWERED across 2 file(s) and 3 URL(s).

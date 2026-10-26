@@ -45,7 +45,6 @@ export function Modal({
       }}
     >
       <div className="modal-head">
-        <span className="eyebrow">MARRY TEST · A LITTLE NOTE</span>
         <button className="icon-button" onClick={onClose} aria-label="닫기">
           <X size={22} />
         </button>

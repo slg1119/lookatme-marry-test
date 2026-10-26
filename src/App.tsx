@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useQuizSession } from "./components/QuizSessionProvider";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -74,6 +75,7 @@ function Footer({ onAbout }: { onAbout: () => void }) {
         marry test<span>둘의 시작은, 나를 아는 것부터.</span>
       </span>
       <div>
+        <Link href="/about">테스트 자세히 알아보기</Link>
         <button onClick={onAbout}>테스트 안내</button>
         <span>© {new Date().getFullYear()} marry test</span>
       </div>
@@ -99,15 +101,12 @@ function Landing({
     <>
       <section className="hero page-width">
         <div className="hero-copy">
-          <div className="eyebrow hero-eyebrow">
-            <span className="little-star">✳</span> 나와 잘 살 사람을 알아가는
-            시간
-          </div>
           <h1>
             어떤 사람과,
             <br />
-            <span className="underlined">어떤 매일</span>을<br />
-            함께할까요<span className="serif-question">?</span>
+            어떤 매일을
+            <br />
+            함께할까요?
           </h1>
           <p className="hero-description">
             설레는 첫 만남, 그다음의 우리.
@@ -116,14 +115,14 @@ function Landing({
             <br className="mobile-break" /> 나의 결혼 스타일을 만나보세요.
           </p>
           <button className="button primary hero-button" onClick={onStart}>
-            나의 결혼상대 알아보기 <ArrowRight size={19} />
+            나의 결혼상대 알아보기
           </button>
           <div className="hero-meta">
             <span>
-              <Clock3 size={14} />약 3분
+              <Clock3 size={16} />약 3분
             </span>
             <span>
-              <BookOpen size={14} />
+              <BookOpen size={16} />
               12개의 질문
             </span>
             <span>가입 없이, 가볍게</span>
@@ -140,44 +139,61 @@ function Landing({
             </button>
           )}
         </div>
-        <div className="hero-art" aria-hidden="true">
-          <div className="art-small-note">a little glimpse of our future</div>
-          <div className="art-paper">
-            <div className="paper-label">THE EVERYDAY, TOGETHER</div>
-            <Illustration scene="home" className="hero-illustration" />
-            <div className="paper-caption">
-              <span>너와 나의 보통날</span>
-              <i>Our ordinary, lovely days.</i>
+        <figure className="hero-art">
+          <Illustration scene="home" className="hero-illustration" />
+          <figcaption className="paper-caption">
+            <strong>너와 나의 보통날</strong>
+            <p className="art-note">
+              거창하지 않아도 좋아. 같이 보내는 매일이라면.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section className="types-section" id="types">
+        <div className="page-width">
+          <div className="section-heading">
+            <div>
+              <h2>우리의 행복은, 어떤 모양일까요?</h2>
             </div>
+            <span className="section-note">8가지 결혼 스타일 미리보기</span>
           </div>
-          <div className="art-stamp">
-            <Heart size={23} strokeWidth={1.3} />
-            <span>
-              made
-              <br />
-              for two
-            </span>
+          <div className="type-grid">
+            {(showAll ? PROFILES : PROFILES.slice(0, 4)).map((profile, i) => (
+              <button
+                className="type-card"
+                key={profile.id}
+                onClick={() => onPreview(profile)}
+                style={{ "--card-color": profile.color } as React.CSSProperties}
+              >
+                <div className="type-art">
+                  <span className="type-index">0{i + 1}</span>
+                  <Illustration scene={profile.scene} compact />
+                  <span className="type-arrow">
+                    <ArrowUpRight size={18} />
+                  </span>
+                </div>
+                <div className="type-copy">
+                  <h3>{profile.name}</h3>
+                  <p>{profile.tagline}</p>
+                  <span className="type-english">{profile.englishName}</span>
+                </div>
+              </button>
+            ))}
           </div>
-          <div className="art-note">
-            <span className="note-pin" />
-            <span>
-              거창하지 않아도 좋아.
-              <br />
-              같이 보내는 매일이라면.
-            </span>
-            <Heart size={17} />
-          </div>
-          <span className="art-spark spark-one">✳</span>
-          <span className="art-spark spark-two">✧</span>
+          <button
+            className="text-button all-types"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? "접어두기" : "8가지 스타일 모두 보기"}{" "}
+            <ArrowDown
+              size={15}
+              style={{ transform: showAll ? "rotate(180deg)" : undefined }}
+            />
+          </button>
         </div>
       </section>
-      <div className="scroll-cue">
-        <span>A LITTLE CLOSER TO YOU</span>
-        <ArrowDown size={14} />
-      </div>
       <section className="about-section page-width" id="about">
         <div className="about-intro">
-          <span className="eyebrow">MORE THAN A TYPE</span>
           <h2>
             좋아하는 사람에서,
             <br />
@@ -189,7 +205,7 @@ function Landing({
             조금 더 가까운, 당신의 일상이에요.
           </p>
           <button className="text-button" onClick={onAbout}>
-            이 테스트가 궁금하다면 <ArrowUpRight size={15} />
+            이 테스트가 궁금하다면
           </button>
         </div>
         <div className="about-points">
@@ -228,61 +244,15 @@ function Landing({
           </article>
         </div>
       </section>
-      <section className="types-section" id="types">
-        <div className="page-width">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">EIGHT WAYS TO BE TOGETHER</span>
-              <h2>우리의 행복은, 어떤 모양일까요?</h2>
-            </div>
-            <span className="section-note">8가지 결혼 스타일 미리보기</span>
-          </div>
-          <div className="type-grid">
-            {(showAll ? PROFILES : PROFILES.slice(0, 4)).map((profile, i) => (
-              <button
-                className="type-card"
-                key={profile.id}
-                onClick={() => onPreview(profile)}
-                style={{ "--card-color": profile.color } as React.CSSProperties}
-              >
-                <div className="type-art">
-                  <span className="type-index">0{i + 1}</span>
-                  <Illustration scene={profile.scene} compact />
-                  <span className="type-arrow">
-                    <ArrowUpRight size={18} />
-                  </span>
-                </div>
-                <span className="type-english">{profile.englishName}</span>
-                <h3>{profile.name}</h3>
-                <p>{profile.tagline}</p>
-              </button>
-            ))}
-          </div>
-          <button
-            className="text-button all-types"
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? "접어두기" : "8가지 스타일 모두 보기"}{" "}
-            <ArrowDown
-              size={15}
-              style={{ transform: showAll ? "rotate(180deg)" : undefined }}
-            />
-          </button>
-        </div>
-      </section>
       <section className="bottom-cta page-width">
-        <span className="cta-doodle" aria-hidden="true">
-          ♡
-        </span>
         <div>
-          <span className="eyebrow">YOUR NEXT CHAPTER</span>
           <h2>
             우리의 이야기를 시작하기 전에,
             <br />내 마음부터 들여다볼까요?
           </h2>
         </div>
         <button className="button cream" onClick={onStart}>
-          3분이면 충분해요 <ArrowRight size={18} />
+          3분이면 충분해요
         </button>
       </section>
     </>
@@ -335,9 +305,6 @@ function Quiz({
       </div>
       <div className="quiz-layout">
         <aside className="quiz-scene">
-          <div className="chapter-label">
-            CHAPTER {question.perspective === "self" ? "01" : "02"}
-          </div>
           <h2>
             {question.perspective === "self" ? (
               <>
@@ -358,10 +325,6 @@ function Quiz({
               step % 3 === 0 ? "home" : step % 3 === 1 ? "table" : "garden"
             }
           />
-          <div className="scene-bottom">
-            <span>ONE QUESTION, ONE LITTLE DISCOVERY</span>
-            <Heart size={17} />
-          </div>
         </aside>
         <section className="question-panel" key={question.id}>
           <div className="question-label">
@@ -458,11 +421,6 @@ function Result({
   return (
     <main className="result-page page-width">
       <div className="result-heading">
-        <span className="eyebrow">
-          {shared
-            ? "A LITTLE NOTE FROM SOMEONE"
-            : "THIS COULD BE YOUR EVERYDAY"}
-        </span>
         <h1>
           {shared ? (
             "이런 매일을 꿈꾸는 사람이에요."
@@ -519,15 +477,11 @@ function Result({
             ref={cardRef}
             style={{ "--card-color": profile.color } as React.CSSProperties}
           >
-            <div className="result-card-top">
-              <span>MY MARRIAGE STORY</span>
-              <Heart size={16} />
-            </div>
             <div className="result-illustration">
               <Illustration scene={profile.scene} />
             </div>
-            <span className="type-english">{profile.englishName}</span>
             <h2>{profile.name}</h2>
+            <span className="type-english">{profile.englishName}</span>
             <p className="result-tagline">{profile.tagline}</p>
             <div className="tags">
               {profile.tags.map((tag) => (
@@ -551,13 +505,12 @@ function Result({
         </div>
         <div className="result-details">
           <section className="result-section">
-            <span className="eyebrow">01 · MY KIND OF LOVE</span>
             <h2>이런 관계에서 편안해져요</h2>
             <p>{profile.description}</p>
             <ul className="strengths">
               {profile.strengths.map((s) => (
                 <li key={s}>
-                  <span>✳</span>
+                  <Check size={16} aria-hidden="true" />
                   {s}
                 </li>
               ))}
@@ -565,7 +518,6 @@ function Result({
           </section>
           {result && (
             <section className="result-section">
-              <span className="eyebrow">02 · THE WAY WE LIVE</span>
               <h2>내 마음의 세 가지 방향</h2>
               <div className="axis-list">
                 {AXES.map((axis) => (
@@ -602,9 +554,6 @@ function Result({
             </section>
           )}
           <section className="result-section partner-section">
-            <span className="eyebrow">
-              {result ? "03" : "02"} · SOMEONE BESIDE YOU
-            </span>
             <h2>
               {result ? "곁에 이런 사람이 있다면" : "나에게 맞는 동반자는?"}
             </h2>
@@ -634,7 +583,6 @@ function Result({
       <section className="conversation-section">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">LET’S TALK ABOUT US</span>
             <h2>처음 만난 날, 이런 이야기는 어때요?</h2>
           </div>
           <BookOpen size={28} strokeWidth={1.2} />
@@ -644,18 +592,14 @@ function Result({
             .slice(0, 3)
             .map((question, i) => (
               <article key={question}>
-                <span>QUESTION 0{i + 1}</span>
+                <span>대화 0{i + 1}</span>
                 <p>“{question}”</p>
-                <span className="conversation-heart" aria-hidden="true">
-                  ♡
-                </span>
               </article>
             ))}
         </div>
       </section>
       <section className="meeting-banner">
         <div>
-          <span className="eyebrow">FROM A LITTLE TEST TO A REAL HELLO</span>
           <h2>
             이런 이야기를 나눌 사람,
             <br />
@@ -669,7 +613,7 @@ function Result({
           target="_blank"
           rel="noopener noreferrer"
         >
-          룩앳미에서 만남 찾아보기 <ArrowUpRight size={18} />
+          룩앳미에서 만남 찾아보기
           <span className="sr-only"> (새 창)</span>
         </a>
       </section>
@@ -849,10 +793,7 @@ export default function App({
         <nav aria-label="주요 메뉴">
           <button onClick={() => scrollSection("about")}>테스트 소개</button>
           <button onClick={() => scrollSection("types")}>결혼 스타일</button>
-          <span className="nav-note">
-            <span />
-            조금 더 나다운 사랑
-          </span>
+          <span className="nav-note">조금 더 나다운 사랑</span>
         </nav>
       </header>
       <div id="main-content" tabIndex={-1}>
@@ -934,7 +875,7 @@ export default function App({
         <Modal title={preview.name} onClose={() => setPreview(null)}>
           <div
             className="preview-illustration"
-            style={{ backgroundColor: preview.color }}
+            style={{ "--card-color": preview.color } as React.CSSProperties}
           >
             <Illustration scene={preview.scene} compact />
           </div>

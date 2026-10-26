@@ -1,0 +1,38 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Marriage stories",
+  "theme": "brand",
+  "axes": "light/sans/wine",
+  "hero": "Settled (/)",
+  "nav": "edge-aligned",
+  "footer": "colophon block",
+  "imagery": "existing original illustrations",
+  "photos": [],
+  "entry": "large Korean question beside two chairs",
+  "fingerprint": "Pretendard cream blush sage wine, horizontal type entries",
+  "sections": [
+   "hero",
+   "marriage styles",
+   "relationship notes",
+   "invitation",
+   "footer"
+  ],
+  "signature": "two chairs for an ordinary life",
+  "waived": [
+   "39b",
+   "80"
+  ],
+  "prompt": "Bright friendly marriage style test using Pretendard; preserve content and wiring",
+  "result": {
+   "floorFail": 0,
+   "warn": 0,
+   "waived": 2,
+   "heroReview": "ship",
+   "finishReview": "ship"
+  },
+  "date": "2026-10-26"
+ }
+]

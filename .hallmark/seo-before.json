@@ -1,0 +1,169 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "h1": [
+      "어떤 사람과,<br/>어떤 매일을<br/>함께할까요?"
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/test",
+    "status": 200,
+    "h1": [],
+    "title": [
+      "나의 결혼 스타일 알아보기 | marry test"
+    ],
+    "meta": [
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/result",
+    "status": 200,
+    "h1": [],
+    "title": [
+      "나의 결혼 스타일 | marry test"
+    ],
+    "meta": [
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>",
+      "<meta name=\"robots\" content=\"noindex, nofollow\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/type/everyday-soulmate",
+    "status": 200,
+    "h1": [
+      "이런 매일을 꿈꾸는 사람이에요."
+    ],
+    "title": [
+      "일상의 단짝 | marry test"
+    ],
+    "meta": [
+      "<meta name=\"description\" content=\"별일 없는 하루도, 둘이라서 특별하게.\"/>",
+      "<meta property=\"og:title\" content=\"일상의 단짝 — marry test\"/>",
+      "<meta property=\"og:description\" content=\"별일 없는 하루도, 둘이라서 특별하게.\"/>",
+      "<meta property=\"og:locale\" content=\"ko_KR\"/>",
+      "<meta property=\"og:type\" content=\"website\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/robots.txt",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/sitemap.xml",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/llms.txt",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/not-a-page",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/blog",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  },
+  {
+    "route": "/feed.xml",
+    "status": 404,
+    "h1": [
+      "이 이야기는 아직 없어요."
+    ],
+    "title": [
+      "marry test — 나와 잘 살 사람은?"
+    ],
+    "meta": [
+      "<meta name=\"robots\" content=\"noindex\"/>",
+      "<meta name=\"description\" content=\"어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.\"/>"
+    ],
+    "canonical": [],
+    "jsonld": 0,
+    "xRobots": null
+  }
+]

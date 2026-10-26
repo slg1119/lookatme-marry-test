@@ -1,21 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource/noto-serif-kr/400.css";
-import "@fontsource/noto-serif-kr/500.css";
-import "@fontsource-variable/dm-sans";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "../styles.css";
 import { QuizSessionProvider } from "../components/QuizSessionProvider";
+import {
+  getSiteUrl,
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  isPublicSite,
+} from "../lib/seo";
 
 export const metadata: Metadata = {
+  metadataBase: getSiteUrl() ?? new URL("http://localhost:4173"),
   title: {
-    default: "marry test — 나와 잘 살 사람은?",
+    default: `${HOME_TITLE} | marry test`,
     template: "%s | marry test",
   },
-  description:
-    "어떤 사람과, 어떤 매일을 함께할까요? 12개의 질문으로 만나는 나의 결혼 스타일과 내가 바라는 동반자.",
+  description: HOME_DESCRIPTION,
+  robots: { index: isPublicSite(), follow: true },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: {
+      ...(process.env.NAVER_SITE_VERIFICATION
+        ? { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION }
+        : {}),
+      ...(process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : {}),
+    },
+  },
   icons: { icon: "/favicon.svg" },
 };
-export const viewport: Viewport = { themeColor: "#f8f5ed" };
+export const viewport: Viewport = { themeColor: "#fdfbf7" };
 
 export default function RootLayout({
   children,
@@ -23,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <body>
+    <html lang="ko" className="overflow-x-clip">
+      <body className="overflow-x-clip">
         <QuizSessionProvider>{children}</QuizSessionProvider>
       </body>
     </html>

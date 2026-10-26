@@ -99,3 +99,19 @@ npx ts-node scripts/marry-test-local.ts
 `src/lib/quiz.ts`에서 문항·유형·설명을 관리하고 `quiz-contract.ts`에 불변 `marry-v1` 계산 계약을 보관합니다. 자기 성향과 원하는 상대를 따로 계산하며, 동점은 균형으로 설명합니다. 정식 MBTI 검사·심리 진단·결혼 성공 예측 도구가 아닙니다.
 
 검증 상세: [QA.md](qa/QA.md). 이전 참고: [Next.js 공식 Vite 마이그레이션 안내](https://nextjs.org/docs/app/guides/migrating/from-vite).
+
+## 디자인과 검색 노출
+
+화면과 공유 카드는 Pretendard를 사용합니다. 색상·폰트·여백은 `src/tokens.css`, 화면 규칙은 `design.md`에 있습니다. 원래 문항, 채점, 저장 API, 개인정보 안내는 유지합니다.
+
+공개 배포 전 `SITE_URL`에 **최종 HTTPS 도메인의 origin**을 지정하고 다시 빌드하세요. 예: 프로토콜과 도메인만 사용하며 경로·쿼리는 넣지 않습니다. `SITE_URL`이 비어 있거나 로컬 주소이면 검색 색인이 꺼지고 사이트맵도 비어 있습니다. Vercel preview 또는 `SITE_NOINDEX=true`도 같은 정책입니다. 공개 시에는 `SITE_NOINDEX=false`를 확인하세요.
+
+- 색인 대상: 홈, `/about`, 공개 유형 8개. 개인 `/result`와 진행 중 `/test`는 항상 `noindex`입니다.
+- `/robots.txt`, `/sitemap.xml`, `/llms.txt`를 제공합니다. 답변 API는 수집 대상에서 제외합니다.
+- 제목·설명·canonical·OG·Twitter 메타와 1200×630 PNG 공유 이미지 9개를 생성합니다.
+- 안내 페이지의 5개 FAQ와 JSON-LD는 같은 데이터에서 렌더합니다.
+- 소유권 확인 값은 `GOOGLE_SITE_VERIFICATION`, `NAVER_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`으로 설정합니다. 실제 계정 등록과 사이트맵 제출은 별도입니다.
+- `python3 qa/seo-check.py`는 curl로 로컬 SSR HTML을 확인합니다. 공개 설정 검사에는 `--public --site <최종 origin>`을 함께 사용합니다.
+- OG 문구나 유형명이 바뀌면 fonttools가 설치된 환경에서 `python3 scripts/build-og-font.py`로 OFL 폰트 서브셋을 다시 만드세요. 배포에는 Python이 필요 없습니다.
+
+진단·측정 계획: [qa/SEO.md](qa/SEO.md). 리디자인 기록: [qa/REDESIGN.md](qa/REDESIGN.md).

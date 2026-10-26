@@ -1,0 +1,123 @@
+{
+  "mode": "public fixture",
+  "origin": "http://127.0.0.1:4184",
+  "site": "https://marry.example",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "결혼 성향 테스트, 나와 잘 살 사람은?",
+      "canonical": "https://marry.example",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebSite"
+      ]
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "결혼 성향 테스트 안내와 8가지 스타일 | marry test",
+      "canonical": "https://marry.example/about",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "FAQPage"
+      ]
+    },
+    {
+      "path": "/type/adventure-partner",
+      "status": 200,
+      "title": "함께 떠나는 모험가 | marry test",
+      "canonical": "https://marry.example/type/adventure-partner",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/everyday-soulmate",
+      "status": 200,
+      "title": "일상의 단짝 | marry test",
+      "canonical": "https://marry.example/type/everyday-soulmate",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/free-spirited-friend",
+      "status": 200,
+      "title": "서로의 세계를 잇는 친구 | marry test",
+      "canonical": "https://marry.example/type/free-spirited-friend",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/growth-companion",
+      "status": 200,
+      "title": "꿈을 응원하는 동료 | marry test",
+      "canonical": "https://marry.example/type/growth-companion",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/quiet-garden",
+      "status": 200,
+      "title": "서로의 작은 정원 | marry test",
+      "canonical": "https://marry.example/type/quiet-garden",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/reliable-companion",
+      "status": 200,
+      "title": "나란한 동반자 | marry test",
+      "canonical": "https://marry.example/type/reliable-companion",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/romantic-explorer",
+      "status": 200,
+      "title": "설렘을 나누는 여행자 | marry test",
+      "canonical": "https://marry.example/type/romantic-explorer",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    },
+    {
+      "path": "/type/steady-teammate",
+      "status": 200,
+      "title": "든든한 한 팀 | marry test",
+      "canonical": "https://marry.example/type/steady-teammate",
+      "robots": "index, follow",
+      "h1": 1,
+      "structuredData": [
+        "WebPage"
+      ]
+    }
+  ],
+  "sitemapCount": 10,
+  "faqMatches": 5,
+  "socialImages": 9,
+  "invalidRoutes404": 3,
+  "privateRoutesNoindex": 2,
+  "passed": true
+}

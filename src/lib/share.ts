@@ -57,12 +57,15 @@ export async function downloadCard(
   profile: Profile,
   illustration: SVGSVGElement | null,
 ): Promise<void> {
+  const theme = getComputedStyle(document.documentElement);
+  const color = (name: string) => theme.getPropertyValue(name).trim();
+  const font = theme.getPropertyValue("--font-body").trim();
   await Promise.all([
-    document.fonts.load('500 57px "Noto Serif KR"', profile.name),
-    document.fonts.load('500 36px "DM Sans Variable"', "marry test"),
+    document.fonts.load(`700 57px ${font}`, profile.name),
+    document.fonts.load(`700 36px ${font}`, "marry test"),
     document.fonts.load(
-      '30px "Pretendard Variable"',
-      `${profile.tagline}${profile.tags.join("")}나와 잘 살 사람을 알아가는 작은 여행당신은 어떤 매일을 꿈꾸나요?`,
+      `30px ${font}`,
+      `${profile.englishName}${profile.tagline}${profile.tags.join("")}나와 잘 살 사람을 알아가는 작은 여행당신은 어떤 매일을 꿈꾸나요?`,
     ),
   ]);
   await document.fonts.ready;
@@ -71,21 +74,23 @@ export async function downloadCard(
   canvas.height = 1350;
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("카드를 만들 수 없는 브라우저예요.");
-  ctx.fillStyle = "#f8f5ed";
+  ctx.fillStyle = color("--color-paper");
   ctx.fillRect(0, 0, 1080, 1350);
-  ctx.strokeStyle = "#dbd5c8";
+  ctx.strokeStyle = color("--color-rule");
   ctx.lineWidth = 2;
-  ctx.strokeRect(40, 40, 1000, 1270);
-  ctx.textAlign = "center";
-  ctx.fillStyle = "#753d45";
-  ctx.font = '500 36px "DM Sans Variable"';
-  ctx.fillText("marry test", 540, 115);
-  ctx.font = '24px "Pretendard Variable"';
-  ctx.fillStyle = "#76766a";
-  ctx.fillText("나와 잘 살 사람을 알아가는 작은 여행", 540, 165);
-  ctx.fillStyle = profile.color;
   ctx.beginPath();
-  ctx.roundRect(120, 210, 840, 565, [260, 260, 30, 30]);
+  ctx.roundRect(40, 40, 1000, 1270, 32);
+  ctx.stroke();
+  ctx.textAlign = "center";
+  ctx.fillStyle = color("--color-accent");
+  ctx.font = `700 36px ${font}`;
+  ctx.fillText("marry test", 540, 115);
+  ctx.font = `24px ${font}`;
+  ctx.fillStyle = color("--color-muted");
+  ctx.fillText("나와 잘 살 사람을 알아가는 작은 여행", 540, 165);
+  ctx.fillStyle = color("--color-paper-2");
+  ctx.beginPath();
+  ctx.roundRect(120, 210, 840, 565, [260, 260, 24, 24]);
   ctx.fill();
   if (illustration) {
     const source = new XMLSerializer().serializeToString(illustration);
@@ -100,21 +105,21 @@ export async function downloadCard(
       URL.revokeObjectURL(url);
     }
   }
-  ctx.fillStyle = "#727568";
-  ctx.font = '24px "DM Sans Variable"';
-  ctx.fillText(profile.englishName.toUpperCase(), 540, 835);
-  ctx.fillStyle = "#343b32";
-  ctx.font = '500 57px "Noto Serif KR"';
+  ctx.fillStyle = color("--color-muted");
+  ctx.font = `24px ${font}`;
+  ctx.fillText(profile.englishName, 540, 835);
+  ctx.fillStyle = color("--color-ink");
+  ctx.font = `700 57px ${font}`;
   const end = wrapText(ctx, profile.name, 540, 925, 880, 82);
-  ctx.font = '30px "Pretendard Variable"';
-  ctx.fillStyle = "#606658";
+  ctx.font = `30px ${font}`;
+  ctx.fillStyle = color("--color-ink-2");
   wrapText(ctx, profile.tagline, 540, end + 26, 820, 48);
-  ctx.fillStyle = "#753d45";
-  ctx.font = '25px "Pretendard Variable"';
+  ctx.fillStyle = color("--color-accent");
+  ctx.font = `25px ${font}`;
   ctx.fillText(profile.tags.map((t) => `#${t}`).join("   "), 540, 1175);
-  ctx.font = '22px "Pretendard Variable"';
-  ctx.fillStyle = "#777a6e";
-  ctx.fillText("당신은 어떤 매일을 꿈꾸나요? · marry test", 540, 1260);
+  ctx.font = `22px ${font}`;
+  ctx.fillStyle = color("--color-muted");
+  ctx.fillText("당신은 어떤 매일을 꿈꾸나요?", 540, 1260);
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob(
       (value) =>
