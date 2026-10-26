@@ -1,5 +1,7 @@
 # 검색 최적화 기록
 
+> 후속 수정(2026-10-26): 운영 도메인 `https://test.lookatme.my`를 확인했다. 도메인 미설정으로 발생한 localhost OG 주소를 수정하고 새 공유 이미지를 제작했다. 최신 공개 설정과 증빙은 [SOCIAL-PREVIEW.md](SOCIAL-PREVIEW.md)를 따른다. 아래는 도메인을 전달받기 전의 최초 진단 기록이다.
+
 검사일: 2026-10-26. 사용 스킬: `fire-your-seo-agency` (`leopard627/fire-your-seo-agency`).
 적용 대상은 로컬 Next.js 프로젝트이며, 최종 도메인과 검색 도구 계정은 제공되지 않았다.
 

@@ -17,10 +17,11 @@ export async function GET(
   const profile = getProfile(id);
   if (id !== "home" && !profile)
     return new Response("Not found", { status: 404 });
-  const [regular, bold, css] = await Promise.all([
+  const [regular, bold, css, scene] = await Promise.all([
     readFile(join(process.cwd(), "src/assets/pretendard-og-regular.otf")),
     readFile(join(process.cwd(), "src/assets/pretendard-og-bold.otf")),
     readFile(join(process.cwd(), "src/tokens.css"), "utf8"),
+    readFile(join(process.cwd(), "src/assets/marry-social-scene-v1.png")),
   ]);
   const token = (name: string) => {
     const value = css.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1]?.trim();
@@ -37,57 +38,70 @@ export async function GET(
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        padding: "64px 72px",
-        background: token("--color-paper-2"),
+        padding: "56px 60px",
+        background: token("--color-paper"),
         color: ink,
         fontFamily: family,
       }}
     >
+      <img
+        alt=""
+        src={`data:image/png;base64,${scene.toString("base64")}`}
+        width={546}
+        height={546}
+        style={{ position: "absolute", right: 28, top: 42, borderRadius: 40 }}
+      />
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
           color: accent,
         }}
       >
         <span style={{ fontSize: 32, fontWeight: 700 }}>marry test.</span>
-        <span style={{ fontSize: 24 }}>나와 잘 살 사람은?</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: 520,
+          flex: 1,
+          justifyContent: "center",
+          gap: 24,
+        }}
+      >
         <div
           style={{
-            fontSize: profile ? 72 : 64,
-            lineHeight: 1.25,
+            fontSize: profile ? 64 : 80,
+            lineHeight: 1.2,
             fontWeight: 700,
             whiteSpace: "pre-wrap",
           }}
         >
-          {profile ? profile.name : "어떤 사람과, 어떤 매일을\n함께할까요?"}
+          {profile ? profile.name : "나와 잘 살\n사람은?"}
         </div>
-        <div style={{ fontSize: 28, lineHeight: 1.5 }}>
+        <div
+          style={{
+            fontSize: 28,
+            lineHeight: 1.5,
+            whiteSpace: "pre-wrap",
+            color: token("--color-ink-2"),
+            maxWidth: 490,
+          }}
+        >
           {profile
             ? profile.tagline
-            : "12개의 질문으로 만나는 나의 결혼 스타일"}
+            : "12개의 질문으로 알아보는\n나의 결혼 스타일과 동반자"}
         </div>
       </div>
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          borderTop: `1px solid ${token("--color-rule")}`,
-          paddingTop: 24,
-          color: token("--color-ink-2"),
+          alignItems: "center",
+          color: accent,
           fontSize: 24,
         }}
       >
-        <span>
-          {profile ? profile.englishName : "약 3분, 가입 없이 가볍게"}
-        </span>
-        <span>
-          {profile ? "8가지 결혼 스타일" : "내가 바라는 동반자 알아보기"}
-        </span>
+        <span>{profile ? profile.englishName : "결혼 성향 테스트"}</span>
       </div>
     </div>,
     {

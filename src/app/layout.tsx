@@ -7,10 +7,11 @@ import {
   HOME_DESCRIPTION,
   HOME_TITLE,
   isPublicSite,
+  PRODUCTION_SITE_URL,
 } from "../lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: getSiteUrl() ?? new URL("http://localhost:4173"),
+  metadataBase: getSiteUrl() ?? new URL(PRODUCTION_SITE_URL),
   title: {
     default: `${HOME_TITLE} | marry test`,
     template: "%s | marry test",

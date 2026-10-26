@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { PROFILES } from "./quiz";
 
 export const SITE_NAME = "marry test";
+export const PRODUCTION_SITE_URL = "https://test.lookatme.my";
 export const HOME_TITLE = "결혼 성향 테스트, 나와 잘 살 사람은?";
 export const HOME_DESCRIPTION =
   "12개의 일상 질문으로 나의 결혼 스타일과 내가 바라는 동반자를 알아보세요. 약 3분, 가입 없이 참여하고 8가지 결혼 스타일, 관계 취향, 첫 만남에서 나눌 대화 질문을 만나보세요.";
 
 export function getSiteUrl(value = process.env.SITE_URL): URL | null {
-  if (!value?.trim()) return null;
-  const url = new URL(value.trim());
+  const origin =
+    value?.trim() ||
+    (process.env.NODE_ENV === "production" ? PRODUCTION_SITE_URL : null);
+  if (!origin) return null;
+  const url = new URL(origin);
   if (
     !["https:", "http:"].includes(url.protocol) ||
     url.username ||
@@ -52,9 +56,15 @@ export function pageMetadata({
 }): Metadata {
   const site = getSiteUrl();
   const index = isPublicSite(site) && !privatePage;
+  const imageUrl = new URL(
+    `/og/${imageId}?v=20261026`,
+    site ?? PRODUCTION_SITE_URL,
+  ).href;
   const images = [
     {
-      url: `/og/${imageId}`,
+      url: imageUrl,
+      ...(imageUrl.startsWith("https:") ? { secureUrl: imageUrl } : {}),
+      type: "image/png",
       width: 1200,
       height: 630,
       alt: `${title} | ${SITE_NAME}`,

@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 from xml.etree import ElementTree as ET
+from datetime import datetime, timezone
 
 p=argparse.ArgumentParser()
 p.add_argument('--origin',default='http://127.0.0.1:4173')
@@ -40,7 +41,7 @@ with tempfile.TemporaryDirectory() as temp:
   body=Path(temp)/'body'; head=Path(temp)/'headers'
   status=subprocess.check_output(['curl','--silent','--show-error','--max-time','20','--output',str(body),'--dump-header',str(head),'--write-out','%{http_code}',a.origin+route],text=True)
   return int(status),body.read_bytes(),head.read_text()
- report={'mode':'public fixture' if a.public else 'unconfigured local','origin':a.origin,'site':a.site,'routes':[]}
+ report={'mode':('public fixture' if a.site=='https://marry.example' else 'public') if a.public else 'unconfigured local','checkedAt':datetime.now(timezone.utc).isoformat(),'origin':a.origin,'site':a.site,'routes':[]}
  home_status,home_body,_=get('/')
  assert home_status==200
  home=Page(home_body.decode()); assert home.h1==1
@@ -55,12 +56,16 @@ with tempfile.TemporaryDirectory() as temp:
   assert item['name'] in visible
   assert item['acceptedAnswer']['text'] in visible
  assert len(faq['mainEntity'])==5
- titles=[]
+ titles=[]; image_urls=set()
  for route in ['/', '/about']+types:
   status,body,headers=get(route);page=Page(body.decode())
   assert status==200 and page.h1==1 and page.schemas
   assert page.meta.get('description')
   assert page.meta.get('og:image') and page.meta.get('twitter:card')=='summary_large_image'
+  social_image=page.meta['og:image']; parsed_image=urlparse(social_image)
+  assert parsed_image.scheme=='https' and parsed_image.hostname not in ['localhost','127.0.0.1','::1'],social_image
+  assert page.meta.get('twitter:image')==social_image
+  image_urls.add(social_image)
   if a.public:
    assert 'noindex' not in page.meta.get('robots',''),route
    assert 'noindex' not in headers.lower(),route
@@ -88,10 +93,12 @@ with tempfile.TemporaryDirectory() as temp:
  status,body,_=get('/llms.txt'); assert status==200 and '심리 진단' in body.decode()
  for route in ['/not-a-real-page', '/type/not-a-profile', '/og/not-a-profile']:
   assert get(route)[0]==404,route
- for image_id in ['home']+[u.rsplit('/',1)[-1] for u in types]:
-  status,body,headers=get('/og/'+image_id)
-  assert status==200 and body[1:4]==b'PNG' and struct.unpack('>II',body[16:24])==(1200,630),image_id
+ assert len(image_urls)==9
+ for image_url in sorted(image_urls):
+  parsed=urlparse(image_url); image_id=parsed.path.rsplit('/',1)[-1]
+  status,body,headers=get(parsed.path+('?' + parsed.query if parsed.query else ''))
+  assert status==200 and 'content-type: image/png' in headers.lower() and body[1:4]==b'PNG' and struct.unpack('>II',body[16:24])==(1200,630),image_url
   if image_id in ['home','everyday-soulmate']:Path('qa/seo-og-'+image_id+'.png').write_bytes(body)
- report.update({'sitemapCount':len(urls),'faqMatches':5,'socialImages':9,'invalidRoutes404':3,'privateRoutesNoindex':2,'passed':True})
+ report.update({'sitemapCount':len(urls),'faqMatches':5,'socialImages':9,'socialImageUrls':sorted(image_urls),'invalidRoutes404':3,'privateRoutesNoindex':2,'passed':True})
  Path(a.out).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({k:v for k,v in report.items() if k!='routes'},ensure_ascii=False))

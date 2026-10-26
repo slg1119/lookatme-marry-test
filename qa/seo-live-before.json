@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-26T03:49:52Z",
+  "origin": "https://test.lookatme.my",
+  "homeStatus": 200,
+  "robots": "noindex, follow",
+  "canonical": null,
+  "ogImage": "http://localhost:4173/og/home",
+  "twitterImage": "http://localhost:4173/og/home",
+  "directImageUrl": "https://test.lookatme.my/og/home",
+  "directImageStatus": 200,
+  "directImageContentType": "image/png",
+  "directImageDimensions": [1200, 630],
+  "finding": "The image existed, but rendered metadata pointed external crawlers to localhost. The production build also remained noindex without SITE_URL."
+}
