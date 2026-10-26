@@ -88,9 +88,10 @@ test("real API: network failure keeps answers and retry uses the same submission
   });
   await page.goto("/");
   await complete(page);
-  await expect(page.getByTestId("result-storage")).toContainText(
-    "아직 서버에 저장되지 않았어요.",
-  );
+  await expect(page.getByTestId("result-storage")).toHaveClass(/error/);
+  await expect(
+    page.getByRole("button", { name: "저장 다시 시도", exact: true }),
+  ).toBeVisible();
   await page.screenshot({
     path: `qa/${info.project.name}-api-retry.png`,
     fullPage: true,

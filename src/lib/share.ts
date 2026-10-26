@@ -16,8 +16,8 @@ export async function shareResult(
     try {
       await navigator.share({
         title: `나의 결혼 스타일은 ${profile.name}`,
-        text: `${profile.tagline}\n당신은 어떤 사람과, 어떤 매일을 함께하고 싶나요?`,
-        url,
+        // Send one message so share targets do not join a separate URL to the copy.
+        text: `나의 결혼 스타일은 ‘${profile.name}’\n${profile.tagline}\n\n당신의 결혼 스타일은?\n${url}`,
       });
       return "shared";
     } catch (error) {

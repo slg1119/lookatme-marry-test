@@ -359,24 +359,24 @@ function Result({
           aria-live="polite"
           data-testid="result-storage"
         >
-          <div>
-            <strong>
-              {syncStatus === "saved"
-                ? "결과가 안전하게 저장됐어요."
-                : syncStatus === "saving"
-                  ? "결과를 저장하고 있어요."
-                  : syncStatus === "error"
-                    ? "아직 서버에 저장되지 않았어요."
+          {syncStatus !== "error" && (
+            <div>
+              <strong>
+                {syncStatus === "saved"
+                  ? "결과가 안전하게 저장됐어요."
+                  : syncStatus === "saving"
+                    ? "결과를 저장하고 있어요."
                     : "이전 결과를 서버에 저장할 수 있어요."}
-            </strong>
-            <p>
-              {syncStatus === "saved"
-                ? "답변과 결과를 룩앳미 서버에 익명으로 보관했어요."
-                : syncStatus === "saving"
-                  ? "잠시만 기다려주세요. 아래에서 결과를 먼저 볼 수 있어요."
-                  : "답변은 이 탭에 남아 있어요. 연결을 확인한 뒤 저장해주세요."}
-            </p>
-          </div>
+              </strong>
+              {(syncStatus === "saved" || syncStatus === "saving") && (
+                <p>
+                  {syncStatus === "saved"
+                    ? "답변과 결과를 룩앳미 서버에 익명으로 보관했어요."
+                    : "잠시만 기다려주세요. 아래에서 결과를 먼저 볼 수 있어요."}
+                </p>
+              )}
+            </div>
+          )}
           {(syncStatus === "error" || syncStatus === "idle") && (
             <button className="button outline" onClick={onRetrySync}>
               {syncStatus === "error" ? "저장 다시 시도" : "결과 저장하기"}

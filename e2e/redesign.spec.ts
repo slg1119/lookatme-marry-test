@@ -54,9 +54,8 @@ test("controlled API failure retries the same completed answers and public types
       })
       .click();
   }
-  await expect(page.getByTestId("result-storage")).toContainText(
-    "아직 서버에 저장되지 않았어요.",
-  );
+  await expect(page.getByTestId("result-storage")).toHaveClass(/error/);
+  await expect(page.getByTestId("result-storage")).toHaveText("저장 다시 시도");
   const first = submissions[0];
   expect(first.answers).toEqual(Array.from({ length: 12 }, (_, i) => i % 4));
   fail = false;
@@ -78,6 +77,29 @@ test("controlled API failure retries the same completed answers and public types
   await expect(page.locator(".axis-list")).toHaveCount(0);
   await expect(page.locator(".partner-section li")).toHaveCount(0);
   expect(submissions).toHaveLength(count);
+});
+
+test("native sharing sends one readable message with a separate, public-only link line", async ({
+  page,
+}) => {
+  await page.goto("/type/reliable-companion?utm_source=private-value#private-state");
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: async (data: ShareData) => {
+        (window as typeof window & { sharedResult?: ShareData }).sharedResult = data;
+      },
+    });
+  });
+  await page.getByRole("button", { name: "결과 공유", exact: true }).click();
+  const payload = await page.evaluate(
+    () => (window as typeof window & { sharedResult?: ShareData }).sharedResult,
+  );
+  expect(payload?.text).toBe(
+    `나의 결혼 스타일은 ‘나란한 동반자’\n각자의 하루를 존중하고, 필요한 순간 나란히.\n\n당신의 결혼 스타일은?\n${new URL("/type/reliable-companion", page.url())}`,
+  );
+  expect(payload?.url).toBeUndefined();
+  expect(payload?.text?.match(/https?:\/\//g)).toHaveLength(1);
 });
 
 test("narrow and tablet layouts keep primary controls inside the viewport", async ({
