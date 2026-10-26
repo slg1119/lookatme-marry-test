@@ -35,7 +35,7 @@
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
                     "target": [
                       ".type-card:nth-child(1) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
                     ]
@@ -67,7 +67,7 @@
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"table\" data-compact=\"true\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"table\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
                     "target": [
                       "svg[data-scene=\"table\"]"
                     ]
@@ -99,7 +99,7 @@
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"garden\" data-compact=\"true\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"garden\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
                     "target": [
                       "svg[data-scene=\"garden\"]"
                     ]
@@ -131,7 +131,7 @@
                 },
                 "relatedNodes": [
                   {
-                    "html": "<svg viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\">",
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
                     "target": [
                       ".type-card:nth-child(4) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
                     ]

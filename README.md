@@ -113,9 +113,11 @@ npx ts-node scripts/marry-test-local.ts
 - 소유권 확인 값은 `GOOGLE_SITE_VERIFICATION`, `NAVER_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`으로 설정합니다. 실제 계정 등록과 사이트맵 제출은 별도입니다.
 - `python3 qa/seo-check.py`는 curl로 로컬 SSR HTML을 확인합니다. 공개 설정 검사에는 `--public --site <최종 origin>`을 함께 사용합니다.
 - OG 문구나 유형명이 바뀌면 fonttools가 설치된 환경에서 `python3 scripts/build-og-font.py`로 OFL 폰트 서브셋을 다시 만드세요. 배포에는 Python이 필요 없습니다.
-- 공유 이미지에는 제작한 두 의자 일러스트와 Pretendard 문구가 들어갑니다. `og:image`와 Twitter 이미지에는 공개 HTTPS 절대 주소를 사용하며 localhost로 대체하지 않습니다. 제작·복구 기록: [qa/SOCIAL-PREVIEW.md](qa/SOCIAL-PREVIEW.md).
+- 공유 이미지에는 화면과 동일한 파스텔 카드 일러스트와 Pretendard 문구가 들어갑니다. `og:image`와 Twitter 이미지에는 공개 HTTPS 절대 주소를 사용하며 localhost로 대체하지 않습니다. 제작·복구 기록: [qa/SOCIAL-PREVIEW.md](qa/SOCIAL-PREVIEW.md).
 
 진단·측정 계획: [qa/SEO.md](qa/SEO.md). 리디자인 기록: [qa/REDESIGN.md](qa/REDESIGN.md).
+
+타로를 참고한 파스텔 카드 일러스트와 화면·PNG·OG 통합 기록: [qa/illustrations/README.md](qa/illustrations/README.md).
 
 ## 카카오톡 공유
 

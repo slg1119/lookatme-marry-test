@@ -24,7 +24,7 @@ describe("Kakao result sharing", () => {
         content: {
           title: `나의 결혼 스타일은 ${profile.name}`,
           description: profile.tagline,
-          imageUrl: `https://test.lookatme.my/og/${profile.id}?v=20261026`,
+          imageUrl: `https://test.lookatme.my/og/${profile.id}?v=20261026-light`,
           imageWidth: 1200,
           imageHeight: 630,
           link: { mobileWebUrl: url, webUrl: url },

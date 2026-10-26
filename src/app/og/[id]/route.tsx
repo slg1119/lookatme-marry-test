@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getProfile, PROFILES } from "../../../lib/quiz";
+import { Illustration } from "../../../components/Illustration";
 
 export const runtime = "nodejs";
 export const dynamic = "force-static";
@@ -17,11 +18,10 @@ export async function GET(
   const profile = getProfile(id);
   if (id !== "home" && !profile)
     return new Response("Not found", { status: 404 });
-  const [regular, bold, css, scene] = await Promise.all([
+  const [regular, bold, css] = await Promise.all([
     readFile(join(process.cwd(), "src/assets/pretendard-og-regular.otf")),
     readFile(join(process.cwd(), "src/assets/pretendard-og-bold.otf")),
     readFile(join(process.cwd(), "src/tokens.css"), "utf8"),
-    readFile(join(process.cwd(), "src/assets/marry-social-scene-v1.png")),
   ]);
   const token = (name: string) => {
     const value = css.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1]?.trim();
@@ -44,13 +44,13 @@ export async function GET(
         fontFamily: family,
       }}
     >
-      <img
-        alt=""
-        src={`data:image/png;base64,${scene.toString("base64")}`}
-        width={546}
-        height={546}
-        style={{ position: "absolute", right: 28, top: 42, borderRadius: 40 }}
-      />
+      <div style={{ display: "flex", position: "absolute", right: 0, top: 69 }}>
+        <Illustration
+          scene={profile?.scene ?? "home"}
+          width={620}
+          height={496}
+        />
+      </div>
       <div
         style={{
           display: "flex",

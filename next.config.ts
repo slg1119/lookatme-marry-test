@@ -4,11 +4,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   devIndicators: false,
   outputFileTracingIncludes: {
-    "/og/*": [
-      "./src/assets/*.otf",
-      "./src/assets/marry-social-scene-v1.png",
-      "./src/tokens.css",
-    ],
+    "/og/*": ["./src/assets/*.otf", "./src/tokens.css"],
   },
   async headers() {
     return ["/test", "/result", "/api/:path*"].map((source) => ({

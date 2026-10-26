@@ -88,9 +88,9 @@ export async function downloadCard(
   ctx.font = `24px ${font}`;
   ctx.fillStyle = color("--color-muted");
   ctx.fillText("나와 잘 살 사람을 알아가는 작은 여행", 540, 165);
-  ctx.fillStyle = color("--color-paper-2");
+  ctx.fillStyle = color("--color-art-paper");
   ctx.beginPath();
-  ctx.roundRect(120, 210, 840, 565, [260, 260, 24, 24]);
+  ctx.roundRect(120, 210, 840, 565, 32);
   ctx.fill();
   if (illustration) {
     const source = new XMLSerializer().serializeToString(illustration);
@@ -100,7 +100,8 @@ export async function downloadCard(
       const img = new Image();
       img.src = url;
       await img.decode();
-      ctx.drawImage(img, 120, 200, 840, 630);
+      // Preserve the illustration's 600:480 aspect ratio in the export.
+      ctx.drawImage(img, 120, 179, 840, 672);
     } finally {
       URL.revokeObjectURL(url);
     }

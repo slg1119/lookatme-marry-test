@@ -1,6 +1,6 @@
 /* Hallmark · shape: Marriage stories · genre: playful · theme: brand · redesign: full · job: try
- * paper: cream · accent: burgundy · display: Pretendard · body: Pretendard · hero: Settled (/) · nav: edge-aligned · footer: colophon block · signature: two chairs for an ordinary life
- * axes: light/sans/wine · posture: Restrained · imagery: existing original illustrations · v2.0.0 */
+ * paper: cream · accent: burgundy · display: Pretendard · body: Pretendard · hero: Settled (/) · nav: edge-aligned · footer: colophon block · signature: light cards about life together
+ * axes: light/sans/wine · posture: Restrained · imagery: flat pastel card illustrations · v2.1.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, moved the existing type collection before the explanation and removed paper decorations */
 /* Hallmark · hero-review: ship · subagent · 0 findings */
 /* Hallmark · finish-review: ship · subagent · 0 findings; original and redesigned desktop/mobile pages plus saved card reviewed */
@@ -10,7 +10,7 @@
 /* Hallmark · answered F15 · the home section grids share one column-gap token; quiz and result use a wider reading split and nested type entries use a separate internal gap */
 /* Hallmark · answered F7 · round marks are radio indicators, chart markers and progress endpoints; content surfaces use radius-card */
 /* Hallmark · dropped "MORE THAN A TYPE", "EIGHT WAYS TO BE TOGETHER", "YOUR NEXT CHAPTER", "A LITTLE NOTE FROM SOMEONE", "THIS COULD BE YOUR EVERYDAY", "MY MARRIAGE STORY", "MY KIND OF LOVE", "THE WAY WE LIVE", "SOMEONE BESIDE YOU", "LET’S TALK ABOUT US", "FROM A LITTLE TEST TO A REAL HELLO", "ONE QUESTION, ONE LITTLE DISCOVERY", "MARRY TEST · A LITTLE NOTE", "LET'S START AGAIN" · 54 and 66 remove decorative section labels; factual headings and privacy wording remain */
-/* Hallmark · waive 80 · existing marry test drawings retained · redesign keeps the original illustrations that identify the eight marriage styles */
+/* Illustration update: shared SVG card motifs across the site, PNG downloads, and social previews. */
 /* Hallmark · dropped "나와 잘 살 사람을 알아가는 시간", "a little glimpse of our future", "THE EVERYDAY, TOGETHER", "Our ordinary, lovely days.", "made for two", "A LITTLE CLOSER TO YOU" · 54 and 66 remove repeated labels and decorative English */
 @import url("./tokens.css");
 @import url("./base.css");
@@ -264,8 +264,8 @@ svg {
 }
 .hero-art {
   margin: 0;
-  background: var(--color-paper-2);
-  border-radius: 48% 48% var(--radius-card) var(--radius-card);
+  background: var(--color-art-paper);
+  border-radius: var(--radius-card);
   padding: var(--space-lg) var(--space-lg) var(--space-xl);
   min-width: 0;
 }

@@ -30,12 +30,19 @@
                   "contrastRatio": 0,
                   "fontSize": "10.5pt (14px)",
                   "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
+                  "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
-                "relatedNodes": [],
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "target": [
+                      ".type-card:nth-child(1) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
+                    ]
+                  }
+                ],
                 "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
+                "message": "Element's background color could not be determined because element contains an image node"
               }
             ],
             "all": [],
@@ -45,7 +52,7 @@
             "target": [
               ".type-card:nth-child(1) > .type-art > .type-index"
             ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
           {
             "any": [
@@ -55,12 +62,19 @@
                   "contrastRatio": 0,
                   "fontSize": "10.5pt (14px)",
                   "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
+                  "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
-                "relatedNodes": [],
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"table\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "target": [
+                      "svg[data-scene=\"table\"]"
+                    ]
+                  }
+                ],
                 "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
+                "message": "Element's background color could not be determined because element contains an image node"
               }
             ],
             "all": [],
@@ -70,7 +84,7 @@
             "target": [
               ".type-card:nth-child(2) > .type-art > .type-index"
             ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
           {
             "any": [
@@ -80,12 +94,19 @@
                   "contrastRatio": 0,
                   "fontSize": "10.5pt (14px)",
                   "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
+                  "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
-                "relatedNodes": [],
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"garden\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "target": [
+                      "svg[data-scene=\"garden\"]"
+                    ]
+                  }
+                ],
                 "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
+                "message": "Element's background color could not be determined because element contains an image node"
               }
             ],
             "all": [],
@@ -95,7 +116,7 @@
             "target": [
               ".type-card:nth-child(3) > .type-art > .type-index"
             ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           },
           {
             "any": [
@@ -105,12 +126,19 @@
                   "contrastRatio": 0,
                   "fontSize": "10.5pt (14px)",
                   "fontWeight": "normal",
-                  "messageKey": "elmPartiallyObscuring",
+                  "messageKey": "imgNode",
                   "expectedContrastRatio": "4.5:1"
                 },
-                "relatedNodes": [],
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 480\" fill=\"none\" class=\"\" aria-hidden=\"true\" focusable=\"false\" data-scene=\"home\" data-compact=\"true\" stroke-linecap=\"round\" stroke-linejoin=\"round\">",
+                    "target": [
+                      ".type-card:nth-child(4) > .type-art > svg[data-scene=\"home\"][data-compact=\"true\"][viewBox=\"0 0 600 480\"]"
+                    ]
+                  }
+                ],
                 "impact": "serious",
-                "message": "Element's background color could not be determined because it partially overlaps other elements"
+                "message": "Element's background color could not be determined because element contains an image node"
               }
             ],
             "all": [],
@@ -120,7 +148,7 @@
             "target": [
               ".type-card:nth-child(4) > .type-art > .type-index"
             ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
           }
         ]
       }
